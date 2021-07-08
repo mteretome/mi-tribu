@@ -1,9 +1,5 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
+ *  Sample react native app
  */
 
 import React from 'react';
@@ -79,6 +75,9 @@ const App: () => Node = () => {
           </Section>
           <Section title="Debug">
             <DebugInstructions />
+          </Section>
+          <Section title="Mi Tribu">
+            This is the mvp for Mi Tribu. 
           </Section>
           <Section title="Learn More">
             Read the docs to discover what to do next:
