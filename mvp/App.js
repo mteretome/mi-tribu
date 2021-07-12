@@ -1,6 +1,3 @@
-/**
- *  Sample react native app
- */
 
 import React, { Component } from 'react';
 import type {Node} from 'react';
@@ -23,6 +20,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import SplashScreen from 'react-native-splash-screen';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -30,27 +29,30 @@ const instructions = Platform.select({
   android: 'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
+
 export default class App extends Component {
   componentDidMount() {
     SplashScreen.hide()
   }
   render() {
     return (
-      <View style={styles.container}>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor="#4F6D7A"
-        />
-        <Text style={styles.welcome}>
-          Welcome to Mi Tribu MVP!
-        </Text>
-        <Text style={styles.instructions}>
-          This is a work in progress.
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <NavigationContainer>{
+        <View style={styles.container}>
+          <StatusBar
+            barStyle="light-content"
+            backgroundColor="#4F6D7A"
+          />
+          <Text style={styles.welcome}>
+            Welcome to Mi Tribu MVP!
+          </Text>
+          <Text style={styles.instructions}>
+            This is a work in progress. 
+          </Text>
+          <Text style={styles.instructions}>
+            {instructions}
+          </Text>
+        </View>
+      }</NavigationContainer>
     );
   }
 }
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#4F6D7A',
+    backgroundColor: '#359D9E',
   },
   welcome: {
     fontSize: 20,
