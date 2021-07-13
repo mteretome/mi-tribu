@@ -1,9 +1,9 @@
 # MVP Set Up
 
-1.  Make sure to install [dependencies and environment](https://reactnative.dev/docs/environment-setup) as described on the link or below and install the modules we are using so far:
-- Splash screen: `npm i react-native-splash-screen --save`
-2. In MVP folder, run `npx react-native start` to start Metro Bundler
-3. Open a new terminal and run `npx react-native run-android` to see app runnning in Android emulator
+1.  Make sure to install [dependencies and environment](https://reactnative.dev/docs/environment-setup) as described on the link or below.
+2. In MVP folder, run `npm install` to install packages
+3. In MVP folder, run `npx react-native start` to start Metro Bundler
+4. Open a new terminal and run `npx react-native run-android` to see app runnning in Android emulator
 
 # MVP Installation
 
