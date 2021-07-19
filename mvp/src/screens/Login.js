@@ -14,6 +14,7 @@ import {
 import colors from '../assets/theme/colors';
 import Container from '../components/common/Container';
 import Input from '../components/common/Input';
+import CustomButton from '../components/common/CustomButton';
 
 const LogInPage = () => {
 	return (
@@ -32,10 +33,12 @@ const LogInPage = () => {
        />
       
       <Input 
-      value="Password"
+      value="Contraseña"
       onChangeText={(text)=> onChangeText(text)}
       // error={'Either email or password is incorrect!'}
       />
+      <CustomButton title="Inicia Sesion" gradient={true} bgColor='pink'/>
+
     {/*------*/}
       </View>
 		</Container>
@@ -47,12 +50,16 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems:'stretch',
     backgroundColor: colors.tribu_pink,
+
   },
   login:{
   	backgroundColor:colors.white,
   	flex:1.25,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
+    paddingHorizontal:60,
+    paddingVertical: 15,
+    
     
 	},
   logtop:{
