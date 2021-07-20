@@ -10,8 +10,7 @@ const CustomButton = ({
 	gradient,
 	style,
 	bgColor,
-	onPress,
-	...props
+	onPress
 }) => {
 	const getBgColor =() =>{
 		if (bgColor === 'pink'){
@@ -25,22 +24,25 @@ const CustomButton = ({
 	return (
 	<View style={styles.inputContainer}>
 	{gradient 
-
-	? <TouchableOpacity onPress={onPress}>
-	<LinearGradient
-     colors={[colors.tribu_green, colors.tribu_blue]}
-     style={styles.button}> 
-  		{title && <Text style={styles.buttonText}>{title}</Text>}
-	</LinearGradient>
-	</TouchableOpacity>
-	: <TouchableOpacity style={
-		[styles.button,
-		style,
-		{backgroundColor: getBgColor()}]}
-		onPress={onPress}>
-		{title && <Text style={styles.buttonText}>{title}</Text>}
-	</TouchableOpacity>
-	}</View>
+		? <TouchableOpacity tyle={
+			[styles.button,
+			style]}
+			onPress={onPress}>
+		<LinearGradient
+	     colors={[colors.tribu_green, colors.tribu_blue]}
+	     style={styles.button}> 
+	  		{title && <Text style={styles.buttonText}>{title}</Text>}
+		</LinearGradient>
+		</TouchableOpacity>
+		: <TouchableOpacity style={
+			[styles.button,
+			style,
+			{backgroundColor: getBgColor()}]}
+			onPress={onPress}>
+			{title && <Text style={styles.buttonText}>{title}</Text>}
+		</TouchableOpacity>
+	}
+	</View>
 	);
 };
 

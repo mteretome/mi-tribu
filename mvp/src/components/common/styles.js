@@ -3,11 +3,8 @@ import colors from '../../assets/theme/colors';
 
 
 export default StyleSheet.create({
-	wrapper: {
-		flex:1,
-	},
 	inputContainer: {
-		marginVertical:10
+		marginVertical:5,
 	},
 	textinput: {
 		backgroundColor: colors.off_white,
@@ -15,11 +12,10 @@ export default StyleSheet.create({
 		borderRadius: 10,
 		borderWidth: 1,
 		paddingHorizontal:20,
-		marginTop:5,
+		marginVertical:5,
 		width: '100%',
 
 	},
-
 	error: {
 		color: colors.tribu_pink,
 		paddingTop: 4,
@@ -28,14 +24,23 @@ export default StyleSheet.create({
 	button : {
 		paddingHorizontal:60,
     	paddingVertical: 18,
+    	marginVertical:5,
     	alignItems:'center',
     	justifyContent: 'space-evenly',
-    	borderRadius: 200,
-
+    	borderRadius: 60,
 	},
 	buttonText : {
 		color: colors.white,
-		fontWeight: 'bold'
+		fontWeight: 'bold',
+		fontSize: 16
+	},
+	link: {
+		fontWeight: 'bold',
+		textDecorationLine: 'underline',
+		color: colors.tribu_green,
+		fontSize: 16,
+		marginVertical:10
+
 	}
 
 });

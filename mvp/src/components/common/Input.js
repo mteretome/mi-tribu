@@ -27,6 +27,7 @@ const Input = ({
 				style,
 				{borderColor: getBorderColor()}]}
 			onChangeText={onChangeText}
+			placeholderTextColor={colors.grey_lightest}
 			value={value}
 			{...props}
 		/>
