@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import colors from '../../assets/theme/colors';
 import Container from '../common/Container';
+import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import styles from './styles'
@@ -30,7 +31,7 @@ const ForgotComponent= () => {
     {/*--------*/}
       </View>
     {/*log in interface*/}
-			<View style={styles.whiteBox}>
+			<WhiteContainer>
         <View style={styles.heading}>
     			<Text style={styles.title}>Recuperar contraseña</Text>
           <Text style={styles.subtitle}>Te enviaremos un código a tu celular o email.</Text>
@@ -50,7 +51,7 @@ const ForgotComponent= () => {
       </View>
     {/*------*/}
 
-      </View>
+      </WhiteContainer>
 		</Container>
 	);
 };

@@ -5,24 +5,15 @@ import colors from '../../assets/theme/colors';
 
 export default StyleSheet.create({
  container: {
-    justifyContent: 'flex-start',
-    alignItems:'stretch',
     backgroundColor: colors.tribu_bbpink,
+      flexDirection: 'column',
+      justifyContent: 'flex-end'
   },
-  whiteBox:{
-  	backgroundColor:colors.white,
-  	flex:5,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    paddingHorizontal:60,
-    paddingVertical: 15,
-	},
-
   pinkBox:{
-  	flex:3,
+  	flex: 3,
   	paddingHorizontal:60,
     paddingVertical: 15,
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   title: {
@@ -44,12 +35,10 @@ export default StyleSheet.create({
   },
   footer:{
   	alignItems: 'center',
-    marginVertical: 5,
+    marginTop: 5,
+    paddingBottom:20
   },
-  inputContainer: {
-  	justifyContent: 'space-evenly',
 
-  },
   lightText: {
   	fontWeight: '300',
   	color: colors.black,
@@ -60,9 +49,7 @@ export default StyleSheet.create({
   logo: {
   	 resizeMode: 'center',
   	 flex:1,
-  	 width: '70%'
-
-
+  	 width: '50%',
   },
   woman: {
   	top: 10,

@@ -7,7 +7,7 @@ export default StyleSheet.create({
 		marginVertical:5,
 	},
 	textinput: {
-		backgroundColor: colors.off_white,
+		backgroundColor: colors.white,
 		color: colors.grey_lightest,
 		borderRadius: 10,
 		borderWidth: 1,
@@ -16,6 +16,17 @@ export default StyleSheet.create({
 		width: '100%',
 
 	},
+	whiteBox:{
+  	backgroundColor: 'rgba(255,255,255,0.8)',
+  	flex:5,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingVertical: 20,
+	},
+  	scrollBox:{
+    paddingHorizontal:60,
+    // paddingVertical: 20,
+ 	},
 	error: {
 		color: colors.tribu_pink,
 		paddingTop: 4,

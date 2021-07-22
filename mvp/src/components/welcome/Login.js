@@ -7,13 +7,14 @@ import {
 } from 'react-native';
 import colors from '../../assets/theme/colors';
 import Container from '../common/Container';
+import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import Link from '../common/Link';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import {
-  FORGOTPASS,
+  FORGOTPASS,SIGNUP
 } from '../../constants/routeNames';
 
 
@@ -33,7 +34,7 @@ const LoginComponent= () => {
     {/*--------*/}
       </View>
     {/*log in interface*/}
-			<View style={styles.whiteBox}>
+    <WhiteContainer >
         <View style={styles.heading}>
     			<Text style={styles.title}>¡Bienvenida de vuelta!</Text>
           <Text style={styles.subtitle}>Inicia sesión para comenzar.</Text>
@@ -54,11 +55,12 @@ const LoginComponent= () => {
             navigate.navigate(FORGOTPASS)
           }}>Se me olvidó mi contraseña</Link>
           <Text style={styles.lightText}>o</Text>
-          <Link>crear una nueva cuenta.</Link>
+          <Link onPress={() => {
+            navigate.navigate(SIGNUP)
+          }}>crear una nueva cuenta.</Link>
       </View>
     {/*------*/}
-
-      </View>
+      </WhiteContainer>
 		</Container>
 	);
 };

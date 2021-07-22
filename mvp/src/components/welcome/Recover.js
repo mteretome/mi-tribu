@@ -7,13 +7,20 @@ import {
 } from 'react-native';
 import colors from '../../assets/theme/colors';
 import Container from '../common/Container';
+import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import styles from './styles';
 import Link from '../common/Link';
+import { useNavigation } from '@react-navigation/native';
+import {
+  FORGOTPASS,
+} from '../../constants/routeNames';
+
 
 
 const RecoverComponent= () => {
+  const navigate= useNavigation();
 	return (
 		<Container style={styles.container}>
 		{/*pink header*/}
@@ -28,7 +35,7 @@ const RecoverComponent= () => {
     {/*--------*/}
       </View>
     {/*log in interface*/}
-			<View style={styles.whiteBox}>
+			<WhiteContainer>
         <View style={styles.heading}>
     			<Text style={styles.title}>Recuperar contraseña</Text>
           <Text style={styles.subtitle}>Ya te envíamos un código, ingrésalo abajo.</Text>
@@ -37,16 +44,18 @@ const RecoverComponent= () => {
       <View style={styles.inputContainer}>
         <Input placeholder="Código de Seguridad"/>
         
-        <CustomButton title="Recordad mi contraseña" gradient={true}/>
+        <CustomButton title="Recordar mi contraseña" gradient={true}/>
       </View>
 
         <View style={[styles.footer,{flexDirection:'row',alignSelf: 'center',}]}>
-          <Text style={styles.lightText}>¿Algún problema? </Text>
-          <Link>Reenvíalo.</Link>
+          <Text style={styles.lightText}>¿Aún no recibes el código? </Text>
+          <Link onPress={() => {
+            navigate.navigate(FORGOTPASS)
+          }}>Reenvíalo.</Link>
       </View>
     {/*------*/}
 
-      </View>
+      </WhiteContainer>
 		</Container>
 	);
 };

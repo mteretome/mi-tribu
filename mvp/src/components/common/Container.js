@@ -17,11 +17,8 @@ const Container = ({style,children,flex}) => {
 	};
 
 	return (
-	<View style={
-		[style,
-		{flex: getFlex()}]
-	}>
-	{children}
+	<View style={[style,{flex: getFlex(),}]}>
+		{children}
 	</View>
 	);
 };

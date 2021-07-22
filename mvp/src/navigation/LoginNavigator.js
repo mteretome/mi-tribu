@@ -25,6 +25,12 @@ import Login from '../screens/Login';
 import Forgot from '../screens/Forgot';
 import Recover from '../screens/Recover';
 
+// import {RecoverComponent} from '../components/welcome/Recover';
+import SignupComponent from '../components/welcome/Signup';
+// import {LoginComponent} from '../components/welcome/Login';
+// import {ForgotComponent} from '../components/welcome/Forgot';
+import Container from '../components/common/Container';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -38,7 +44,7 @@ const instructions = Platform.select({
 const DevelopmentPage = () => {
 	const navigate= useNavigation();
 	return(
-		<View style={styles.container}>
+      <Container style={styles.container}>
           <StatusBar
             barStyle="light-content"
             backgroundColor="#4F6D7A"
@@ -67,18 +73,43 @@ const DevelopmentPage = () => {
           onPress={() => {
             navigate.navigate(RECOVER)
           }}/>
-        </View>
+          <CustomButton 
+          title="Go to SignUpPage" bgColor='pink'
+          onPress={() => {
+            navigate.navigate(SIGNUP)
+          }}/>
+       </Container>
 	);
 };
 
 
-const SignUpPage = () => {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.text}>This is the sign up/onboarding page. </Text>
-		</View>
-	);
+
+
+const SignupPage = () => {
+  return (
+    <SignupComponent />
+  );
 };
+
+// const Forgot = () => {
+//   return (
+//     <ForgotComponent />
+//   );
+// };
+
+// const Login = () => {
+//   return (
+//     <LoginComponent />
+//   );
+// };
+
+// const Recover = () => {
+//   return (
+//     <RecoverComponent />
+//   );
+// };
+
+
 
 
 
@@ -88,7 +119,7 @@ const LoginNavigator = () => {
 		<LoginStack.Screen name={LOGIN} component={Login}></LoginStack.Screen>
 		<LoginStack.Screen name={FORGOTPASS} component={Forgot}></LoginStack.Screen>
 		<LoginStack.Screen name={RECOVER} component={Recover}></LoginStack.Screen>
-    <LoginStack.Screen name={SIGNUP} component={SignUpPage}></LoginStack.Screen>
+    <LoginStack.Screen name={SIGNUP} component={SignupPage}></LoginStack.Screen>
 		<LoginStack.Screen name={DEVPAGE} component={DevelopmentPage}></LoginStack.Screen>
 	</LoginStack.Navigator>;
 };
