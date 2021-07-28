@@ -5,9 +5,9 @@ import colors from '../../assets/theme/colors';
 
 export default StyleSheet.create({
  container: {
-    backgroundColor: colors.tribu_bbpink,
-      flexDirection: 'column',
-      justifyContent: 'flex-end'
+    flexDirection: 'column',
+    justifyContent: 'flex-end'
+
   },
   pinkBox:{
   	flex: 3,
@@ -35,8 +35,9 @@ export default StyleSheet.create({
   },
   footer:{
   	alignItems: 'center',
-    marginTop: 5,
-    paddingBottom:20
+    margin:5,
+    flexDirection:'row',
+    alignSelf: 'center'
   },
 
   lightText: {

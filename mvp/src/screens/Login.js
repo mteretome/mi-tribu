@@ -1,10 +1,13 @@
 import React from 'react';
 
 import LoginComponent from '../components/welcome/Login';
+import LoginWrapper from '../components/welcome/LoginWrapper';
 
 const LogInPage = () => {
 	return (
-		<LoginComponent />
+			<LoginWrapper>
+				<LoginComponent />
+			</LoginWrapper>
 	);
 };
 

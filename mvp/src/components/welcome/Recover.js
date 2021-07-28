@@ -16,25 +16,14 @@ import { useNavigation } from '@react-navigation/native';
 import {
   FORGOTPASS,
 } from '../../constants/routeNames';
+import LinearContainer from '../common/LinearContainer';
 
 
 
 const RecoverComponent= () => {
   const navigate= useNavigation();
 	return (
-		<Container style={styles.container}>
-		{/*pink header*/}
-      <View style={styles.pinkBox}> 
-      <Image style={styles.logo}
-      source={require('../../assets/images/logowelcome.png')}/>
-      <Container flex={3}>
-       <Image 
-      style={styles.woman}
-      source={require('../../assets/images/pregnant-login.png')}/>
-      </Container>
-    {/*--------*/}
-      </View>
-    {/*log in interface*/}
+    
 			<WhiteContainer>
         <View style={styles.heading}>
     			<Text style={styles.title}>Recuperar contraseña</Text>
@@ -56,7 +45,7 @@ const RecoverComponent= () => {
     {/*------*/}
 
       </WhiteContainer>
-		</Container>
+
 	);
 };
 

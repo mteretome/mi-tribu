@@ -24,7 +24,8 @@ export default StyleSheet.create({
     paddingVertical: 20,
 	},
   	scrollBox:{
-    paddingHorizontal:60,
+	paddingHorizontal:50,
+  
     // paddingVertical: 20,
  	},
 	error: {

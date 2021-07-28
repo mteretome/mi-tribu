@@ -8,6 +8,7 @@ import {
 import colors from '../../assets/theme/colors';
 import Container from '../common/Container';
 import WhiteContainer from '../common/WhiteContainer';
+import LinearContainer from '../common/LinearContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import Link from '../common/Link';
@@ -15,26 +16,14 @@ import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import {
   FORGOTPASS,SIGNUP
-} from '../../constants/routeNames';
+} from '../../constants/routeNames'; 
 
 
 const LoginComponent= () => {
   const navigate= useNavigation();
 	return (
-		<Container style={styles.container}>
-		{/*pink header*/}
-      <View style={styles.pinkBox}> 
-      <Image style={styles.logo}
-      source={require('../../assets/images/logowelcome.png')}/>
-      <Container flex={3}>
-       <Image 
-      style={styles.woman}
-      source={require('../../assets/images/pregnant-login.png')}/>
-      </Container>
-    {/*--------*/}
-      </View>
-    {/*log in interface*/}
-    <WhiteContainer >
+<WhiteContainer >
+		
         <View style={styles.heading}>
     			<Text style={styles.title}>¡Bienvenida de vuelta!</Text>
           <Text style={styles.subtitle}>Inicia sesión para comenzar.</Text>
@@ -46,22 +35,25 @@ const LoginComponent= () => {
         secureTextEntry={true}
         // error={'Either email or password is incorrect!'}
         />
+        <View style={styles.footer}>
+          
+          <Text style={styles.lightText}>¿Se te olvidó tu contraseña? </Text>
+          <Link style={[{color:colors.grey_dark}]} onPress={() => {
+            navigate.navigate(FORGOTPASS)
+          }}>Recupérala.</Link>
+          </View>
         <CustomButton title="Inicia Sesión" gradient={true}/>
       </View>
 
         <View style={styles.footer}>
-          <Text style={styles.lightText}>¿Algún problema?</Text>
-          <Link onPress={() => {
-            navigate.navigate(FORGOTPASS)
-          }}>Se me olvidó mi contraseña</Link>
-          <Text style={styles.lightText}>o</Text>
+         
+          <Text style={styles.lightText}>¿No tienes cuenta? </Text>
           <Link onPress={() => {
             navigate.navigate(SIGNUP)
-          }}>crear una nueva cuenta.</Link>
+          }}>Crea una nueva cuenta.</Link>
       </View>
-    {/*------*/}
-      </WhiteContainer>
-		</Container>
+	
+    </WhiteContainer>
 	);
 };
 

@@ -13,24 +13,13 @@ import CustomButton from '../common/CustomButton';
 import styles from './styles'
 import { RECOVER } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
+import LinearContainer from '../common/LinearContainer';
 
 
 const ForgotComponent= () => {
   const navigate= useNavigation();
 	return (
-		<Container style={styles.container}>
-		{/*pink header*/}
-      <View style={styles.pinkBox}> 
-      <Image style={styles.logo}
-      source={require('../../assets/images/logowelcome.png')}/>
-      <Container flex={3}>
-       <Image 
-      style={styles.woman}
-      source={require('../../assets/images/pregnant-login.png')}/>
-      </Container>
-    {/*--------*/}
-      </View>
-    {/*log in interface*/}
+    
 			<WhiteContainer>
         <View style={styles.heading}>
     			<Text style={styles.title}>Recuperar contraseña</Text>
@@ -52,7 +41,7 @@ const ForgotComponent= () => {
     {/*------*/}
 
       </WhiteContainer>
-		</Container>
+		
 	);
 };
 
