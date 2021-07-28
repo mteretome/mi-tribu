@@ -20,30 +20,27 @@ import {
 
 
 
-const LoginWrapper= ({children}) => {
-  const navigate= useNavigation();
+const SignupWrapper= ({children}) => {
+ 
 	return (
-    <LinearContainer>
+    <LinearContainer >
 		<Container style={styles.container}>
-      <View style={styles.pinkBox}> 
+      <View style={styles.topBox}> 
       <Image style={styles.logo}
       source={require('../../assets/images/logowelcome.png')}/>
       <Container flex={3}>
-       <Image 
-      style={styles.woman}
-      source={require('../../assets/images/pregnant-login.png')}/>
+      <Image 
+      style={styles.signupLady}
+      source={require('../../assets/images/pink/lady3.png')}/>
       </Container>
-    {/*--------*/}
       </View>
-   
-    {children}
-   
-		</Container>
+      {children}
+		  </Container>
      </LinearContainer>
 	);
 };
 
 
 
-export default LoginWrapper;
+export default SignupWrapper;
 

@@ -47,18 +47,7 @@ const DevPage = () => {
           	//navigate.navigate(LOGIN)
             navigate.navigate('Welcome', { screen: LOGIN })
           }}/>
-          <CustomButton 
-          title="Go to Forgot" bgColor='pink'
-          onPress={() => {
-            // navigate.navigate(FORGOTPASS)
-            navigate.navigate('Welcome', { screen: FORGOTPASS })
-
-          }}/>
-          <CustomButton 
-          title="Go to Recover" bgColor='pink'
-          onPress={() => {
-            navigate.navigate('Welcome', { screen: RECOVER })
-          }}/>
+         
           <CustomButton 
           title="Go to SignUpPage" bgColor='pink'
           onPress={() => {

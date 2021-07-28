@@ -13,9 +13,7 @@ import CustomButton from '../common/CustomButton';
 import styles from './styles';
 import Link from '../common/Link';
 import { useNavigation } from '@react-navigation/native';
-import {
-  FORGOTPASS,
-} from '../../constants/routeNames';
+import {FORGOTPASS,NEWPASS} from '../../constants/routeNames';
 import LinearContainer from '../common/LinearContainer';
 
 
@@ -33,7 +31,8 @@ const RecoverComponent= () => {
       <View style={styles.inputContainer}>
         <Input placeholder="Código de Seguridad"/>
         
-        <CustomButton title="Recordar mi contraseña" gradient={true}/>
+        <CustomButton title="Recordar mi contraseña" gradient={true}
+        onPress={() => {navigate.navigate(NEWPASS)}}/>
       </View>
 
         <View style={[styles.footer,{flexDirection:'row',alignSelf: 'center',}]}>
@@ -42,8 +41,6 @@ const RecoverComponent= () => {
             navigate.navigate(FORGOTPASS)
           }}>Reenvíalo.</Link>
       </View>
-    {/*------*/}
-
       </WhiteContainer>
 
 	);

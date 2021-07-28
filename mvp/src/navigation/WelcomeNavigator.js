@@ -12,15 +12,17 @@ import {
 	FORGOTPASS,
 	SIGNUP,
   RECOVER,
-  PILLARS
+  PILLARS,
+  NEWPASS
 } from '../constants/routeNames';
 import { StackNavigator } from 'react-navigation';
 
 
-import Login from '../screens/Login';
-import Forgot from '../screens/Forgot';
-import Recover from '../screens/Recover';
-import Signup from '../screens/Signup';
+import Login from '../screens/welcome/Login';
+import Forgot from '../screens/welcome/Forgot';
+import Recover from '../screens/welcome/Recover';
+import Signup from '../screens/welcome/Signup';
+import New from '../screens/welcome/New';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -42,6 +44,7 @@ const WelcomeNav = () => {
 		<WelcomeStack.Screen name={LOGIN} component={Login}>
     </WelcomeStack.Screen>
     <WelcomeStack.Screen name={FORGOTPASS} component={Forgot}></WelcomeStack.Screen>
+    <WelcomeStack.Screen name={NEWPASS} component={New}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={RECOVER} component={Recover}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={SIGNUP} component={Signup}></WelcomeStack.Screen>
    {/* <WelcomeStack.Screen name={DEVPAGE} component={DevelopmentPage}
@@ -75,7 +78,7 @@ const WrapperNavigator= () => {
       <Container flex={3}>
        <Image 
       style={styles.woman}
-      source={require('../assets/images/pregnant-login.png')}/>
+      source={require('../assets/images/pink/lady1.png')}/>
       </Container>
    
       </View>

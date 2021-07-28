@@ -13,28 +13,24 @@ import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import Link from '../common/Link';
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
-import {
-  FORGOTPASS,SIGNUP
-} from '../../constants/routeNames';
 
 
 
-const SignupWrapper= ({children}) => {
-  const navigate= useNavigation();
+const LoginWrapper= ({children}) => {
+ 
 	return (
     <LinearContainer>
 		<Container style={styles.container}>
-      <View style={styles.pinkBox}> 
+      <View style={styles.topBox}> 
       <Image style={styles.logo}
       source={require('../../assets/images/logowelcome.png')}/>
       <Container flex={3}>
        <Image 
-      style={styles.woman}
-      source={require('../../assets/images/pregnant-login.png')}/>
+      style={styles.loginLady}
+      source={require('../../assets/images/pink/lady1.png')}/>
       </Container>
-    {/*--------*/}
       </View>
+   
     {children}
    
 		</Container>
@@ -44,5 +40,5 @@ const SignupWrapper= ({children}) => {
 
 
 
-export default SignupWrapper;
+export default LoginWrapper;
 
