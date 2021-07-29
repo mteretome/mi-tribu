@@ -13,26 +13,22 @@ import CustomButton from '../common/CustomButton';
 import styles from './styles'
 import { RECOVER } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
-import Tool from '../../assets/images/svg/tool.svg';
 
 
 
-
-
-const OneComponent= () => {
+const ThreeComponent= () => {
   const navigate= useNavigation();
 	return (
-      <Container flex={6} style={styles.container}>  
+    
+		  <Container flex={6} style={styles.container}>  
       <View style={styles.textContainer}>
-      <Text style={styles.title}>Creada para ti</Text>
+      <Text style={styles.title}>Una guía que te empodera</Text>
       <Text style={styles.subtitle}>
-      Experiencia única de aprendizaje a través de contenido y herramientas personalizadas.
+      Programa de talleres por profesionales y mamás que recorrieron el mismo camino que tú.
       </Text>
       </View>
-      <Image style={styles.pillarLady}
-      source={require('../../assets/images/purple/lady3.png')}/>
-      <Tool style={styles.tool}/>
-
+      <Image style={styles.pillar3Lady}
+      source={require('../../assets/images/pink/lady2.png')}/>
       </Container>
 		
 	);
@@ -40,5 +36,5 @@ const OneComponent= () => {
 
 
 
-export default OneComponent;
+export default ThreeComponent;
 

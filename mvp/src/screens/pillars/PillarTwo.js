@@ -1,19 +1,18 @@
 import React from 'react';
 
-import OneComponent from '../../components/pillars/One';
+import TwoComponent from '../../components/pillars/Two';
 import PillarWrapper from '../../components/wrappers/PillarWrapper';
 import PillarContainer from '../../components/common/PillarContainer';
 
-const PillarOne = () => {
+const PillarTwo = () => {
 	return (
 		<PillarContainer>
-		<PillarWrapper one={true}>
-			<OneComponent/>
+		<PillarWrapper two={true}>
+			<TwoComponent/>
 		</PillarWrapper>
 		</PillarContainer>
 	);
 };
 
 
-export default PillarOne;
-
+export default PillarTwo;

@@ -4,36 +4,56 @@ import colors from '../../assets/theme/colors';
 
 
 export default StyleSheet.create({
+  container:{
+   alignItems:'center'
+  },
   title: {
     fontWeight: 'bold',
-    fontSize: 20,
-    color: colors.black,
-    marginVertical: 5,
+    fontSize: 32,
+    color: colors.grey_darkest,
+    marginVertical: 10,
   },
   subtitle:{
   	fontWeight: '300',
-  	color: colors.black,
-  	fontSize: 18,
-  	textAlign: 'center'
+  	color: colors.white,
+  	fontSize: 28,
+  	textAlign: 'center',
+    marginVertical: 10,
   },
-  heading:{
-  	alignItems: 'center',
-    marginTop: 15,
-    marginBottom:12,
+  textContainer:{
+    marginVertical: 10,
+    paddingHorizontal: 30,
+     alignItems:'center'
   },
-  footer:{
-  	alignItems: 'center',
-    margin:5,
-    flexDirection:'row',
-    alignSelf: 'center'
+  pillarLady:{
+    left:80,
+    bottom:60,
+    width:'80%',
   },
+  pillar3Lady:{
+    bottom:40,
+    width:'90%',
+  },
+  tool: {
+    position:'absolute',
+    left: 100,
+    top:300
+  },
+  pillar2LadyB: {
+    transform: [
+    { scaleX: -1 } ],
+    right:45,
+    bottom:100,
+    width:'80%'
+  },
+  pillar2LadyA: {
+    transform: [
+    { scaleX: -1 } ],
+    left:80,
+    bottom:60,
+    width:'80%'
 
-  lightText: {
-  	fontWeight: '300',
-  	color: colors.black,
-  	fontSize: 16,
-  	marginVertical: 5,
-  	alignSelf:'center'
-  },
+  }
+
 
 });

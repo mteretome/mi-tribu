@@ -6,7 +6,8 @@ import styles from './styles';
 import LinearGradient from 'react-native-linear-gradient';
 
 
-const PillarContainer = ({style,children,}) => {
+const PillarContainer = ({style,children}) => {
+
 
 	return (
 	<LinearGradient
@@ -16,7 +17,6 @@ const PillarContainer = ({style,children,}) => {
    >
 		{children}
 	</LinearGradient>
-
 
 
 	);

@@ -6,7 +6,6 @@ import colors from '../../assets/theme/colors';
 export default StyleSheet.create({
  container: {
     flexDirection: 'column',
-    justifyContent: 'flex-start',
   },
   topBox:{
   	flex: 3,
@@ -16,7 +15,7 @@ export default StyleSheet.create({
   },
   logo: {
   	 resizeMode: 'center',
-  	 flex:1,
+     flex:1,
   	 width: '50%',
   },
   loginLady: {
@@ -33,13 +32,22 @@ export default StyleSheet.create({
      resizeMode: 'contain',
      flex:1,
      width: '50%',
-     bottom:270
+     
   },
   pillarHead:{
     paddingHorizontal:60,
     paddingVertical: 15,
     alignItems: 'center',
-    flex:1
+    flex:1,
+
   },
+  wave:{
+    alignItems: 'stretch',
+    alignContent: 'stretch',
+  },
+  floating:{
+    alignSelf:'center',
+    position:'absolute'
+  }
 
 });

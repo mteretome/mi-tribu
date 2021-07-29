@@ -36,6 +36,8 @@ Assuming that you completed MVP Installation and Set Up correctly but `npx react
 		{emulator/device-name}	device
 		```
 		- only one device must be connected, if there is more than one device connected the app will not launch
+	* error with android build:
+		- run `cd android` and restart gradle by running: `./gradlew clean` and `./gradlew build --refresh-dependencies  `
 	* error with packages, debug installation, or duplicate resources:
 		- run `watchman watch-del-all
 rm -rf yarn.lock package-lock.json node_modules

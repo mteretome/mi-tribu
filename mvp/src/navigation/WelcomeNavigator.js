@@ -15,7 +15,7 @@ import {
   PILLARS,
   NEWPASS
 } from '../constants/routeNames';
-import { StackNavigator } from 'react-navigation';
+
 
 
 import Login from '../screens/welcome/Login';

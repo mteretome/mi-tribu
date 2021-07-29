@@ -14,14 +14,8 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import PillarOne from '../screens/pillars/PillarOne';
-
-const ValueProposition = () => {
-  return (
-    <View>
-      <Text >ValueProposition</Text>
-    </View>
-  );
-};
+import PillarTwo from '../screens/pillars/PillarTwo';
+import PillarThree from '../screens/pillars/PillarThree';
 
 
 function PillarNavigator() {
@@ -29,8 +23,8 @@ function PillarNavigator() {
   return (
     <PillarsTab.Navigator>
       <PillarsTab.Screen name="P1" component={PillarOne} />
-       <PillarsTab.Screen name="P2" component={ValueProposition} />
-       <PillarsTab.Screen name="P3" component={ValueProposition} />
+       <PillarsTab.Screen name="P2" component={PillarTwo} />
+       <PillarsTab.Screen name="P3" component={PillarThree} />
     </PillarsTab.Navigator>
   );
 };

@@ -13,32 +13,31 @@ import CustomButton from '../common/CustomButton';
 import styles from './styles'
 import { RECOVER } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
-import Tool from '../../assets/images/svg/tool.svg';
 
 
 
-
-
-const OneComponent= () => {
+const TwoComponent= () => {
   const navigate= useNavigation();
 	return (
-      <Container flex={6} style={styles.container}>  
+    
+	   <Container flex={6} style={styles.container}>  
       <View style={styles.textContainer}>
-      <Text style={styles.title}>Creada para ti</Text>
+      <Text style={styles.title}>Presentes en tu Camino</Text>
       <Text style={styles.subtitle}>
-      Experiencia única de aprendizaje a través de contenido y herramientas personalizadas.
+      Círculo de 3-9 mamás en la misma situación que tú acompañadas por una experta.
       </Text>
       </View>
-      <Image style={styles.pillarLady}
-      source={require('../../assets/images/purple/lady3.png')}/>
-      <Tool style={styles.tool}/>
-
+      <View style={{flexDirection:'row'}}>
+      <Image style={styles.pillar2LadyA}
+      source={require('../../assets/images/purple/lady2.png')}/>
+      <Image style={styles.pillar2LadyB}
+      source={require('../../assets/images/purple/lady1.png')}/>
+      </View>
       </Container>
-		
 	);
 };
 
 
 
-export default OneComponent;
+export default TwoComponent;
 
