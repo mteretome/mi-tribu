@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView
-} from 'react-native';
+import {Text,View,} from 'react-native';
 import colors from '../../assets/theme/colors';
-import Container from '../common/Container';
 import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
@@ -15,7 +8,6 @@ import Link from '../common/Link';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import {LOGIN,CONGRATS} from '../../constants/routeNames';
-import LinearContainer from '../common/LinearContainer';
 
 
 

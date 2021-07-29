@@ -25,8 +25,6 @@ export default StyleSheet.create({
 	},
   	scrollBox:{
 	paddingHorizontal:50,
-  
-    // paddingVertical: 20,
  	},
 	error: {
 		color: colors.tribu_pink,

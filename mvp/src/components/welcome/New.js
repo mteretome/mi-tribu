@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image
-} from 'react-native';
+import {Text,View,} from 'react-native';
 import colors from '../../assets/theme/colors';
-import Container from '../common/Container';
 import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
@@ -36,7 +30,6 @@ const NewComponent= () => {
             navigate.navigate(LOGIN)
           }} title="Guardar y Continuar" gradient={true}/>
       </View>
-    {/*------*/}
 
       </WhiteContainer>
 		

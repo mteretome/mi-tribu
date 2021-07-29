@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image
-} from 'react-native';
+import {Text,View,Image} from 'react-native';
 import colors from '../../assets/theme/colors';
 import LinearContainer from '../common/LinearContainer';
 import CustomButton from '../common/CustomButton';

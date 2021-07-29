@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import {View,ActivityIndicator,Text,TouchableOpacity,} from 'react-native';
+import React from "react";
+import {View,Text,TouchableOpacity,} from 'react-native';
 import styles from './styles'
 import colors from '../../assets/theme/colors';
 import LinearGradient from 'react-native-linear-gradient';

@@ -1,19 +1,12 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image
-} from 'react-native';
+import {Text,View} from 'react-native';
 import colors from '../../assets/theme/colors';
-import Container from '../common/Container';
 import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import styles from './styles'
 import { RECOVER } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
-import LinearContainer from '../common/LinearContainer';
 
 
 const ForgotComponent= () => {
@@ -38,7 +31,6 @@ const ForgotComponent= () => {
             navigate.navigate(RECOVER)
           }} title="Enviar código" gradient={true}/>
       </View>
-    {/*------*/}
 
       </WhiteContainer>
 		

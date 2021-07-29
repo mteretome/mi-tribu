@@ -1,22 +1,13 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image
-} from 'react-native';
+import {Text,View} from 'react-native';
 import colors from '../../assets/theme/colors';
-import Container from '../common/Container';
 import WhiteContainer from '../common/WhiteContainer';
-import LinearContainer from '../common/LinearContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import Link from '../common/Link';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
-import {
-  FORGOTPASS,SIGNUP
-} from '../../constants/routeNames'; 
+import {FORGOTPASS,SIGNUP} from '../../constants/routeNames'; 
 
 
 const LoginComponent= () => {

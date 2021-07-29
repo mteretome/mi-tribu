@@ -46,26 +46,26 @@ const PillarComponent= () => {
 
 
         <PillarContainer style={{flex:1}}>
-				<PillarWrapper one={true} swipe={swiper}>
-				<OneComponent/>
-				</PillarWrapper>
-			</PillarContainer>
+				  <PillarWrapper one={true} swipe={swiper}>
+				    <OneComponent/>
+				  </PillarWrapper>
+			 </PillarContainer>
        
         <PillarContainer style={{flex:1}}>
-			<PillarWrapper two={true} swipe={swiper}>
-				<TwoComponent/>
-			</PillarWrapper>
-		</PillarContainer>
+			     <PillarWrapper two={true} swipe={swiper}>
+				    <TwoComponent/>
+			     </PillarWrapper>
+	     	</PillarContainer>
 
         <LinearGradient
         colors={['#53B5C3', '#B9DCDC', '#F5B09B' ]}
         style={{flex:1}}
         start={{ x: 0, y: 0 }}
         end={{ x: 1.4, y: 0.9 }}>
-			<PillarWrapper three={true}>
-				<ThreeComponent/>
-			</PillarWrapper>
-		</LinearGradient>
+			     <PillarWrapper three={true}>
+				      <ThreeComponent/>
+			     </PillarWrapper>
+		    </LinearGradient>
 
       </Swiper>
 		
