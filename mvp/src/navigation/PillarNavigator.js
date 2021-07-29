@@ -10,7 +10,7 @@ import {
   Text,
 } from 'react-native';
 
-
+import {createStackNavigator} from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import PillarOne from '../screens/pillars/PillarOne';
@@ -20,8 +20,9 @@ import PillarThree from '../screens/pillars/PillarThree';
 
 function PillarNavigator() {
   const PillarsTab = createBottomTabNavigator();
+  //createBottomTabNavigator()createStackNavigator();
   return (
-    <PillarsTab.Navigator>
+    <PillarsTab.Navigator screenOptions={{headerShown: false}} initialRouteName={LOGIN}>
       <PillarsTab.Screen name="P1" component={PillarOne} />
        <PillarsTab.Screen name="P2" component={PillarTwo} />
        <PillarsTab.Screen name="P3" component={PillarThree} />

@@ -42,16 +42,16 @@ export default StyleSheet.create({
   pillar2LadyB: {
     transform: [
     { scaleX: -1 } ],
-    right:45,
-    bottom:100,
-    width:'80%'
+    right:20,
+    bottom:120,
+    width:'70%'
   },
   pillar2LadyA: {
     transform: [
     { scaleX: -1 } ],
-    left:80,
-    bottom:60,
-    width:'80%'
+    left:50,
+    bottom:70,
+    width:'70%'
 
   }
 

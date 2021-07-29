@@ -23,10 +23,20 @@ export default StyleSheet.create({
   	resizeMode: 'contain',
 
   },
+  onboardLady:{
+     transform: [
+    { scaleX: -1 } ],
+    bottom: 80,
+    resizeMode: 'contain',
+  },
   signupLady: {
     bottom: 90,
     resizeMode: 'contain',
 
+  },
+  congratsLady: {
+    bottom: 80,
+    resizeMode: 'contain',
   },
   pillarLogo: {
      resizeMode: 'contain',
@@ -47,7 +57,6 @@ export default StyleSheet.create({
   },
   floating:{
     alignSelf:'center',
-    position:'absolute'
   }
 
 });

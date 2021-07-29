@@ -22,7 +22,6 @@ import Bg3 from '../../assets/images/svg/pillar3.svg';
 
 const PillarWrapper= ({children, one, two, three}) => {
   const navigate= useNavigation();
-  const windowWidth = Dimensions.get("window").width;
 	return (
     
       
@@ -39,16 +38,24 @@ const PillarWrapper= ({children, one, two, three}) => {
       {children}
       <View style={styles.pillarFooter}>
       {three &&
-        <CustomButton  style={[styles.floating,{top:40}]} 
-        textStyle={{fontSize:18}} title="Comienza tu viaje"/> }
+        <CustomButton  style={[styles.floating,{top:125}]} 
+        textStyle={{fontSize:18}} title="Comienza tu viaje"
+        onPress={() => {
+          navigate.navigate('Welcome') }}/> }
       {two &&
         <CustomButton  
-        style={[styles.floating,{paddingHorizontal:90, top:70}]} 
-        textStyle={{fontSize:18}} title="Continuar"/> }
+        style={[styles.floating,{paddingHorizontal:90,top:155}]} 
+        textStyle={{fontSize:18}} title="Continuar"
+        onPress={() => {
+            navigate.navigate('P3')
+          }} /> }
       {one && 
       <CustomButton  
-        style={[styles.floating,{paddingHorizontal:90, top:120}]} 
-        textStyle={{fontSize:18}} title="Continuar"/> }
+        style={[styles.floating,{paddingHorizontal:90, top:200}]} 
+        textStyle={{fontSize:18}} title="Continuar"
+        onPress={() => {
+            navigate.navigate('P1')
+          }}/> }
       
       {one && <Wave1 style={[styles.wave]}/>}
       {two && <Wave2 style={[styles.wave]}/>}

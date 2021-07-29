@@ -4,7 +4,10 @@ import {
 	FORGOTPASS,
 	SIGNUP,
 	RECOVER,
-	PILLARS 
+	PILLARS,
+  ONBOARD,
+  CONGRATS,
+  WELCOME
 } from '../constants/routeNames';
 import {
   StyleSheet,
@@ -44,7 +47,6 @@ const DevPage = () => {
           <CustomButton 
           title="Go to LogIn" bgColor='pink'
           onPress={() => {
-          	//navigate.navigate(LOGIN)
             navigate.navigate('Welcome', { screen: LOGIN })
           }}/>
          
@@ -57,6 +59,11 @@ const DevPage = () => {
           title="Go to Pillar" bgColor='pink'
           onPress={() => {
             navigate.navigate('Pillars', { screen: 'P1' })
+          }}/>
+           <CustomButton 
+          title="Go to Welcome" bgColor='pink'
+          onPress={() => {
+           navigate.navigate('Welcome', { screen: WELCOME })
           }}/>
           <CustomButton 
           title="Go to Dashboard" bgColor='pink'

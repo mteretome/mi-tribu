@@ -14,7 +14,7 @@ import CustomButton from '../common/CustomButton';
 import Link from '../common/Link';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
-import {LOGIN} from '../../constants/routeNames';
+import {LOGIN,CONGRATS} from '../../constants/routeNames';
 import LinearContainer from '../common/LinearContainer';
 
 
@@ -44,7 +44,10 @@ const SignupComponent= () => {
           <Text style={styles.lightText}>¿No conoces tu fecha de parto? </Text>
           <Link>Calcúlala</Link>
         </View>
-        <CustomButton title="Crear mi cuenta" gradient={true}/>
+        <CustomButton title="Crear mi cuenta" 
+        onPress={() => {
+            navigate.navigate(CONGRATS)
+          }} gradient={true}/>
       </View>
 
         <View style={styles.footer}>

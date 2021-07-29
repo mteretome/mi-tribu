@@ -13,7 +13,10 @@ import {
 	SIGNUP,
   RECOVER,
   PILLARS,
-  NEWPASS
+  NEWPASS,
+  ONBOARD,
+  CONGRATS,
+  WELCOME
 } from '../constants/routeNames';
 
 
@@ -23,6 +26,9 @@ import Forgot from '../screens/welcome/Forgot';
 import Recover from '../screens/welcome/Recover';
 import Signup from '../screens/welcome/Signup';
 import New from '../screens/welcome/New';
+import Onboard from '../screens/welcome/Onboard';
+import Congrats from '../screens/welcome/Congrats';
+import Welcome from '../screens/welcome/Welcome';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -41,12 +47,15 @@ const WelcomeNav = () => {
 	return (
 
     <WelcomeStack.Navigator screenOptions={{headerShown: false}} initialRouteName={LOGIN}>
-		<WelcomeStack.Screen name={LOGIN} component={Login}>
-    </WelcomeStack.Screen>
+		<WelcomeStack.Screen name={LOGIN} component={Login}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={FORGOTPASS} component={Forgot}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={NEWPASS} component={New}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={RECOVER} component={Recover}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={SIGNUP} component={Signup}></WelcomeStack.Screen>
+    <WelcomeStack.Screen name={ONBOARD} component={Onboard}></WelcomeStack.Screen>
+    <WelcomeStack.Screen name={CONGRATS} component={Congrats}></WelcomeStack.Screen>
+    <WelcomeStack.Screen name={WELCOME} component={Welcome}></WelcomeStack.Screen>
+    
    {/* <WelcomeStack.Screen name={DEVPAGE} component={DevelopmentPage}
     options={{ 
       cardStyle: {
@@ -66,6 +75,11 @@ const WelcomeNavigator = () => {
   );
 };
 
+const forFade = ({ current }) => ({
+  cardStyle: { 
+    opacity: current.progress,
+  },
+});
 
 const WrapperNavigator= () => {
   return (

@@ -35,5 +35,48 @@ export default StyleSheet.create({
   	marginVertical: 5,
   	alignSelf:'center'
   },
+  congratsSub: { 
+    color: colors.tribu_green,
+    fontSize:18, 
+    marginBottom:30,
+    fontWeight:'200',
+  },
+  container:{
+    paddingHorizontal:60,
+    paddingVertical: 15,
+    alignItems: 'center',
+    flex:1,
+    justifyContent:'center'
+  },
+  whiteTitle:{
+    fontWeight: 'bold',
+    fontSize: 48,
+    color: colors.white,
+    textAlign: 'center',
+    marginVertical:30
+  },
+  welcomeLady1:{
+    top:125,
+    width:'80%',
+    resizeMode:'contain'
+  },
+  welcomeLady2:{
+    width:'70%',
+    resizeMode:'contain',
+    bottom:140,
+    left:30
+  },
+  welcomeLady3:{
+    width:'70%',
+    resizeMode:'contain',
+    right:35,
+    bottom:120
+
+  }
+
+
+
+
+
 
 });

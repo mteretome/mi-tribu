@@ -4,6 +4,7 @@ import styles from './styles'
 import colors from '../../assets/theme/colors';
 import LinearGradient from 'react-native-linear-gradient';
 
+
 const CustomButton = ({
 	title,
 	loading,
