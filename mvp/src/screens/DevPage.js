@@ -58,7 +58,7 @@ const DevPage = () => {
           <CustomButton 
           title="Go to Pillar" bgColor='pink'
           onPress={() => {
-            navigate.navigate('Pillars', { screen: 'P1' })
+            navigate.navigate('Welcome', { screen: PILLARS })
           }}/>
            <CustomButton 
           title="Go to Welcome" bgColor='pink'

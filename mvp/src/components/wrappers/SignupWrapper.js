@@ -17,6 +17,8 @@ import { useNavigation } from '@react-navigation/native';
 import {
   FORGOTPASS,SIGNUP
 } from '../../constants/routeNames';
+import Bg from '../../assets/images/svg/signup.svg';
+
 
 
 
@@ -24,6 +26,7 @@ const SignupWrapper= ({children}) => {
  
 	return (
     <LinearContainer >
+    <Bg style={{position:'absolute'}}/>
 		<Container style={styles.container}>
       <View style={styles.topBox}> 
       <Image style={styles.logo}

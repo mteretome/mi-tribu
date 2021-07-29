@@ -29,6 +29,7 @@ import New from '../screens/welcome/New';
 import Onboard from '../screens/welcome/Onboard';
 import Congrats from '../screens/welcome/Congrats';
 import Welcome from '../screens/welcome/Welcome';
+import Pillars from '../screens/welcome/Pillars';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -46,7 +47,7 @@ const WelcomeNav = () => {
 	const WelcomeStack = createStackNavigator();
 	return (
 
-    <WelcomeStack.Navigator screenOptions={{headerShown: false}} initialRouteName={LOGIN}>
+    <WelcomeStack.Navigator screenOptions={{headerShown: false}} initialRouteName={PILLARS}>
 		<WelcomeStack.Screen name={LOGIN} component={Login}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={FORGOTPASS} component={Forgot}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={NEWPASS} component={New}></WelcomeStack.Screen>
@@ -55,16 +56,14 @@ const WelcomeNav = () => {
     <WelcomeStack.Screen name={ONBOARD} component={Onboard}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={CONGRATS} component={Congrats}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={WELCOME} component={Welcome}></WelcomeStack.Screen>
+    <WelcomeStack.Screen name={PILLARS} component={Pillars}></WelcomeStack.Screen>
     
    {/* <WelcomeStack.Screen name={DEVPAGE} component={DevelopmentPage}
     options={{ 
       cardStyle: {
           backgroundColor: 'rgba(255,255,255,0.8)',
           borderTopLeftRadius: 30,
-          borderTopRightRadius: 30, }}}></WelcomeStack.Screen>*/}
-   {/* <WelcomeStack.Screen name={PILLARS} component={PillarNavigator}></WelcomeStack.Screen>*/}
-
-	
+          borderTopRightRadius: 30, }}}></WelcomeStack.Screen>*/}	
 	</WelcomeStack.Navigator>
   );
 };

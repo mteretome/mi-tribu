@@ -57,6 +57,7 @@ export default StyleSheet.create({
   },
   floating:{
     alignSelf:'center',
+    zIndex: 1,
   }
 
 });

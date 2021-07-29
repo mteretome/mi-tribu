@@ -9,7 +9,6 @@ import {
 
 import DevPage from '../screens/DevPage';
 import WelcomeNavigator from './WelcomeNavigator';
-import PillarNavigator from './PillarNavigator';
 import {createStackNavigator} from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import LinearContainer from '../components/common/LinearContainer';
@@ -31,7 +30,6 @@ const AppNavContainer = () =>{
   <NavigationContainer>
        <RootStack.Navigator screenOptions={{headerShown: false}} >
           <RootStack.Screen name="DevPage" component={DevPage} />
-          <RootStack.Screen name="Pillars" component={PillarNavigator} />
           <RootStack.Screen name="Welcome" component={WelcomeNavigator} />
           <RootStack.Screen name="Dashboard" component={Dashboard} />
       </RootStack.Navigator>

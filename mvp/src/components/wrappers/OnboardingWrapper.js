@@ -13,6 +13,7 @@ import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import Link from '../common/Link';
 import styles from './styles';
+import Bg from '../../assets/images/svg/onboarding.svg';
 
 
 
@@ -20,6 +21,7 @@ const OnboardingWrapper= ({children}) => {
  
 	return (
     <LinearContainer>
+    <Bg style={{position:'absolute'}}/>
 		<Container style={styles.container}>
       <View style={styles.topBox}> 
       <Image style={styles.logo}
