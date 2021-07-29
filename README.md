@@ -24,3 +24,27 @@
 	export PATH=$PATH:$ANDROID_HOME/platform-tools`
 	- For Windows: open windows control panel, click on 'User Accounts', then click 'User Accounts' again, click on 'Change my environment variables', click on 'New...'' and write ANDROID_HOME on variable name, and  write `C:\Users\YOUR_USER\AppData\Local\Android\Sdk` on variable value
 
+
+# MVP Debugging
+
+Assuming that you completed MVP Installation and Set Up correctly but `npx react-native run-android` still failed:
+* try running `npx --debug react-native run-android` to see what went wrong
+	* if app was unable to launch in emulator:
+		- run `adb devices`, to make sure emulator or physical device is connected. if device is properly connected the list of attached devices will say device next to the device or emulator name:
+		```
+		List of devices attached
+		{emulator/device-name}	device
+		```
+		- only one device must be connected, if there is more than one device connected the app will not launch
+	* error with android build:
+		- run `cd android` and restart gradle by running: `./gradlew clean` and `./gradlew build --refresh-dependencies  `
+	* error with packages, debug installation, or duplicate resources:
+		- run `watchman watch-del-all
+rm -rf yarn.lock package-lock.json node_modules
+rm -rf android/app/build
+npm start -- --reset-cache` and open a new terminal window and complete steps in MVP Set Up again from the start. 
+		- if still unable to run reach out to cbl-engineers channel on mi tribu's slack 
+
+
+
+

@@ -1,29 +1,35 @@
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import React, { Component } from 'react';
-import {
-  Platform,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Button,
-} from 'react-native';
-import LoginNavigator from './LoginNavigator';
+import React from 'react';
+import {Text} from 'react-native';
 
+import DevPage from '../screens/DevPage';
+import WelcomeNavigator from './WelcomeNavigator';
+import {createStackNavigator} from '@react-navigation/stack';
+import LinearContainer from '../components/common/LinearContainer';
+
+const RootStack = createStackNavigator();
+
+
+const Dashboard = () => {
+  return (
+    <LinearContainer style={{flex:1,justifyContent:'center', alignItems:'center'}}>
+      <Text>DASHBOARD</Text>
+    </LinearContainer>
+  );
+};
 
 
 const AppNavContainer = () =>{
   return(
-  <NavigationContainer>{
-      <LoginNavigator/>
-    }</NavigationContainer>
+  <NavigationContainer>
+       <RootStack.Navigator screenOptions={{headerShown: false}} >
+          <RootStack.Screen name="DevPage" component={DevPage} />
+          <RootStack.Screen name="Welcome" component={WelcomeNavigator} />
+          <RootStack.Screen name="Dashboard" component={Dashboard} />
+      </RootStack.Navigator>
+    </NavigationContainer>
   );
 };
-
-//screens
 
 export default AppNavContainer;
