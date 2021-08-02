@@ -72,11 +72,13 @@ export default StyleSheet.create({
     right:35,
     bottom:120
 
-  }
-
-
-
-
-
-
+  },
+  overlay:{
+    backgroundColor: 'rgba(255,255,255,0.9)',
+    borderRadius: 30,
+    paddingHorizontal:40,
+    paddingBottom:30,
+    paddingTop:20
+  },
+  
 });

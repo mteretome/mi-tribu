@@ -6,12 +6,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import AppNavContainer from './src/navigation';
 
 
+
 export default class App extends Component {
   componentDidMount() {
     SplashScreen.hide()
   }
   render() {
     return (
+      
       <AppNavContainer></AppNavContainer>
        
     );

@@ -32,12 +32,12 @@ const CustomButton = ({
 	     colors={[colors.tribu_green, colors.tribu_blue]}
 	     style={
 			[styles.button,
-			{shadowColor: colors.tribu_green,
+			{shadowColor: colors.tribu_blue,
 			shadowOffset: {
 				width: 0,
 				height: 5,
 			},
-			shadowOpacity: 0.5,
+			shadowOpacity: 1,
 			shadowRadius: 0.5,
 
 			elevation: 5,
@@ -56,7 +56,7 @@ const CustomButton = ({
 				width: 0,
 				height: 5,
 			},
-			shadowOpacity: 0.5,
+			shadowOpacity: 1,
 			shadowRadius: 0.5,
 
 			elevation: 5,

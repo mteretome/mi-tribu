@@ -1,5 +1,6 @@
-import React from 'react';
-import {Text,View,} from 'react-native';
+import React, { useState } from 'react';
+import {Overlay } from 'react-native-elements';
+import {Text,View,Modal} from 'react-native';
 import colors from '../../assets/theme/colors';
 import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
@@ -8,12 +9,16 @@ import Link from '../common/Link';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import {LOGIN,CONGRATS} from '../../constants/routeNames';
-
+import DuedateComponent from './Duedate';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 
 
 const SignupComponent= () => {
+  const [visible, setVisible] = useState(false);
+  const toggleOverlay = () => {setVisible(!visible);};
   const navigate= useNavigation();
+
 	return (
    
 			<WhiteContainer>
@@ -32,9 +37,17 @@ const SignupComponent= () => {
         <Input  placeholder="Crea tu contraseña*" secureTextEntry={true}/>
         <Input  placeholder="Fecha de Parto Estimada*"/>
         <View style={styles.footer}>
-        
-          <Text style={styles.lightText}>¿No conoces tu fecha de parto? </Text>
-          <Link>Calcúlala</Link>
+        <Icon name="infocirlceo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
+          <Text style={styles.lightText}>  ¿No conoces tu fecha de parto? </Text>
+          
+          <Link  onPress={toggleOverlay} >Calcúlala</Link>
+            <Overlay  
+              overlayStyle={styles.overlay} 
+              animationType="fade" 
+              isVisible={visible} 
+              backdropStyle={styles.backdrop}>
+             <DuedateComponent toggleOverlay={toggleOverlay}/>
+            </Overlay>
         </View>
         <CustomButton title="Crear mi cuenta" 
         onPress={() => {

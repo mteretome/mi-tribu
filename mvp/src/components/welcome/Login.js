@@ -8,6 +8,7 @@ import Link from '../common/Link';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import {FORGOTPASS,SIGNUP} from '../../constants/routeNames'; 
+import Icon from 'react-native-vector-icons/AntDesign';
 
 
 const LoginComponent= () => {
@@ -27,8 +28,8 @@ const LoginComponent= () => {
         // error={'Either email or password is incorrect!'}
         />
         <View style={styles.footer}>
-          
-          <Text style={styles.lightText}>¿Se te olvidó tu contraseña? </Text>
+           <Icon name="questioncircleo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
+          <Text style={styles.lightText}>  ¿Se te olvidó tu contraseña? </Text>
           <Link style={[{color:colors.grey_dark}]} onPress={() => {
             navigate.navigate(FORGOTPASS)
           }}>Recupérala.</Link>
