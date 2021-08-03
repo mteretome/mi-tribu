@@ -32,7 +32,7 @@ export default StyleSheet.create({
 		fontSize:10
 	},
 	button : {
-		paddingHorizontal:60,
+		paddingHorizontal:40,
     	paddingVertical: 18,
     	marginVertical:5,
     	alignItems:'center',
@@ -41,11 +41,9 @@ export default StyleSheet.create({
 	},
 	buttonText : {
 		color: colors.white,
-		fontWeight: 'bold',
-		fontSize: 16
+		fontSize: 20
 	},
 	link: {
-		fontWeight: 'bold',
 		textDecorationLine: 'underline',
 		color: colors.tribu_green,
 		fontSize: 16,

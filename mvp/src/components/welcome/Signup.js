@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Overlay } from 'react-native-elements';
-import {Text,View,Modal} from 'react-native';
+import {View} from 'react-native';
 import colors from '../../assets/theme/colors';
 import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
@@ -11,7 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 import {LOGIN,CONGRATS} from '../../constants/routeNames';
 import DuedateComponent from './Duedate';
 import Icon from 'react-native-vector-icons/AntDesign';
-
+import {Bold,Light} from '../common/Text';
 
 
 const SignupComponent= () => {
@@ -23,14 +23,14 @@ const SignupComponent= () => {
    
 			<WhiteContainer>
         <View style={styles.heading}>
-    			<Text style={styles.title}>Aprende. Conecta. Reutiliza.</Text>
-          <Text style={styles.subtitle}>¡Bienvenida a tu tribu!</Text>
+    			<Bold style={styles.title}> Aprende. Conecta. Reutiliza.</Bold>
+          <Light style={styles.subtitle}>¡Bienvenida a tu tribu!</Light>
   		  </View>
 
       <View >
         <View style={[{flexDirection:'row', flex:1, alignItems: 'stretch'}]}>
-          <Input placeholder="Nombre*"/>
-          <Input style={[{paddingEnd:'40%', marginLeft:10,}]} placeholder="Apellido*"/>
+          <Input placeholder="Nombre*   "/>
+          <Input style={[{paddingEnd:'37%', marginLeft:10,}]} placeholder="Apellido*"/>
         </View>
         <Input  placeholder="Email*"/>
         <Input  placeholder="Celular*"/>
@@ -38,7 +38,7 @@ const SignupComponent= () => {
         <Input  placeholder="Fecha de Parto Estimada*"/>
         <View style={styles.footer}>
         <Icon name="infocirlceo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
-          <Text style={styles.lightText}>  ¿No conoces tu fecha de parto? </Text>
+          <Light style={styles.lightText}>  ¿No conoces tu fecha de parto? </Light>
           
           <Link  onPress={toggleOverlay} >Calcúlala</Link>
             <Overlay  
@@ -56,7 +56,7 @@ const SignupComponent= () => {
       </View>
 
         <View style={styles.footer}>
-          <Text style={styles.lightText}>¿Ya tienes cuenta? </Text>
+          <Light style={styles.lightText}>¿Ya tienes cuenta? </Light>
           <Link onPress={() => {
             navigate.navigate(LOGIN)
           }}>Inicia Sesión</Link>

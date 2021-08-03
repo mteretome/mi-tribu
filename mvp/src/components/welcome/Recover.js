@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text,View,} from 'react-native';
+import {View,} from 'react-native';
 import colors from '../../assets/theme/colors';
 import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
@@ -8,6 +8,7 @@ import styles from './styles';
 import Link from '../common/Link';
 import { useNavigation } from '@react-navigation/native';
 import {FORGOTPASS,NEWPASS} from '../../constants/routeNames';
+import {Bold,Light} from '../common/Text';
 
 
 
@@ -17,8 +18,8 @@ const RecoverComponent= () => {
     
 			<WhiteContainer>
         <View style={styles.heading}>
-    			<Text style={styles.title}>Recuperar contraseña</Text>
-          <Text style={styles.subtitle}>Ya te envíamos un código, ingrésalo abajo.</Text>
+    			<Bold style={styles.title}>Recuperar contraseña</Bold>
+          <Light style={styles.subsixteen}>Ya te envíamos un código, ingrésalo abajo.</Light>
   		  </View>
 
       <View style={styles.inputContainer}>
@@ -29,7 +30,7 @@ const RecoverComponent= () => {
       </View>
 
         <View style={[styles.footer,{flexDirection:'row',alignSelf: 'center',}]}>
-          <Text style={styles.lightText}>¿Aún no recibes el código? </Text>
+          <Light style={styles.lightText}>¿Aún no recibes el código? </Light>
           <Link onPress={() => {
             navigate.navigate(FORGOTPASS)
           }}>Reenvíalo.</Link>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text,View,} from 'react-native';
+import {View,} from 'react-native';
 import colors from '../../assets/theme/colors';
 import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
@@ -7,7 +7,7 @@ import CustomButton from '../common/CustomButton';
 import styles from './styles'
 import { LOGIN } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
-
+import {Bold,Light} from '../common/Text';
 
 
 const NewComponent= () => {
@@ -16,8 +16,8 @@ const NewComponent= () => {
     
 			<WhiteContainer>
         <View style={styles.heading}>
-    			<Text style={styles.title}>Nueva contraseña</Text>
-          <Text style={styles.subtitle}>Por favor ingresa tu nueva contraseña</Text>
+    			<Bold style={styles.title}>Nueva contraseña</Bold>
+          <Light style={styles.subtitle}>Por favor ingresa tu nueva contraseña</Light>
   		  </View>
 
       <View style={styles.inputContainer}>

@@ -25,13 +25,15 @@ const Input = ({
 			style={[
 				styles.textinput, 
 				style,
-				{borderColor: getBorderColor()}]}
+				{borderColor: getBorderColor(),
+				fontFamily:'Montserrat-Light'}]}
 			onChangeText={onChangeText}
+			placeholderStyle={{fontFamily:'Montserrat-Light'}}
 			placeholderTextColor={colors.grey_lightest}
 			value={value}
 			{...props}
 		/>
-		{error && <Text style={styles.error}>{error}</Text>}
+		{error && <Light style={styles.error}>{error}</Light>}
 	</View>
 	
 	);

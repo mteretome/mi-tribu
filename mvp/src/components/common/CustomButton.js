@@ -1,8 +1,9 @@
 import React from "react";
 import {View,Text,TouchableOpacity,} from 'react-native';
-import styles from './styles'
+import styles from './styles';
 import colors from '../../assets/theme/colors';
 import LinearGradient from 'react-native-linear-gradient';
+import {Bold} from './Text';
 
 
 const CustomButton = ({
@@ -43,7 +44,7 @@ const CustomButton = ({
 			elevation: 5,
           }
         ]}> 
-	  		{title && <Text style={[styles.buttonText,textStyle]}>{title}</Text>}
+	  		{title && <Bold style={[styles.buttonText,textStyle]}>{title}</Bold>}
 		</LinearGradient>
 		</TouchableOpacity>
 		: 
@@ -63,7 +64,7 @@ const CustomButton = ({
           }
           ]}
 			onPress={onPress}>
-			{title && <Text style={[styles.buttonText,textStyle]}>{title}</Text>}
+			{title && <Bold style={[styles.buttonText,textStyle]}>{title}</Bold>}
 		</TouchableOpacity>
 	}
 	</View>
