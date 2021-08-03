@@ -7,19 +7,26 @@ import styles from './styles'
 import Icon from 'react-native-vector-icons/Feather';
 import Blob from '../../assets/images/svg/congrats.svg';
 import {Bold,Regular,ExtraBold} from '../common/Text';
-import DatePicker from 'react-native-datepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import InputSpinner from "react-native-input-spinner";
 import Swiper from 'react-native-swiper';
+import { format, addDays } from 'date-fns'
+import { es } from 'date-fns/locale'
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
-const DuedateComponent= ({toggleOverlay}) => {
+
+
+const DuedateComponent= ({toggleOverlay,duedate}) => {
+  const capitalize = require('lodash.capitalize');
   const { height, width } = Dimensions.get('window');
   const swiper = useRef(null);
   const swipe =(n) =>{
     if (swiper) swiper.current.scrollBy(n || 1)
     };
+  const [show, setShow] = useState(false);
   const [date, setDate] = useState(new Date());
-  const [cycle, setCycle] = useState(1);
+  const [cycle, setCycle] = useState(28);
   const getDate =(n) =>{
       var day = new Date().getDate();
       var month = new Date().getMonth();
@@ -28,14 +35,23 @@ const DuedateComponent= ({toggleOverlay}) => {
         return new Date(year + 1, month, day);
       }
       else{
-        return new Date(year - 1, month, day);
+        return new Date(year, month-8, day-7);
       }
   };
   const getDueDate = () => {
     var days =  280 + (28 - cycle);
-    setDate(date.getDate() + days);
+    setDate(addDays(date,days));
   };
+  const showDatePicker = () => {
+    setShow(!show);
+  };
+  const onChange = (value) => {
+    setShow(false);
+    setDate(value);
     
+    
+  };
+  
 
   const BeforeCalc= () => {
       return (  
@@ -47,24 +63,26 @@ const DuedateComponent= ({toggleOverlay}) => {
           </View>
             <View style={{marginHorizontal:20}}>
              <Regular style={styles.lightText}>¿Cuándo fue el primer día de tu último período?</Regular>
-              <DatePicker
-              date={date}
-              onDateChange={setDate}
-              maxDate={getDate(1)}
-              minDate={getDate(0)}
-              mode="date"
-              showIcon={false}
-              style={styles.textinput}
-              customStyles={{dateInput:{borderWidth: 0,},
-                            dateText:{fontFamily:'Montserrat-Light',
-                                      color:colors.grey_light,
-                                      fontSize:16},
-                            dateTouchBody:{marginVertical:3,}}}
+              <TouchableOpacity onPress={showDatePicker}>
+              <Input editable={false} style={{textAlign:'center'}}>
+              {format(date,'dd/MM/yyyy')}</Input>
+              </TouchableOpacity>
+               <DateTimePickerModal
+                isVisible={show}
+                date={date}
+                onCancel={showDatePicker}
+                onConfirm={onChange}
+                maximumDate={getDate(1)}
+                minimumDate={getDate(0)}
+                mode="date"
+                display="spinner"
               />
+              
+              
               <Regular style={styles.lightText}>Duracion habitual de tu ciclo:</Regular>
              <InputSpinner
-              max={28}
-              min={1}
+              max={40}
+              min={20}
               textColor={colors.grey_light}
               fontFamily='Montserrat-Light'
               color={colors.white}
@@ -82,7 +100,7 @@ const DuedateComponent= ({toggleOverlay}) => {
               
               />
               <CustomButton style={{marginTop:10}} 
-              onPress={() => {swipe(1);getDueDate()}}
+              onPress={() => {swipe(1);getDueDate();}}
             
               title="Calcular" gradient={true}/>
             </View>
@@ -99,7 +117,7 @@ const DuedateComponent= ({toggleOverlay}) => {
               <Bold style={{marginBottom:20,color: colors.tribu_green, fontSize:24}}>
               Tu fecha estimada de parto* es</Bold>
               <ExtraBold style={{marginBottom:20,color: colors.tribu_green, fontSize:36}}>
-              {date.toString()}</ExtraBold>        
+              {capitalize(format(date,'MMMM d, yyyy', {locale: es}))}</ExtraBold>        
             </View>
             </View>
             <CustomButton onPress={toggleOverlay}
@@ -135,8 +153,6 @@ const DuedateComponent= ({toggleOverlay}) => {
            showsButtons={false} loop={true}
            scrollEnabled={false}
            showsPagination={false}
-           
-           
            >
           <BeforeCalc/>
           <AfterCalc/>
