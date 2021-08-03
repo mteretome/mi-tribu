@@ -1,6 +1,6 @@
 import React,{useRef} from 'react';
 import Swiper from 'react-native-swiper';
-
+import { ActivityIndicator } from "react-native";
 import LoginComponent from '../../components/welcome/Login';
 import NewComponent from '../../components/welcome/New';
 import ForgotComponent from '../../components/welcome/Forgot';
@@ -24,6 +24,8 @@ const LogInPage = () => {
 	         showsButtons={false} loop={true}
 	         scrollEnabled={false}
 	         showsPagination={false}
+	         loadMinimal={true}
+	         loadMinimalLoader={<ActivityIndicator size="large" color="#359D9E"/>}
 	         >
 
 	         <LoginComponent swipe={swipe}/>

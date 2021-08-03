@@ -12,7 +12,7 @@ const LoginWrapper= ({children}) => {
  
 	return (
     <LinearContainer>
-    <Bg style={{position:'absolute'}}/>
+    <Bg  width="100%" style={{position:'absolute'}}/>
 		<Container style={styles.container}>
       <View style={styles.topBox}> 
       <Image style={styles.logo}

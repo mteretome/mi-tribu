@@ -6,12 +6,8 @@ import CustomButton from '../common/CustomButton';
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native';
 import {SIGNUP} from '../../constants/routeNames'; 
-import Wave1 from '../../assets/images/svg/wave1.svg';
-import Wave2 from '../../assets/images/svg/wave2.svg';
-import Wave3 from '../../assets/images/svg/wave3.svg';
 import Bg1 from '../../assets/images/svg/pillar1.svg';
-import Bg2 from '../../assets/images/svg/pillar2.svg';
-import Bg3 from '../../assets/images/svg/pillar3.svg';
+
 
 
 const PillarWrapper= ({children, one, two, three,swipe}) => {
@@ -21,9 +17,9 @@ const PillarWrapper= ({children, one, two, three,swipe}) => {
       
 
      <Container style={styles.container}>
-     {one && <Bg1 style={{position:'absolute'}}/>}
-      {two && <Bg2 style={{position:'absolute'}}/>}
-      {three && <Bg3 style={{position:'absolute'}}/>}
+      <Bg1 
+        width="100%" 
+        style={{position:'absolute'}}/>
       <View style={styles.pillarHead}> 
       <Image style={styles.pillarLogo}
       source={require('../../assets/images/logowelcome.png')}/>
@@ -47,9 +43,12 @@ const PillarWrapper= ({children, one, two, three,swipe}) => {
         textStyle={{fontSize:18}} title="Continuar"
         onPress={() => swipe.current.scrollTo(1) }/> }
       
-      {one && <Wave1 style={[styles.wave]}/>}
-      {two && <Wave2 style={[styles.wave]}/>}
-      {three && <Wave3 style={[styles.wave]}/>}
+      {one &&  <Image style={styles.wave}
+      source={require('../../assets/images/waves/wave1.png')}/> }
+      {two &&  <Image style={styles.wave}
+      source={require('../../assets/images/waves/wave2.png')}/> }
+      {three &&  <Image style={styles.wave}
+      source={require('../../assets/images/waves/wave3.png')}/> }
        
 
        </View>
