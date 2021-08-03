@@ -1,24 +1,41 @@
-import React, {useState} from 'react';
-import {View,TouchableOpacity} from 'react-native';
+import React, {useState,useRef} from 'react';
+import {View,TouchableOpacity,Dimensions} from 'react-native';
 import colors from '../../assets/theme/colors';
-import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import styles from './styles'
-import { LOGIN } from '../../constants/routeNames';
-import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import Blob from '../../assets/images/svg/congrats.svg';
 import {Bold,Regular,ExtraBold} from '../common/Text';
-
-
+import DatePicker from 'react-native-datepicker';
+import InputSpinner from "react-native-input-spinner";
+import Swiper from 'react-native-swiper';
 
 
 const DuedateComponent= ({toggleOverlay}) => {
-
-
-  const [calc, setCalc] = useState(true);
-  const toggle= () => {setCalc(!calc);};
+  const { height, width } = Dimensions.get('window');
+  const swiper = useRef(null);
+  const swipe =(n) =>{
+    if (swiper) swiper.current.scrollBy(n || 1)
+    };
+  const [date, setDate] = useState(new Date());
+  const [cycle, setCycle] = useState(1);
+  const getDate =(n) =>{
+      var day = new Date().getDate();
+      var month = new Date().getMonth();
+      var year = new Date().getFullYear();
+      if(n==1){
+        return new Date(year + 1, month, day);
+      }
+      else{
+        return new Date(year - 1, month, day);
+      }
+  };
+  const getDueDate = () => {
+    var days =  280 + (28 - cycle);
+    setDate(date.getDate() + days);
+  };
+    
 
   const BeforeCalc= () => {
       return (  
@@ -30,11 +47,43 @@ const DuedateComponent= ({toggleOverlay}) => {
           </View>
             <View style={{marginHorizontal:20}}>
              <Regular style={styles.lightText}>¿Cuándo fue el primer día de tu último período?</Regular>
-              <Input placeholder="DD/MM/YYYY*"/>
+              <DatePicker
+              date={date}
+              onDateChange={setDate}
+              maxDate={getDate(1)}
+              minDate={getDate(0)}
+              mode="date"
+              showIcon={false}
+              style={styles.textinput}
+              customStyles={{dateInput:{borderWidth: 0,},
+                            dateText:{fontFamily:'Montserrat-Light',
+                                      color:colors.grey_light,
+                                      fontSize:16},
+                            dateTouchBody:{marginVertical:3,}}}
+              />
               <Regular style={styles.lightText}>Duracion habitual de tu ciclo:</Regular>
-              <Input placeholder="Dias*"/>
+             <InputSpinner
+              max={28}
+              min={1}
+              textColor={colors.grey_light}
+              fontFamily='Montserrat-Light'
+              color={colors.white}
+              background={colors.white}
+              buttonPressTextColor={colors.tribu_blue}
+              buttonTextStyle={{color: colors.grey_light }}
+              buttonStyle={{borderRadius:10}}
+              continuity ={true}
+              value={cycle}
+              buttonTextColor={colors.tribu_green}
+              rounded={true}
+              onChange={(num) => {
+              setCycle(num);
+              }}
+              
+              />
+              <CustomButton style={{marginTop:10}} 
+              onPress={() => {swipe(1);getDueDate()}}
             
-              <CustomButton style={{marginTop:10}} onPress={toggle} 
               title="Calcular" gradient={true}/>
             </View>
           </View>
@@ -50,7 +99,7 @@ const DuedateComponent= ({toggleOverlay}) => {
               <Bold style={{marginBottom:20,color: colors.tribu_green, fontSize:24}}>
               Tu fecha estimada de parto* es</Bold>
               <ExtraBold style={{marginBottom:20,color: colors.tribu_green, fontSize:36}}>
-              Diciembre 2, 2021</ExtraBold>        
+              {date.toString()}</ExtraBold>        
             </View>
             </View>
             <CustomButton onPress={toggleOverlay}
@@ -77,8 +126,18 @@ const DuedateComponent= ({toggleOverlay}) => {
         />
         </TouchableOpacity>
       
-      {calc ? <BeforeCalc/> :
-      <AfterCalc/> }
+      <Swiper 
+           ref={swiper}
+           showsButtons={false} loop={true}
+           scrollEnabled={false}
+           showsPagination={false}
+           height={height/2}
+          width={width}
+           
+           >
+          <BeforeCalc/>
+          <AfterCalc/>
+           </Swiper>
        
 
       </View>

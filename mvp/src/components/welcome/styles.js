@@ -88,5 +88,16 @@ export default StyleSheet.create({
     alignSelf:'center',
     fontSize:16,
     textAlign:'center'
-  }
+  },
+  textinput: {
+    backgroundColor: colors.white,
+    color: colors.grey_lightest,
+    borderRadius: 10,
+    
+    paddingHorizontal:20,
+    marginVertical:5,
+    width: '100%',
+
+  },
+ 
 });

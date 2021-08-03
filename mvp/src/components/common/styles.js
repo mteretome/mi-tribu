@@ -6,16 +6,16 @@ export default StyleSheet.create({
 	inputContainer: {
 		marginVertical:5,
 	},
-	textinput: {
-		backgroundColor: colors.white,
-		color: colors.grey_lightest,
-		borderRadius: 10,
-		borderWidth: 1,
-		paddingHorizontal:20,
-		marginVertical:5,
-		width: '100%',
+ textinput: {
+    backgroundColor: colors.white,
+    color: colors.grey_lightest,
+    borderRadius: 10,
+    borderWidth:1,
+    paddingHorizontal:20,
+    marginVertical:5,
+    width: '100%',
 
-	},
+  },
 	whiteBox:{
   	backgroundColor: 'rgba(255,255,255,0.8)',
   	flex:5,
