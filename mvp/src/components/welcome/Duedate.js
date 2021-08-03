@@ -117,7 +117,11 @@ const DuedateComponent= ({toggleOverlay}) => {
 
 	return (
  
-			<View>
+			<View style={{
+            flexShrink:1, 
+            height:height*0.5,
+            width:width*0.85
+          }}>
       <TouchableOpacity onPress={toggleOverlay}>
         <Icon
         name="x" size={40} 
@@ -126,13 +130,12 @@ const DuedateComponent= ({toggleOverlay}) => {
         />
         </TouchableOpacity>
       
-      <Swiper 
+          <Swiper 
            ref={swiper}
            showsButtons={false} loop={true}
            scrollEnabled={false}
            showsPagination={false}
-           height={height/2}
-          width={width}
+           
            
            >
           <BeforeCalc/>
