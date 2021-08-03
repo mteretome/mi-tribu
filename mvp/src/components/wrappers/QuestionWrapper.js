@@ -20,7 +20,7 @@ const QuestionWrapper= ({children,final,notFirst,swiper}) => {
           {notFirst ?
               <TouchableOpacity style={{alignSelf:"flex-start"}} 
               onPress={() => {swipe(-1)}}>
-              <Icon name="arrow-back" size={25} color={colors.grey_dark} />
+              <Icon name="arrow-back" size={25} color={colors.grey_lightest} />
             </TouchableOpacity> 
             :
             <View style={{marginTop:25}}></View>

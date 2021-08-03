@@ -1,20 +1,21 @@
 import React from 'react';
-import {View,} from 'react-native';
+import {View,TouchableOpacity} from 'react-native';
 import colors from '../../assets/theme/colors';
-import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import styles from './styles'
-import { LOGIN } from '../../constants/routeNames';
-import { useNavigation } from '@react-navigation/native';
 import {Bold,Light} from '../common/Text';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
-const NewComponent= () => {
-  const navigate= useNavigation();
+const NewComponent= ({swipe}) => {
 	return (
     
-			<WhiteContainer>
+			<View>
+        <TouchableOpacity style={{alignSelf:"flex-start", position:'absolute'}} 
+              onPress={() => {swipe(-1)}}>
+              <Icon name="arrow-back" size={25} color={colors.grey_lightest} />
+        </TouchableOpacity> 
         <View style={styles.heading}>
     			<Bold style={styles.title}>Nueva contraseña</Bold>
           <Light style={styles.subtitle}>Por favor ingresa tu nueva contraseña</Light>
@@ -26,12 +27,11 @@ const NewComponent= () => {
         <Input placeholder="Repite tu nueva contraseña"
         secureTextEntry={true}/>
         
-        <CustomButton onPress={() => {
-            navigate.navigate(LOGIN)
-          }} title="Guardar y Continuar" gradient={true}/>
+        <CustomButton onPress={() => swipe(1) }
+         title="Guardar y Continuar" gradient={true}/>
       </View>
 
-      </WhiteContainer>
+      </View>
 		
 	);
 };

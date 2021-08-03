@@ -12,10 +12,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {Bold,Light} from '../common/Text';
 
 
-const LoginComponent= () => {
+const LoginComponent= ({swipe}) => {
   const navigate= useNavigation();
 	return (
-<WhiteContainer >
+<View >
 		
         <View style={styles.heading}>
     			<Bold style={styles.title}>¡Bienvenida de vuelta!</Bold>
@@ -31,9 +31,8 @@ const LoginComponent= () => {
         <View style={styles.footer}>
            <Icon name="questioncircleo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
           <Light style={styles.lightText}>  ¿Se te olvidó tu contraseña? </Light>
-          <Link style={[{color:colors.grey_dark}]} onPress={() => {
-            navigate.navigate(FORGOTPASS)
-          }}>Recupérala.</Link>
+          <Link style={[{color:colors.grey_dark}]}  onPress={() => swipe(1) }>
+          Recupérala.</Link>
           </View>
         <CustomButton title="Inicia Sesión" gradient={true}/>
       </View>
@@ -46,7 +45,7 @@ const LoginComponent= () => {
           }}>Crea una nueva cuenta.</Link>
       </View>
 	
-    </WhiteContainer>
+    </View>
 	);
 };
 

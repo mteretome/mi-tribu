@@ -1,20 +1,21 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View,TouchableOpacity} from 'react-native';
 import colors from '../../assets/theme/colors';
-import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import styles from './styles'
-import { RECOVER } from '../../constants/routeNames';
-import { useNavigation } from '@react-navigation/native';
 import {Bold,Light} from '../common/Text';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
-const ForgotComponent= () => {
-  const navigate= useNavigation();
+const ForgotComponent= ({swipe}) => {
 	return (
     
-			<WhiteContainer>
+			<View>
+        <TouchableOpacity style={{alignSelf:"flex-start", position:'absolute'}} 
+          onPress={() => {swipe(-1)}}>
+          <Icon name="arrow-back" size={25} color={colors.grey_lightest} />
+        </TouchableOpacity> 
         <View style={styles.heading}>
     			<Bold style={styles.title}>Recuperar contraseña</Bold>
           <Light style={styles.subtitle}>Te enviaremos un código a tu celular o email.</Light>
@@ -28,12 +29,11 @@ const ForgotComponent= () => {
         // error={'Either email or password is incorrect!'}
         />
         
-        <CustomButton onPress={() => {
-            navigate.navigate(RECOVER)
-          }} title="Enviar código" gradient={true}/>
+        <CustomButton onPress={() => swipe(1) }
+        title="Enviar código" gradient={true}/>
       </View>
 
-      </WhiteContainer>
+      </View>
 		
 	);
 };

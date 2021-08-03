@@ -1,22 +1,23 @@
 import React from 'react';
-import {View,} from 'react-native';
+import {View,TouchableOpacity} from 'react-native';
 import colors from '../../assets/theme/colors';
-import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
 import styles from './styles';
 import Link from '../common/Link';
-import { useNavigation } from '@react-navigation/native';
-import {FORGOTPASS,NEWPASS} from '../../constants/routeNames';
 import {Bold,Light} from '../common/Text';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
-const RecoverComponent= () => {
-  const navigate= useNavigation();
+const RecoverComponent= ({swipe}) => {
 	return (
     
-			<WhiteContainer>
+			<View>
+        <TouchableOpacity style={{alignSelf:"flex-start", position:'absolute'}} 
+          onPress={() => {swipe(-1)}}>
+          <Icon name="arrow-back" size={25} color={colors.grey_lightest} />
+        </TouchableOpacity> 
         <View style={styles.heading}>
     			<Bold style={styles.title}>Recuperar contraseña</Bold>
           <Light style={styles.subsixteen}>Ya te envíamos un código, ingrésalo abajo.</Light>
@@ -26,16 +27,14 @@ const RecoverComponent= () => {
         <Input placeholder="Código de Seguridad"/>
         
         <CustomButton title="Recordar mi contraseña" gradient={true}
-        onPress={() => {navigate.navigate(NEWPASS)}}/>
+       onPress={() => swipe(1) }/>
       </View>
 
         <View style={[styles.footer,{flexDirection:'row',alignSelf: 'center',}]}>
           <Light style={styles.lightText}>¿Aún no recibes el código? </Light>
-          <Link onPress={() => {
-            navigate.navigate(FORGOTPASS)
-          }}>Reenvíalo.</Link>
+          <Link onPress={() => swipe(-1) }>Reenvíalo.</Link>
       </View>
-      </WhiteContainer>
+      </View>
 
 	);
 };
