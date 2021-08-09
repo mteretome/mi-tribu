@@ -1,4 +1,4 @@
-import React, {useState,useRef} from 'react';
+import React, {useState,useRef,useEffect} from 'react';
 import {View,TouchableOpacity,Dimensions} from 'react-native';
 import colors from '../../assets/theme/colors';
 import Input from '../common/Input';
@@ -7,7 +7,6 @@ import styles from './styles'
 import Icon from 'react-native-vector-icons/Feather';
 import Blob from '../../assets/images/svg/congrats.svg';
 import {Bold,Regular,ExtraBold} from '../common/Text';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import InputSpinner from "react-native-input-spinner";
 import Swiper from 'react-native-swiper';
 import { format, addDays } from 'date-fns'
@@ -17,7 +16,7 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 
-const DuedateComponent= ({toggleOverlay,duedate}) => {
+const DuedateComponent= ({toggleOverlay,duedate, parentSet}) => {
   const capitalize = require('lodash.capitalize');
   const { height, width } = Dimensions.get('window');
   const swiper = useRef(null);
@@ -27,20 +26,26 @@ const DuedateComponent= ({toggleOverlay,duedate}) => {
   const [show, setShow] = useState(false);
   const [date, setDate] = useState(new Date());
   const [cycle, setCycle] = useState(28);
-  const getDate =(n) =>{
+
+ const getDate =(n) =>{
       var day = new Date().getDate();
       var month = new Date().getMonth();
       var year = new Date().getFullYear();
       if(n==1){
+        return new Date();
+      }
+      else if(n==2){
         return new Date(year + 1, month, day);
       }
       else{
-        return new Date(year, month-8, day-7);
+        return new Date(year, month-10, day-9);
       }
   };
+  
   const getDueDate = () => {
     var days =  280 + (28 - cycle);
     setDate(addDays(date,days));
+
   };
   const showDatePicker = () => {
     setShow(!show);
@@ -49,9 +54,11 @@ const DuedateComponent= ({toggleOverlay,duedate}) => {
     setShow(false);
     setDate(value);
     
-    
   };
   
+  useEffect(() => {
+    parentSet(date);
+  }, [parentSet, date]);
 
   const BeforeCalc= () => {
       return (  

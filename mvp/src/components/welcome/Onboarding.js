@@ -11,6 +11,7 @@ import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import QuestionWrapper from '../wrappers/QuestionWrapper';
 import {Bold,Light,Regular} from '../common/Text';
+import { ProgressBar } from 'react-native-paper';
 
 
 const OnboardingComponent= () => {
@@ -27,36 +28,20 @@ const OnboardingComponent= () => {
               </Light>
             
             
-
+              <ProgressBar progress={0.15} color={colors.tribu_green}
+           style={{backgroundColor: colors.grey_lightest}} />
       		  </View>
          <Swiper 
          ref={swiper}
          showsButtons={false} loop={false}
          scrollEnabled={false}
-         paginationStyle={{top:-270,}}
-         dot={
-            <View
-              style={{
-                backgroundColor: colors.grey_lightest,
-                width: 8,
-                height: 3,
-              }}
-            />
-          }
-          activeDot={
-            <View
-              style={{
-                backgroundColor: colors.tribu_green,
-                width: 12,
-                height: 5,
-
-              }}
-            />
-          }
+         showsPagination={false}
+        
          >
 
           <View style={styles.onboardSlides}>
-            <QuestionWrapper swiper={swiper}  >
+           
+            <QuestionWrapper swiper={swiper} >
             <Regular style={styles.question}> 
             ¿Cuál es tu relación con el bebé? </Regular>
 
@@ -64,6 +49,8 @@ const OnboardingComponent= () => {
           </View>
 
           <View style={styles.onboardSlides} >
+           <ProgressBar progress={0.30} color={colors.tribu_green}
+           style={{backgroundColor: colors.grey_lightest}} />
             <QuestionWrapper swiper={swiper} notFirst={true}>
               <Regular style={styles.question}>
               ¿Te atiendes principalmente en el sector público o privado?</Regular>
@@ -71,6 +58,8 @@ const OnboardingComponent= () => {
           </View>
 
            <View style={styles.onboardSlides} >
+            <ProgressBar progress={0.45} color={colors.tribu_green}
+           style={{backgroundColor: colors.grey_lightest}} />
             <QuestionWrapper swiper={swiper} notFirst={true}>
               <Regular style={styles.question}>
               ¿Cuándo es tu cumpleaños?</Regular>
@@ -78,6 +67,8 @@ const OnboardingComponent= () => {
           </View>
 
            <View style={styles.onboardSlides} >
+            <ProgressBar progress={0.60} color={colors.tribu_green}
+           style={{backgroundColor: colors.grey_lightest}} />
             <QuestionWrapper swiper={swiper} notFirst={true}>
               <Regular style={styles.question}>
               ¿Dónde vives?</Regular>
@@ -85,6 +76,8 @@ const OnboardingComponent= () => {
           </View>
 
            <View style={styles.onboardSlides} >
+            <ProgressBar progress={0.75} color={colors.tribu_green}
+           style={{backgroundColor: colors.grey_lightest}} />
             <QuestionWrapper swiper={swiper} notFirst={true}>
               <Regular  style={styles.question}>
               Laboralmente, actualmente estás... </Regular>
@@ -92,6 +85,8 @@ const OnboardingComponent= () => {
           </View>
 
           <View style={styles.onboardSlides} >
+           <ProgressBar progress={0.9} color={colors.tribu_green}
+           style={{backgroundColor: colors.grey_lightest}} />
             <QuestionWrapper swiper={swiper} notFirst={true} final={true}>
               <Regular  style={styles.question}>
               ¿Qué número de hijo o hija es el que estás esperando? </Regular>
