@@ -2,16 +2,17 @@ import React from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
 import styles from './styles';
 import colors from '../../assets/theme/colors';
+import {Bold} from './Text';
 
 const Link = ({style,children,onPress}) => {
 	
 	return (
 		<TouchableOpacity onPress={onPress}>
-	  	<Text style={[
+	  	<Bold style={[
 				styles.link, 
 				style]}>
 				{children}
-				</Text>
+				</Bold>
 		</TouchableOpacity>
 	);
 };

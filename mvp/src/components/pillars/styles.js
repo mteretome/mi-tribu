@@ -8,22 +8,22 @@ export default StyleSheet.create({
    alignItems:'center'
   },
   title: {
-    fontWeight: 'bold',
     fontSize: 32,
     color: colors.grey_darkest,
     marginVertical: 10,
+    textAlign:'center'
   },
   subtitle:{
-  	fontWeight: '300',
   	color: colors.white,
-  	fontSize: 28,
+  	fontSize: 24,
   	textAlign: 'center',
     marginVertical: 10,
   },
   textContainer:{
     marginVertical: 10,
-    paddingHorizontal: 30,
-     alignItems:'center'
+    paddingHorizontal: 50,
+    alignItems:'center',
+    textAlign:'center'
   },
   pillarLady:{
     left:80,

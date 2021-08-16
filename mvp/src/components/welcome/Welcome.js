@@ -7,6 +7,7 @@ import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import Container from '../common/LinearContainer';
 import Logo from '../../assets/images/svg/welcomeLogo.svg';
+import {Bold,Regular} from '../common/Text';
 
 
 
@@ -18,10 +19,10 @@ const WelcomeComponent= () => {
       <LinearContainer>
        <Container style={styles.container}>
         <View style={styles.heading}>
-          <Text style={styles.whiteTitle}>
+          <Bold style={styles.whiteTitle}>
           Bienvenida,
-          #Name</Text>
-          <Text style={styles.subtitle}>Te estábamos esperando.</Text>
+          #Name</Bold>
+          <Regular style={styles.subtitle}>Te estábamos esperando.</Regular>
         </View>
     <View style={{flexShrink:1,flexDirection:"row"}}>
     

@@ -10,8 +10,8 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 // react-native-splash-screen >= 0.3.1
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
 // react-native-splash-screen < 0.3.1
 
 public class MainApplication extends Application implements ReactApplication {
@@ -29,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           //packages.add(new SplashScreenReactPackage());
+          //packages.add(new RNDateTimePickerPackage());
           return packages;
           // return Arrays.<ReactPackage>asList(new MainReactPackage(),new SplashScreenReactPackage()  //here);
         }

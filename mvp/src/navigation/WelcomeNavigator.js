@@ -22,10 +22,7 @@ import {
 
 
 import Login from '../screens/welcome/Login';
-import Forgot from '../screens/welcome/Forgot';
-import Recover from '../screens/welcome/Recover';
 import Signup from '../screens/welcome/Signup';
-import New from '../screens/welcome/New';
 import Onboard from '../screens/welcome/Onboard';
 import Congrats from '../screens/welcome/Congrats';
 import Welcome from '../screens/welcome/Welcome';
@@ -49,9 +46,6 @@ const WelcomeNav = () => {
 
     <WelcomeStack.Navigator screenOptions={{headerShown: false}} initialRouteName={PILLARS}>
 		<WelcomeStack.Screen name={LOGIN} component={Login}></WelcomeStack.Screen>
-    <WelcomeStack.Screen name={FORGOTPASS} component={Forgot}></WelcomeStack.Screen>
-    <WelcomeStack.Screen name={NEWPASS} component={New}></WelcomeStack.Screen>
-    <WelcomeStack.Screen name={RECOVER} component={Recover}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={SIGNUP} component={Signup}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={ONBOARD} component={Onboard}></WelcomeStack.Screen>
     <WelcomeStack.Screen name={CONGRATS} component={Congrats}></WelcomeStack.Screen>

@@ -51,13 +51,13 @@ export default StyleSheet.create({
     flex:1,
 
   },
-  wave:{
-    alignItems: 'stretch',
-    alignContent: 'stretch',
-  },
   floating:{
     alignSelf:'center',
     zIndex: 1,
+  },
+  wave:{
+
+  width:'100%'
   }
 
 });

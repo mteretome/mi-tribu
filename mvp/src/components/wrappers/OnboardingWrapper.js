@@ -4,7 +4,8 @@ import colors from '../../assets/theme/colors';
 import Container from '../common/Container';
 import LinearContainer from '../common/LinearContainer';
 import styles from './styles';
-import Bg from '../../assets/images/svg/onboarding.svg';
+import Bg from '../../assets/images/svg/pillar1.svg';
+
 
 
 
@@ -12,7 +13,7 @@ const OnboardingWrapper= ({children}) => {
  
 	return (
     <LinearContainer>
-    <Bg style={{position:'absolute'}}/>
+    <Bg width="100%"  style={{position:'absolute'}}/>
 		<Container style={styles.container}>
       <View style={styles.topBox}> 
       <Image style={styles.logo}

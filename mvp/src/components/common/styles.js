@@ -6,16 +6,16 @@ export default StyleSheet.create({
 	inputContainer: {
 		marginVertical:5,
 	},
-	textinput: {
-		backgroundColor: colors.white,
-		color: colors.grey_lightest,
-		borderRadius: 10,
-		borderWidth: 1,
-		paddingHorizontal:20,
-		marginVertical:5,
-		width: '100%',
+ textinput: {
+    backgroundColor: colors.white,
+    color: colors.grey_lightest,
+    borderRadius: 10,
+    borderWidth:1,
+    paddingHorizontal:20,
+    marginVertical:5,
+    width: '100%',
 
-	},
+  },
 	whiteBox:{
   	backgroundColor: 'rgba(255,255,255,0.8)',
   	flex:5,
@@ -32,7 +32,7 @@ export default StyleSheet.create({
 		fontSize:10
 	},
 	button : {
-		paddingHorizontal:60,
+		paddingHorizontal:40,
     	paddingVertical: 18,
     	marginVertical:5,
     	alignItems:'center',
@@ -41,11 +41,9 @@ export default StyleSheet.create({
 	},
 	buttonText : {
 		color: colors.white,
-		fontWeight: 'bold',
-		fontSize: 16
+		fontSize: 20
 	},
 	link: {
-		fontWeight: 'bold',
 		textDecorationLine: 'underline',
 		color: colors.tribu_green,
 		fontSize: 16,

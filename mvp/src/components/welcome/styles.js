@@ -5,16 +5,19 @@ import colors from '../../assets/theme/colors';
 
 export default StyleSheet.create({
   title: {
-    fontWeight: 'bold',
     fontSize: 20,
     color: colors.black,
     marginVertical: 5,
   },
   subtitle:{
-  	fontWeight: '300',
   	color: colors.black,
   	fontSize: 18,
   	textAlign: 'center'
+  },
+  subsixteen:{
+    color: colors.black,
+    fontSize: 16,
+    textAlign: 'center'
   },
   heading:{
   	alignItems: 'center',
@@ -29,17 +32,15 @@ export default StyleSheet.create({
   },
 
   lightText: {
-  	fontWeight: '300',
   	color: colors.black,
-  	fontSize: 16,
+  	fontSize: 14,
   	marginVertical: 5,
   	alignSelf:'center'
   },
   congratsSub: { 
     color: colors.tribu_green,
-    fontSize:18, 
+    fontSize:16, 
     marginBottom:30,
-    fontWeight:'200',
   },
   container:{
     paddingHorizontal:60,
@@ -49,8 +50,7 @@ export default StyleSheet.create({
     justifyContent:'center'
   },
   whiteTitle:{
-    fontWeight: 'bold',
-    fontSize: 48,
+    fontSize: 46,
     color: colors.white,
     textAlign: 'center',
     marginVertical:30
@@ -72,11 +72,32 @@ export default StyleSheet.create({
     right:35,
     bottom:120
 
-  }
+  },
+  overlay:{
+    backgroundColor: 'rgba(255,255,255,0.9)',
+    borderRadius: 30,
+    paddingHorizontal:20,
+    paddingBottom:30,
+    paddingTop:20
+  },
+  onboardSlides:{
+    flexShrink:1,
+    marginTop:30,
+  },
+  question:{
+    alignSelf:'center',
+    fontSize:16,
+    textAlign:'center'
+  },
+  textinput: {
+    backgroundColor: colors.white,
+    color: colors.grey_lightest,
+    borderRadius: 10,
+    
+    paddingHorizontal:20,
+    marginVertical:5,
+    width: '100%',
 
-
-
-
-
-
+  },
+ 
 });

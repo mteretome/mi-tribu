@@ -1,8 +1,9 @@
 import React from "react";
 import {View,Text,TouchableOpacity,} from 'react-native';
-import styles from './styles'
+import styles from './styles';
 import colors from '../../assets/theme/colors';
 import LinearGradient from 'react-native-linear-gradient';
+import {Bold} from './Text';
 
 
 const CustomButton = ({
@@ -32,7 +33,7 @@ const CustomButton = ({
 	     colors={[colors.tribu_green, colors.tribu_blue]}
 	     style={
 			[styles.button,
-			{shadowColor: colors.tribu_green,
+			{shadowColor:  colors.tribu_blue,
 			shadowOffset: {
 				width: 0,
 				height: 5,
@@ -40,10 +41,10 @@ const CustomButton = ({
 			shadowOpacity: 0.5,
 			shadowRadius: 0.5,
 
-			elevation: 5,
+			elevation: 3,
           }
         ]}> 
-	  		{title && <Text style={[styles.buttonText,textStyle]}>{title}</Text>}
+	  		{title && <Bold style={[styles.buttonText,textStyle]}>{title}</Bold>}
 		</LinearGradient>
 		</TouchableOpacity>
 		: 
@@ -51,7 +52,7 @@ const CustomButton = ({
 			[styles.button,
 			style,
 			{backgroundColor: getBgColor(),
-			shadowColor: colors.tribu_green,
+			shadowColor:  colors.tribu_blue,
 			shadowOffset: {
 				width: 0,
 				height: 5,
@@ -59,11 +60,11 @@ const CustomButton = ({
 			shadowOpacity: 0.5,
 			shadowRadius: 0.5,
 
-			elevation: 5,
+			elevation: 3,
           }
           ]}
 			onPress={onPress}>
-			{title && <Text style={[styles.buttonText,textStyle]}>{title}</Text>}
+			{title && <Bold style={[styles.buttonText,textStyle]}>{title}</Bold>}
 		</TouchableOpacity>
 	}
 	</View>

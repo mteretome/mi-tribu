@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text,View} from 'react-native';
+import {View} from 'react-native';
 import colors from '../../assets/theme/colors';
 import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
@@ -8,16 +8,18 @@ import Link from '../common/Link';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import {FORGOTPASS,SIGNUP} from '../../constants/routeNames'; 
+import Icon from 'react-native-vector-icons/AntDesign';
+import {Bold,Light} from '../common/Text';
 
 
-const LoginComponent= () => {
+const LoginComponent= ({swipe}) => {
   const navigate= useNavigation();
 	return (
-<WhiteContainer >
+<View >
 		
         <View style={styles.heading}>
-    			<Text style={styles.title}>¡Bienvenida de vuelta!</Text>
-          <Text style={styles.subtitle}>Inicia sesión para comenzar.</Text>
+    			<Bold style={styles.title}>¡Bienvenida de vuelta!</Bold>
+          <Light style={styles.subtitle}>Inicia sesión para comenzar.</Light>
   		  </View>
 
       <View style={styles.inputContainer}>
@@ -27,24 +29,23 @@ const LoginComponent= () => {
         // error={'Either email or password is incorrect!'}
         />
         <View style={styles.footer}>
-          
-          <Text style={styles.lightText}>¿Se te olvidó tu contraseña? </Text>
-          <Link style={[{color:colors.grey_dark}]} onPress={() => {
-            navigate.navigate(FORGOTPASS)
-          }}>Recupérala.</Link>
+           <Icon name="questioncircleo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
+          <Light style={styles.lightText}>  ¿Se te olvidó tu contraseña? </Light>
+          <Link style={[{color:colors.grey_dark}]}  onPress={() => swipe(1) }>
+          Recupérala.</Link>
           </View>
         <CustomButton title="Inicia Sesión" gradient={true}/>
       </View>
 
         <View style={styles.footer}>
          
-          <Text style={styles.lightText}>¿No tienes cuenta? </Text>
+          <Light style={styles.lightText}>¿No tienes cuenta? </Light>
           <Link onPress={() => {
             navigate.navigate(SIGNUP)
           }}>Crea una nueva cuenta.</Link>
       </View>
 	
-    </WhiteContainer>
+    </View>
 	);
 };
 
