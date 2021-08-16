@@ -41,7 +41,7 @@ const CustomButton = ({
 			shadowOpacity: 0.5,
 			shadowRadius: 0.5,
 
-			elevation: 3,
+			elevation: 5,
           }
         ]}> 
 	  		{title && <Bold style={[styles.buttonText,textStyle]}>{title}</Bold>}
@@ -60,7 +60,7 @@ const CustomButton = ({
 			shadowOpacity: 0.5,
 			shadowRadius: 0.5,
 
-			elevation: 3,
+			elevation: 5,
           }
           ]}
 			onPress={onPress}>

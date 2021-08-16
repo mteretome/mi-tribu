@@ -1,21 +1,15 @@
 import React, {useRef} from 'react';
-import {View,TouchableOpacity} from 'react-native';
+import {View} from 'react-native';
 import colors from '../../assets/theme/colors';
 import NoScrollContainer from '../common/NoScrollContainer';
-import Input from '../common/Input';
-import CustomButton from '../common/CustomButton';
 import styles from './styles'
-import { WELCOME} from '../../constants/routeNames';
-import { useNavigation } from '@react-navigation/native';
 import Swiper from 'react-native-swiper';
-import Icon from 'react-native-vector-icons/Ionicons';
 import QuestionWrapper from '../wrappers/QuestionWrapper';
 import {Bold,Light,Regular} from '../common/Text';
 import { ProgressBar } from 'react-native-paper';
 
 
 const OnboardingComponent= () => {
-  const navigate= useNavigation();
   const swiper = useRef(null);
 
 	return (

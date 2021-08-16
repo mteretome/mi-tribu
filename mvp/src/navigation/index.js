@@ -1,23 +1,13 @@
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import {Text} from 'react-native';
 
 import DevPage from '../screens/DevPage';
 import WelcomeNavigator from './WelcomeNavigator';
 import {createStackNavigator} from '@react-navigation/stack';
-import LinearContainer from '../components/common/LinearContainer';
+import DashboardNavigator from './DashboardNavigator';
 
 const RootStack = createStackNavigator();
-
-
-const Dashboard = () => {
-  return (
-    <LinearContainer style={{flex:1,justifyContent:'center', alignItems:'center'}}>
-      <Text>DASHBOARD</Text>
-    </LinearContainer>
-  );
-};
 
 
 const AppNavContainer = () =>{
@@ -26,7 +16,7 @@ const AppNavContainer = () =>{
        <RootStack.Navigator screenOptions={{headerShown: false}} >
           <RootStack.Screen name="DevPage" component={DevPage} />
           <RootStack.Screen name="Welcome" component={WelcomeNavigator} />
-          <RootStack.Screen name="Dashboard" component={Dashboard} />
+          <RootStack.Screen name="Dashboard" component={DashboardNavigator} />
       </RootStack.Navigator>
     </NavigationContainer>
   );

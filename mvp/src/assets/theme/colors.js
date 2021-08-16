@@ -10,4 +10,6 @@ export default {
     white: '#ffffff',
     off_white: '#F9F7F6',
     black: '#333333',
+    pressed_green: '#70B2B7',
+    soft_blue: '#8FC5D2'
 }
