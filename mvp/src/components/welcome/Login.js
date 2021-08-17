@@ -34,7 +34,8 @@ const LoginComponent= ({swipe}) => {
           <Link style={[{color:colors.grey_dark}]}  onPress={() => swipe(1) }>
           Recupérala.</Link>
           </View>
-        <CustomButton title="Inicia Sesión" gradient={true}/>
+        <CustomButton title="Inicia Sesión" onPress={() => {navigate.navigate('Dashboard')}}
+        gradient={true}/>
       </View>
 
         <View style={styles.footer}>

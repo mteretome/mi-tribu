@@ -80,14 +80,11 @@ export default StyleSheet.create({
     paddingBottom:30,
     paddingTop:20
   },
-  onboardSlides:{
-    flexShrink:1,
-    marginTop:30,
-  },
   question:{
     alignSelf:'center',
-    fontSize:16,
-    textAlign:'center'
+    fontSize:18,
+    textAlign:'center',
+    marginBottom:15,
   },
   textinput: {
     backgroundColor: colors.white,

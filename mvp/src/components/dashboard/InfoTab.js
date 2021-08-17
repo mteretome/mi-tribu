@@ -5,7 +5,7 @@ import colors from '../../assets/theme/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import { View } from 'react-native';
-import styles from '../wrappers/styles';
+import styles from './styles';
 
 
 
