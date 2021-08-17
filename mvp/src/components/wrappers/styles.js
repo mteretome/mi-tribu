@@ -56,8 +56,7 @@ export default StyleSheet.create({
     zIndex: 1,
   },
   wave:{
-
-  width:'100%'
-  }
+    width:'100%'
+  },
 
 });

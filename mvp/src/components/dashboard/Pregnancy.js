@@ -6,10 +6,10 @@ import Bg from '../../assets/images/svg/pregnancy.svg';
 import styles from './styles';
 import Link from '../../components/common/Link';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import WhiteContainer from '../../components/common/WhiteContainer';
-import WeekNavigator from '../wrappers/WeekNav';
+import WeeklyFruit from './WeeklyFruit';
+import InfoTab from './InfoTab';
 
-const PregnancyComponent = () => {
+const PregnancyComponent = ({week}) => {
     return (
     
       <LinearContainer style={{flex:1}}>
@@ -18,15 +18,16 @@ const PregnancyComponent = () => {
             <Bold style={styles.heading}>Hola #Name,</Bold>
             <View style={styles.subheader}>
                 <Regular style={styles.subheading} >Estás en tu </Regular>
-                <Link style={{fontSize:20}}>Semana #</Link>
+                <Link style={{fontSize:20}}>Semana {week}</Link>
                 <Link style={{top:5}}>
                     <Icon name="keyboard-arrow-down" size={30} />
                 </Link>
             </View>
         </View>
-        <WhiteContainer>
-            <WeekNavigator/>
-        </WhiteContainer>
+
+        <WeeklyFruit fruit="frutilla" weight="2" size="2,5"/>
+
+        <InfoTab body="cuerpo info" baby="bebe info" symptoms="sintomas info"/>
         
       </LinearContainer>
     );
