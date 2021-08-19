@@ -15,39 +15,28 @@ export default StyleSheet.create({
         
     },
     header:{
-        marginTop:20,
+        marginVertical:20,
         marginHorizontal:20,
         
         justifyContent: 'flex-start',
-        flex:2
+        flex:1
     },
     subheader:{ 
         alignItems: 'center',
         marginVertical:5,
         flexDirection:'row',
     },
-    floatingLeft: {
-        position:'absolute',
-        alignItems:'center',
-        justifyContent:'center',
-        alignSelf:'flex-end',
-        bottom:85,
-        right:9
+    floating: {
+      alignItems:'center',
+      justifyContent:'center',
+      alignSelf:'center',
+      alignContent:'center',
     },
-    floatingCenter: {
-        position:'absolute',
-        alignItems:'center',
-        justifyContent:'center',
-        alignSelf:'center',
-        bottom:25
-    },
-    floatingRight: {
-        position:'absolute',
-        alignItems:'center',
-        justifyContent:'center',
-        alignSelf:'flex-start',
-        bottom:85,
-        left:21
+    floatingMiddle: {
+      flexDirection:'row',
+      position:'absolute',
+      paddingTop:50,
+      paddingLeft:15
     },
     tabBar:{
       backgroundColor: 'rgba(255,255,255,0.0)',
@@ -55,9 +44,7 @@ export default StyleSheet.create({
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
       color:colors.tribu_green,
-      marginHorizontal:3,
-      marginVertical:12,
-      padding:3,
+      padding:5,
     },
     labelFocused:{ 
       color:colors.tribu_green, 
@@ -70,11 +57,33 @@ export default StyleSheet.create({
       marginHorizontal:3
     },
     tabview:{
-      flex:6,
+      flex:5,
       backgroundColor: 'rgba(255,255,255,0.8)',
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
     },
+    fruitContainer:{
+      marginHorizontal:30,
+      marginVertical:50, 
+      height: '30%',
+      justifyContent:'center'
+    },
+    buttons: {
+      backgroundColor: 'transparent', 
+      flexDirection: 'row', 
+      position: 'absolute', 
+      top: 130, 
+      left: 0, 
+      flex: 1, 
+      paddingHorizontal: 20, 
+      paddingVertical: 10, 
+      justifyContent: 'space-between', 
+      alignItems: 'flex-start',
+			elevation: 3,
+      shadowColor: colors.white,
+      shadowOpacity: 1, 
+    }
+
 
 
 });

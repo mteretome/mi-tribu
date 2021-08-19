@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {PREGNANCY, TOOLS,FEED} from '../constants/routeNames';
+import {PREGNANCY, TOOLS,FEED,WEEKS} from '../constants/routeNames';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View } from 'react-native';
 import Pregnacy from '../screens/dashboard/Pregnancy';
@@ -8,6 +8,9 @@ import LinearContainer from '../components/common/LinearContainer';
 import { Bold } from '../components/common/Text';
 import colors from '../assets/theme/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Weeks from '../screens/dashboard/Weeks';
+import {createStackNavigator} from '@react-navigation/stack';
+
 
 const Tools = () => {
     return (
@@ -24,12 +27,22 @@ const Feed = () => {
     );
   };
 
+const PregnancyNav = () => {
+    const PregnancyStack = createStackNavigator();
+    return (
+  
+      <PregnancyStack.Navigator screenOptions={{headerShown: false}} initialRouteName={PREGNANCY}>
+      <PregnancyStack.Screen name={PREGNANCY} component={Pregnacy}></PregnancyStack.Screen>
+      <PregnancyStack.Screen name={WEEKS} component={Weeks}></PregnancyStack.Screen>
+    </PregnancyStack.Navigator>
+    );
+};
 
 const DashNav = () => {
-	const DashStack = createBottomTabNavigator();
+	const DashTab = createBottomTabNavigator();
 	return (
 
-    <DashStack.Navigator 
+    <DashTab.Navigator 
         screenOptions={{headerShown: false}} 
         initialRouteName={PREGNANCY}
         tabBarOptions={{
@@ -41,7 +54,7 @@ const DashNav = () => {
             }
         }}
     >
-        <DashStack.Screen 
+        <DashTab.Screen 
             name={TOOLS} 
             component={Tools}
             options={{
@@ -51,16 +64,16 @@ const DashNav = () => {
                 )
             }}
             />
-        <DashStack.Screen 
+        <DashTab.Screen 
             name={PREGNANCY} 
-            component={Pregnacy}
+            component={PregnancyNav}
             options={{
                 tabBarIcon: () => (
                     <Icon name="pregnant-woman" size={35} color={colors.white} />
                 )
             }}
             />
-        <DashStack.Screen 
+        <DashTab.Screen 
             name={FEED} 
             component={Feed}
             options={{
@@ -69,7 +82,7 @@ const DashNav = () => {
                 )
             }}
             />
-	</DashStack.Navigator>
+	</DashTab.Navigator>
   );
 };
 

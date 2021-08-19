@@ -5,11 +5,14 @@ import LinearContainer from '../../components/common/LinearContainer';
 import Bg from '../../assets/images/svg/pregnancy.svg';
 import styles from './styles';
 import Link from '../../components/common/Link';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import WeeklyFruit from './WeeklyFruit';
 import InfoTab from './InfoTab';
+import { useNavigation } from '@react-navigation/native';
+import { WEEKS } from '../../constants/routeNames';
+
 
 const PregnancyComponent = ({week}) => {
+  const navigate= useNavigation();
     return (
     
       <LinearContainer style={{flex:1}}>
@@ -18,9 +21,7 @@ const PregnancyComponent = ({week}) => {
             <Bold style={styles.heading}>Hola #Name,</Bold>
             <View style={styles.subheader}>
                 <Regular style={styles.subheading} >Estás en tu </Regular>
-                <Link style={{fontSize:20}}>Semana {week}</Link>
-                <Link style={{top:5}}>
-                    <Icon name="keyboard-arrow-down" size={30} />
+                <Link icon={true} onPress={() => {navigate.navigate(WEEKS)}} style={{fontSize:20}}>Semana {week}
                 </Link>
             </View>
         </View>
