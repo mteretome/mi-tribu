@@ -7,7 +7,8 @@ import {
 	PILLARS,
   ONBOARD,
   CONGRATS,
-  WELCOME
+  WELCOME,
+  PREGNANCY
 } from '../constants/routeNames';
 import {
   StyleSheet,
@@ -69,6 +70,11 @@ const DevPage = () => {
           title="Go to Dashboard" bgColor='pink'
           onPress={() => {
             navigate.navigate('Dashboard')
+          }}/>
+           <CustomButton 
+          title="Go to Social" bgColor='pink'
+          onPress={() => {
+           navigate.navigate('SOCIAL')
           }}/>
        </Container>
 	);

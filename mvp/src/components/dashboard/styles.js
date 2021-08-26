@@ -79,9 +79,15 @@ export default StyleSheet.create({
       paddingVertical: 10, 
       justifyContent: 'space-between', 
       alignItems: 'flex-start',
-			elevation: 3,
-      shadowColor: colors.white,
+			elevation: 10,
+      shadowColor: colors.off_white,
       shadowOpacity: 1, 
+    },
+    card: {
+      elevation: 10,
+      shadowColor: colors.off_white,
+			shadowOpacity: 1,
+
     }
 
 

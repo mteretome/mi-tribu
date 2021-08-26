@@ -49,6 +49,26 @@ export default StyleSheet.create({
 		fontSize: 16,
 		marginVertical:10
 
+	},
+	card: {
+		borderRadius: 10,
+		backgroundColor: 'rgba(255,255,255,0.8)',
+		alignSelf: 'stretch',
+		padding: 10,
+		margin:10,
+		flexDirection:'row',
+		flex:1
+	},
+	cardCenter: {
+		justifyContent: 'center'
+	},
+	cardLeft: {
+		flexDirection: 'row',
+	},
+	cardLText:{
+		alignItems: 'flex-start',
+		justifyContent: 'center'
+
 	}
 
 });

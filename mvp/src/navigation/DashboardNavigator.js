@@ -4,12 +4,15 @@ import {PREGNANCY, TOOLS,FEED,WEEKS} from '../constants/routeNames';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View } from 'react-native';
 import Pregnacy from '../screens/dashboard/Pregnancy';
+
 import LinearContainer from '../components/common/LinearContainer';
 import { Bold } from '../components/common/Text';
 import colors from '../assets/theme/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Weeks from '../screens/dashboard/Weeks';
 import {createStackNavigator} from '@react-navigation/stack';
+
+import { useNavigation } from '@react-navigation/core';
 
 
 const Tools = () => {
@@ -20,6 +23,7 @@ const Tools = () => {
     );
   };
 const Feed = () => {
+  const navigate = useNavigation();
     return (
       <LinearContainer style={{flex:1,justifyContent:'center', alignItems:'center'}}>
         <Bold>FEED</Bold>
@@ -27,10 +31,10 @@ const Feed = () => {
     );
   };
 
+
 const PregnancyNav = () => {
     const PregnancyStack = createStackNavigator();
     return (
-  
       <PregnancyStack.Navigator screenOptions={{headerShown: false}} initialRouteName={PREGNANCY}>
       <PregnancyStack.Screen name={PREGNANCY} component={Pregnacy}></PregnancyStack.Screen>
       <PregnancyStack.Screen name={WEEKS} component={Weeks}></PregnancyStack.Screen>
