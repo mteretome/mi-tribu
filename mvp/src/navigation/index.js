@@ -7,7 +7,6 @@ import WelcomeNavigator from './WelcomeNavigator';
 import {createStackNavigator} from '@react-navigation/stack';
 import DashboardNavigator from './DashboardNavigator';
 
-import Social from '../screens/dashboard/Social';
 
 const RootStack = createStackNavigator();
 
@@ -19,7 +18,6 @@ const AppNavContainer = () =>{
           <RootStack.Screen name="DevPage" component={DevPage} />
           <RootStack.Screen name="Welcome" component={WelcomeNavigator} />
           <RootStack.Screen name="Dashboard" component={DashboardNavigator} />
-          <RootStack.Screen name={"SOCIAL"} component={Social}/>
 
       </RootStack.Navigator>
     </NavigationContainer>

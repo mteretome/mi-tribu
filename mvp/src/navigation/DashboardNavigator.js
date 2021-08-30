@@ -1,19 +1,15 @@
 
 import React from 'react';
-import {PREGNANCY, TOOLS,FEED,WEEKS} from '../constants/routeNames';
+import {PREGNANCY, TOOLS,FEED,WEEKS, SETTINGS} from '../constants/routeNames';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View } from 'react-native';
 import Pregnacy from '../screens/dashboard/Pregnancy';
-
+import Social from '../screens/dashboard/Social';
 import LinearContainer from '../components/common/LinearContainer';
 import { Bold } from '../components/common/Text';
 import colors from '../assets/theme/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Weeks from '../screens/dashboard/Weeks';
 import {createStackNavigator} from '@react-navigation/stack';
-
-import { useNavigation } from '@react-navigation/core';
-
 
 const Tools = () => {
     return (
@@ -22,14 +18,24 @@ const Tools = () => {
       </LinearContainer>
     );
   };
-const Feed = () => {
-  const navigate = useNavigation();
+  const Settings = () => {
     return (
       <LinearContainer style={{flex:1,justifyContent:'center', alignItems:'center'}}>
-        <Bold>FEED</Bold>
+        <Bold>SETTINGS</Bold>
       </LinearContainer>
     );
   };
+
+
+const FeedNav = () => {
+    const FeedStack = createStackNavigator();
+    return (
+      <FeedStack.Navigator screenOptions={{headerShown: false}} initialRouteName={FEED}>
+      <FeedStack.Screen name={FEED} component={Social}></FeedStack.Screen>
+      <FeedStack.Screen name={SETTINGS} component={Settings}></FeedStack.Screen>
+    </FeedStack.Navigator>
+    );
+};
 
 
 const PregnancyNav = () => {
@@ -45,7 +51,6 @@ const PregnancyNav = () => {
 const DashNav = () => {
 	const DashTab = createBottomTabNavigator();
 	return (
-
     <DashTab.Navigator 
         screenOptions={{headerShown: false}} 
         initialRouteName={PREGNANCY}
@@ -79,7 +84,7 @@ const DashNav = () => {
             />
         <DashTab.Screen 
             name={FEED} 
-            component={Feed}
+            component={FeedNav}
             options={{
                 tabBarIcon: () => (
                     <Icon name="lightbulb" size={30} color={colors.white} />

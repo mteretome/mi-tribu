@@ -71,11 +71,6 @@ const DevPage = () => {
           onPress={() => {
             navigate.navigate('Dashboard')
           }}/>
-           <CustomButton 
-          title="Go to Social" bgColor='pink'
-          onPress={() => {
-           navigate.navigate('SOCIAL')
-          }}/>
        </Container>
 	);
 };

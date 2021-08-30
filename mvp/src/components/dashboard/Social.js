@@ -2,20 +2,25 @@ import React from 'react';
 import { Bold} from '../common/Text';
 import LinearContainer from '../common/LinearContainer';
 import CustomCard from '../common/CustomCard';
-import { View, TouchableOpacity,FlatList } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import colors from '../../assets/theme/colors';
 import SimpleIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import CustomButton from '../common/CustomButton';
+import { SETTINGS } from '../../constants/routeNames';
+import { useNavigation } from '@react-navigation/native';
+
 
 const SocialComponent = () => {
+  const navigate= useNavigation();
     return (
       <LinearContainer style={{flex:1, alignItems:'stretch'}} >
         <View style={{padding:16,backgroundColor:colors.tribu_green,flexDirection:'row',justifyContent:'space-between'}}>
-          <Bold style={{color:colors.white,fontSize:20,left:150}}>Social
+          <Bold style={{color:colors.white,fontSize:20,left:165}}>Social
           </Bold>
+          <TouchableOpacity onPress={() => {navigate.navigate(SETTINGS)}}>
           <SimpleIcons name="settings" color={colors.off_white} 
-          size={25} style={{left:10}} > </SimpleIcons>
+          size={25} style={{left:10}} > </SimpleIcons></TouchableOpacity>
           
           </View>
        
