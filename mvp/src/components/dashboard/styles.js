@@ -72,7 +72,7 @@ export default StyleSheet.create({
       backgroundColor: 'transparent', 
       flexDirection: 'row', 
       position: 'absolute', 
-      top: 130, 
+      top: 30, 
       left: 0, 
       flex: 1, 
       paddingHorizontal: 20, 

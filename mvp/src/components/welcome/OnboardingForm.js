@@ -15,22 +15,32 @@ import colors from '../../assets/theme/colors'
 export const Question1 = () => {
 
 	return (
-        <Radio.Group defaultValue="1" name="exampleGroup" style={{marginHorizontal:30}}>
+        <Radio.Group defaultValue="1" name="exampleGroup" style={{marginHorizontal:40}}>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:5,alignContent:'stretch'}}>
         <Radio aria-label="mom" 
          icon={<Icon as={<MaterialCommunityIcons name="face-woman" />} />}
          colorScheme="primary" value="1" my={1}>
-          <Light style={{marginHorizontal:10,fontSize:16}}>Soy la mamá</Light>
+          <Light style={{marginHorizontal:10,fontSize:16,paddingRight:90}}>Soy la mamá</Light>
         </Radio>
+        </View>
+
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:5,alignContent:'stretch'}}>
         <Radio aria-label="dad" 
         icon={<Icon as={<MaterialCommunityIcons name="face" />} />}
         colorScheme="primary" value="2" my={1}>
-        <Light style={{marginHorizontal:10,fontSize:16}}>Soy el papá</Light>
+        <Light style={{marginHorizontal:10,fontSize:16,paddingRight:100}}>Soy el papá</Light>
         </Radio>
+        </View>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:5,alignContent:'stretch'}}>
         <Radio aria-label="other"
         icon={<Icon as={<MaterialCommunityIcons name="baby-face-outline" />} />}
          colorScheme="primary" value="3" my={1}>
-        <Light style={{marginHorizontal:10,fontSize:16}}>Otro</Light>
+        <Light style={{marginHorizontal:10,fontSize:16,paddingRight:150}}>Otro</Light>
         </Radio>
+        </View>
       </Radio.Group>
 	);
 };
@@ -39,16 +49,22 @@ export const Question2 = () => {
 
 	return (
         <Radio.Group defaultValue="1" name="exampleGroup" style={{marginHorizontal:30}}>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:5,alignContent:'stretch'}}>
         <Radio aria-label="mom" 
          icon={<Icon as={<MaterialCommunityIcons name="hospital-building" />} />}
          colorScheme="primary" value="1" my={1}>
-          <Light style={{marginHorizontal:10,fontSize:16}}>Público - Fonasa</Light>
+          <Light style={{marginHorizontal:10,fontSize:16,paddingRight:80}}>Público - Fonasa</Light>
         </Radio>
+        </View>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:5,alignContent:'stretch'}}>
         <Radio aria-label="dad" 
         icon={<Icon as={<MaterialCommunityIcons name="hospital-building" />} />}
         colorScheme="primary" value="2" my={1}>
-        <Light style={{marginHorizontal:10,fontSize:16}}>Privado - Isapre</Light>
+        <Light style={{marginHorizontal:10,fontSize:16,paddingRight:80}}>Privado - Isapre</Light>
         </Radio>
+        </View>
       </Radio.Group>
 	);
 };
@@ -111,21 +127,30 @@ export const Question5 = () => {
 
 	return (
         <Radio.Group defaultValue="1" name="exampleGroup" style={{marginHorizontal:30}}>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:5,alignContent:'stretch'}}>
         <Radio aria-label="mom" 
          icon={<Icon as={<MaterialIcons name="work" />} />}
          selectedColor={colors.tribu} value="1" my={1}>
           <Light style={{marginHorizontal:10,fontSize:16}}>Trabajando jornada completa</Light>
         </Radio>
+        </View>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:5,alignContent:'stretch'}}>
         <Radio aria-label="dad" 
         icon={<Icon as={<MaterialIcons name="home-work" />} />}
         colorScheme="primary" value="2" my={1}>
-        <Light style={{marginHorizontal:10,fontSize:16}}>Trabajando media jornada</Light>
+        <Light style={{marginHorizontal:10,fontSize:16,paddingRight:15}}>Trabajando media jornada</Light>
         </Radio>
+        </View>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:5,alignContent:'stretch'}}>
         <Radio aria-label="other"
         icon={<Icon as={<MaterialIcons name="home" />} />}
          colorScheme="primary" value="3" my={1}>
-        <Light style={{marginHorizontal:10,fontSize:16}}>Inactiva laboralmente </Light>
+        <Light style={{marginHorizontal:10,fontSize:16,paddingRight:45}}>Inactiva laboralmente </Light>
         </Radio>
+        </View>
       </Radio.Group>
 	);
 };
@@ -133,26 +158,38 @@ export const Question6 = () => {
 
 	return (
         <Radio.Group defaultValue="1" name="exampleGroup" style={{marginHorizontal:30}}>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:3,alignContent:'stretch'}}>
         <Radio aria-label="one" 
          icon={<Icon as={<MaterialCommunityIcons name="baby-face-outline" />} />}
          colorScheme="primary" value="1" my={1}>
-          <Light style={{marginHorizontal:10,fontSize:16}}>Primero</Light>
+          <Light style={{marginHorizontal:10,fontSize:16,paddingRight:130}}>Primero</Light>
         </Radio>
+        </View>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:3,alignContent:'stretch'}}>
         <Radio aria-label="two" 
         icon={<Icon as={<MaterialCommunityIcons name="human-child" />} />}
         colorScheme="primary" value="2" my={1}>
-        <Light style={{marginHorizontal:10,fontSize:16}}>Segundo</Light>
+        <Light style={{marginHorizontal:10,fontSize:16,paddingRight:120}}>Segundo</Light>
         </Radio>
+        </View>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:3,alignContent:'stretch'}}>
         <Radio aria-label="three"
         icon={<Icon as={<MaterialCommunityIcons name="human-male-female" />} />}
          colorScheme="primary" value="3" my={1}>
-        <Light style={{marginHorizontal:10,fontSize:16}}>Tercero</Light>
+        <Light style={{marginHorizontal:10,fontSize:16,paddingRight:135}}>Tercero</Light>
         </Radio>
+        </View>
+        <View style={{backgroundColor:colors.tribu_bbpink,
+          borderRadius:10,paddingHorizontal:10,marginVertical:3,alignContent:'stretch'}}>
         <Radio aria-label="four"
         icon={<Icon as={<MaterialIcons name="family-restroom" />} />}
          colorScheme="primary" value="4" my={1}>
-        <Light style={{marginHorizontal:10,fontSize:16}}>Cuarto o más </Light>
+        <Light style={{marginHorizontal:10,fontSize:16,paddingRight:85}}>Cuarto o más </Light>
         </Radio>
+        </View>
       </Radio.Group>
 	);
 };

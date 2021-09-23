@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {View,TouchableOpacity} from 'react-native';
 import colors from '../../assets/theme/colors';
-import NoScrollContainer from '../common/NoScrollContainer';
+import WhiteContainer from '../common/WhiteContainer';
 import styles from './styles'
 import Swiper from 'react-native-swiper';
 import {Bold,Light,Regular} from '../common/Text';
@@ -11,6 +11,8 @@ import { useNavigation } from '@react-navigation/native';
 import CustomButton from '../common/CustomButton';
 import {WELCOME} from '../../constants/routeNames'; 
 import { Question1, Question2, Question3, Question4, Question5, Question6 } from './OnboardingForm';
+import { ScrollView } from 'native-base';
+import { paddingBottom } from 'styled-system';
 
 
 
@@ -26,7 +28,13 @@ const OnboardingComponent= () => {
 
 	return (
     
-			<NoScrollContainer>
+			<View style={{
+        backgroundColor: 'rgba(255,255,255,0.8)',
+        flex:5,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        paddingHorizontal:50,
+        paddingVertical:10}} >
         
             <View style={styles.heading}>
         			<Bold style={styles.title}>¡Bienvenida a bordo!</Bold>
@@ -49,6 +57,7 @@ const OnboardingComponent= () => {
             <View style={{marginTop:30}}></View>
             }
 
+        
          <Swiper 
          ref={swiper}
          showsButtons={false} loop={false}
@@ -58,64 +67,71 @@ const OnboardingComponent= () => {
          >
 
           <View style={styles.onboardSlides}>
-          
+            <ScrollView>
             <Regular style={styles.question}> 
             ¿Cuál es tu relación con el bebé? </Regular>
             <Question1/>
+            </ScrollView>
             
 
           </View>
 
           <View style={styles.onboardSlides} >
            
+          <ScrollView>
             
               <Regular style={styles.question}>
               ¿Te atiendes principalmente en el sector público o privado?</Regular>
               <Question2/>
+              </ScrollView>
           </View>
 
            <View style={styles.onboardSlides} >
             
-            
+            <ScrollView>
               <Regular style={styles.question}>
               ¿Cuándo es tu cumpleaños?</Regular>
               <Question3/>
            
+           </ScrollView>
           </View>
 
            <View style={styles.onboardSlides} >
            
-            
+            <ScrollView>
               <Regular style={styles.question}>
               ¿Dónde vives?</Regular>
               <Question4/>
+              </ScrollView>
            
           </View>
 
            <View style={styles.onboardSlides} >
            
-           
+           <ScrollView>
               <Regular  style={styles.question}>
               Laboralmente, actualmente estás... </Regular>
               <Question5/>
+              </ScrollView>
             
           </View>
 
           <View style={styles.onboardSlides} >
           
-            
+            <ScrollView >
               <Regular  style={styles.question}>
               ¿Qué número de hijo o hija es el que estás esperando? </Regular>
               <Question6/>
+              </ScrollView>
               
             
           </View>
 
+         
          </Swiper>
-        
-            {progress>0.85 ?
+         {progress>0.85 ?
            <CustomButton title="Terminar" gradient={true}
-           
+            style={styles.onboardSlides}
             onPress={() => {
             setProgress(1);
             navigate.navigate(WELCOME);
@@ -123,15 +139,20 @@ const OnboardingComponent= () => {
             />
             :
           <CustomButton title="Siguiente Pregunta" gradient={true}
+          style={styles.onboardSlides}
          
             onPress={() => swipe(1) }
             />
          
           }
+  
+         
+        
+            
             
         
       
-      </NoScrollContainer>
+      </View>
 		
 	);
 };
