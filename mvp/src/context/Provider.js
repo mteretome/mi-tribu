@@ -1,15 +1,20 @@
 import React, {createContext, useReducer} from 'react';
 import auth from './reducers/auth';
+import authInitialState from './initialStates/authInitialState'
 
 
-const GlobalContext = createContext();
+export const GlobalContext = createContext({});
 
-const GlobalProvider=({children})=>{
+const GlobalProvider=({children})=> {
 
-    const [authState,authDispatch] = useReducer(auth,authState)
-    return <GlobalContext.Provider 
-    value={{authState,authDispatch,}}
-    >{children}</GlobalContext.Provider>
+    const [authState,authDispatch] = useReducer(auth,authInitialState);
+    
+    return (
+    <GlobalContext.Provider 
+    value={{authState,authDispatch}}>
+        {children}
+    </GlobalContext.Provider>
+    );
 };
 
 export default GlobalProvider;

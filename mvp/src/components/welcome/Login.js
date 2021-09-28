@@ -12,7 +12,13 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {Bold,Light} from '../common/Text';
 
 
-const LoginComponent= ({swipe}) => {
+const LoginComponent= ({swipe,
+  onSubmit,
+  onFormChange,
+  form,
+  errors,
+  error,
+  loading}) => {
   const navigate= useNavigation();
 	return (
 <View >
@@ -23,10 +29,13 @@ const LoginComponent= ({swipe}) => {
   		  </View>
 
       <View style={styles.inputContainer}>
-        <Input placeholder="Email*"/>
+        <Input placeholder="Email*"
+        onChangeText={(value)=>{onFormChange({name:"email",value})}}
+        error={errors.email|| error?.email?.[0]}/>
         <Input placeholder="Contraseña*"
         secureTextEntry={true}
-        // error={'Either email or password is incorrect!'}
+        onChangeText={(value)=>{onFormChange({name:"password",value})}}
+          error={errors.password|| error?.password?.[0]}
         />
         <View style={styles.footer}>
            <Icon name="questioncircleo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
@@ -34,7 +43,15 @@ const LoginComponent= ({swipe}) => {
           <Link style={[{color:colors.grey_dark}]}  onPress={() => swipe(1) }>
           Recupérala.</Link>
           </View>
-        <CustomButton title="Inicia Sesión" gradient={true}/>
+
+      {error?.response &&<Light style={{color:colors.tribu_pink}}>*Error{error}*</Light>} 
+
+        <CustomButton 
+        loading={loading}
+        onPress={() => {
+            onSubmit();
+          }}
+        title="Inicia Sesión" gradient={true}/>
       </View>
 
         <View style={styles.footer}>
