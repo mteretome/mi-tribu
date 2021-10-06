@@ -1,0 +1,9 @@
+export const REGISTER_LOADING = "REGISTER LOADING";
+export const REGISTER_FAIL = "REGISTER FAIL";
+export const REGISTER_SUCCESS = "REGISTER SUCCESS";
+export const CLEAR_AUTH_STATE = "CLEAR_STATE";
+export const LOGIN_LOADING = "LOGIN LOADING";
+export const LOGIN_FAIL = "LOGIN FAIL";
+export const LOGIN_SUCCESS = "LOGIN SUCCESS";
+
+
