@@ -24,7 +24,7 @@ const PregnancyComponent = ({week}) => {
             <Bold style={styles.heading}>Hola #Name,</Bold>
             <View style={styles.subheader}>
                 <Regular style={styles.subheading} >Estás en tu </Regular>
-                <Link icon={true} onPress={() => {navigate.navigate(WEEKS);console.log("Works!");}} style={{fontSize:20}}>Semana {week}
+                <Link icon={true} onPress={() => {navigate.navigate(WEEKS);}} style={{fontSize:20}}>Semana {week}
                 </Link>
             </View>
             <Avatar  rounded  
