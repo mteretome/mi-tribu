@@ -2,6 +2,7 @@ import React from 'react';
 import {View,TextInput,Text} from 'react-native';
 import styles from './styles'
 import colors from '../../assets/theme/colors';
+import { Light } from './Text';
 
 const Input = ({
 	onChangeText,
@@ -18,7 +19,7 @@ const Input = ({
 			return colors.off_white;
 		}
 	}
-
+	
 	return (
 	<View style={styles.inputContainer}>
 		<TextInput 

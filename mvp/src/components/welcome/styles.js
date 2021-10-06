@@ -39,7 +39,7 @@ export default StyleSheet.create({
   },
   congratsSub: { 
     color: colors.tribu_green,
-    fontSize:16, 
+    fontSize:18, 
     marginBottom:30,
   },
   container:{

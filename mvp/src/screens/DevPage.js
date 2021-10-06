@@ -1,21 +1,17 @@
 import {
 	LOGIN,
-	DEVPAGE,
-	FORGOTPASS,
 	SIGNUP,
-	RECOVER,
 	PILLARS,
+
   ONBOARD,
-  CONGRATS,
-  WELCOME,
   PREGNANCY
+
+  WELCOME
+
 } from '../constants/routeNames';
 import {
   StyleSheet,
   Text,
-  View,
-  Button,
-  Image
 } from 'react-native';
 import React from 'react';
 import CustomButton from '../components/common/CustomButton';
@@ -52,19 +48,9 @@ const DevPage = () => {
           }}/>
          
           <CustomButton 
-          title="Go to SignUpPage" bgColor='pink'
-          onPress={() => {
-            navigate.navigate('Welcome', { screen: SIGNUP })
-          }}/>
-          <CustomButton 
           title="Go to Pillar" bgColor='pink'
           onPress={() => {
             navigate.navigate('Welcome', { screen: PILLARS })
-          }}/>
-           <CustomButton 
-          title="Go to Welcome" bgColor='pink'
-          onPress={() => {
-           navigate.navigate('Welcome', { screen: WELCOME })
           }}/>
           <CustomButton 
           title="Go to Dashboard" bgColor='pink'

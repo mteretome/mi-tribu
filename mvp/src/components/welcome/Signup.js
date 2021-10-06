@@ -13,19 +13,21 @@ import DuedateComponent from './Duedate';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {Bold,Light} from '../common/Text';
 import { format } from 'date-fns'
-import { es } from 'date-fns/locale'
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 
-const SignupComponent= () => {
+const SignupComponent= ({
+  onSubmit,
+  onFormChange,
+  form,
+  errors,
+  error,
+  loading}) => {
+  // vars for due date calculator overlay
   const [visible, setVisible] = useState(false);
   const toggleOverlay = () => {setVisible(!visible);setText(false);};
-  const navigate= useNavigation();
   const [date, setDate] = useState(new Date());
-  const capitalize = require('lodash.capitalize');
-  const textDate = capitalize(format(date,'MMMM d, yyyy', {locale: es}))
-
   const [show, setShow] = useState(false);
   const [text,setText] = useState(true);
   const showDatePicker = () => {
@@ -35,8 +37,9 @@ const SignupComponent= () => {
     setShow(false);
     setText(false);
     setDate(value); 
-    
+    onFormChange({name:"due_date",value: format(value,'yyyy-MM-dd')});  
   };
+  
   const getDate =(n) =>{
       var day = new Date().getDate();
       var month = new Date().getMonth();
@@ -54,8 +57,12 @@ const SignupComponent= () => {
 
    const parentSetter = useCallback(val => {
     setDate(val);
+    onFormChange({name:"due_date",value: format(val,'yyyy-MM-dd')});
+
+
   }, [setDate]);
 
+  const navigate = useNavigation();
 	return (
    
 			<WhiteContainer>
@@ -65,19 +72,37 @@ const SignupComponent= () => {
   		  </View>
 
       <View >
-        <View style={[{flexDirection:'row', flex:1, alignItems: 'stretch'}]}>
-          <Input placeholder="Nombre*   "/>
-          <Input style={[{paddingEnd:'37%', marginLeft:10,}]} placeholder="Apellido*"/>
+
+        <View style={[{flexDirection:'row',justifyContent: 'space-between'}]}>
+          <Input style={{marginEnd:'12%'}}
+          placeholder="Nombre*   "
+          onChangeText={(value)=>{onFormChange({name:"first_name",value})}}
+          error={errors.first_name|| error?.first_name?.[0]}/>
+          <Input style={{marginEnd:'20%'}} 
+          placeholder="Apellido*  "
+          onChangeText={(value)=>{onFormChange({name:"last_name",value})}}
+          error={errors.last_name|| error?.last_name?.[0]}/>
         </View>
-        <Input  placeholder="Email*"/>
-        <Input  placeholder="Celular*"/>
-        <Input  placeholder="Crea tu contraseña*" secureTextEntry={true}/>
+
+        <Input  placeholder="Email*"
+        onChangeText={(value)=>{onFormChange({name:"email",value})}}
+        error={errors.email|| error?.email?.[0]}/>
+        <Input  placeholder="Celular*"
+        onChangeText={(value)=>{onFormChange({name:"phone",value})}}
+        error={errors.phone|| error?.phone?.[0]}/>
+        <Input  placeholder="Crea tu contraseña*" secureTextEntry={true}
+        onChangeText={(value)=>{onFormChange({name:"password",value})}}
+        error={errors.password|| error?.password?.[0]}/>
         
         <TouchableOpacity onPress={showDatePicker}>
-              {text ?  <Input editable={false} placeholder="Fecha de Parto Estimada*"> 
+              {text ?  
+              <Input editable={false} 
+              placeholder="Fecha de Parto Estimada*"
+              error={errors.due_date|| error?.due_date?.[0]}> 
               </Input>
               : 
-              <Input editable={false}>
+              <Input editable={false} 
+              error={errors.due_date|| error?.due_date?.[0]}>
               {format(date,'dd/MM/yyyy')}</Input> }
               </TouchableOpacity>
                <DateTimePickerModal
@@ -85,13 +110,13 @@ const SignupComponent= () => {
                 date={date}
                 onCancel={showDatePicker}
                 onConfirm={onChange}
-                maximumDate={getDate(1)}
+                maximumDate={getDate(2)}
                 minimumDate={getDate(0)}
                 mode="date"
                 display="spinner"
               />
 
-
+        {/*  footer   */}
         <View style={styles.footer}>
         <Icon name="infocirlceo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
           <Light style={styles.lightText}>  ¿No conoces tu fecha de parto? </Light>
@@ -105,9 +130,13 @@ const SignupComponent= () => {
              <DuedateComponent toggleOverlay={toggleOverlay} parentSet={parentSetter}/>
             </Overlay>
         </View>
-        <CustomButton title="Crear mi cuenta" 
+      {error?.response &&<Light style={{color:colors.tribu_pink}}>*Error{error}*</Light>} 
+
+        <CustomButton 
+        loading={loading}
+        title="Crear mi cuenta" 
         onPress={() => {
-            navigate.navigate(CONGRATS, {dueDate: textDate});
+            onSubmit();
           }} gradient={true}/>
       </View>
 

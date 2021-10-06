@@ -1,9 +1,9 @@
 import React from "react";
-import {View,Text,TouchableOpacity,} from 'react-native';
+import {View,Text,TouchableOpacity, ActivityIndicator,} from 'react-native';
 import styles from './styles';
 import colors from '../../assets/theme/colors';
 import LinearGradient from 'react-native-linear-gradient';
-import {Bold} from './Text';
+import {Bold,Light} from './Text';
 
 
 const CustomButton = ({
@@ -28,12 +28,16 @@ const CustomButton = ({
 	return (
 	<View style={styles.inputContainer}>
 	{gradient 
-		? <TouchableOpacity style={style} onPress={onPress}>
+		? <TouchableOpacity 
+		disabled={loading}
+		style={style}
+		 onPress={onPress}>
 		<LinearGradient
 	     colors={[colors.tribu_green, colors.tribu_blue]}
 	     style={
 			[styles.button,
-			{shadowColor:  colors.tribu_blue,
+			{flexDirection:'row',
+			shadowColor:  colors.tribu_blue,
 			shadowOffset: {
 				width: 0,
 				height: 5,
@@ -44,11 +48,15 @@ const CustomButton = ({
 			elevation: 5,
           }
         ]}> 
+			{loading && <ActivityIndicator color={colors.off_white}/>}
 	  		{title && <Bold style={[styles.buttonText,textStyle]}>{title}</Bold>}
 		</LinearGradient>
 		</TouchableOpacity>
 		: 
-		<TouchableOpacity style={
+		<TouchableOpacity 
+		disabled={loading}
+		
+		style={
 			[styles.button,
 			style,
 			{backgroundColor: getBgColor(),
@@ -64,6 +72,8 @@ const CustomButton = ({
           }
           ]}
 			onPress={onPress}>
+			{loading && <Light styles={styles.buttonText}>LOADING</Light>}
+
 			{title && <Bold style={[styles.buttonText,textStyle]}>{title}</Bold>}
 		</TouchableOpacity>
 	}

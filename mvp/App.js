@@ -3,8 +3,12 @@ import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import 'react-native-gesture-handler';
 import AppNavContainer from './src/navigation';
+
 import { NativeBaseProvider, Box,extendTheme } from 'native-base';
 import colors from './src/assets/theme/colors';
+
+import GlobalProvider from './src/context/Provider';
+
 
 const theme = extendTheme({
   colors: {
@@ -25,10 +29,12 @@ export default class App extends Component {
   render() {
     return (
       <NativeBaseProvider theme={theme}>
-        <AppNavContainer></AppNavContainer>
+        <GlobalProvider>
+        <AppNavContainer/>
+        </GlobalProvider>
         </NativeBaseProvider>
-      
-       
+    
+
     );
   }
 }
