@@ -84,7 +84,7 @@ const WeekList = () => {
                           position:'absolute',
                           }}>
                           </View>
-                  <TouchableOpacity style={styles.card}  onPress={() => {navigate.navigate(PREGNANCY)}}>
+                  <TouchableOpacity style={styles.card}  onPress={() => {navigate.navigate(PREGNANCY), {index: item.id}}}>
                             {item.active ? 
                             <CustomCard center={false}
                             activeCircle={item.active} week={true}

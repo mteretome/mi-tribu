@@ -31,12 +31,12 @@ export default StyleSheet.create({
       justifyContent:'center',
       alignSelf:'center',
       alignContent:'center',
+      top:50,
     },
     floatingMiddle: {
       flexDirection:'row',
       position:'absolute',
       paddingTop:50,
-      paddingLeft:15
     },
     tabBar:{
       backgroundColor: 'rgba(255,255,255,0.0)',
@@ -66,13 +66,13 @@ export default StyleSheet.create({
       marginHorizontal:30,
       marginVertical:50, 
       height: '30%',
-      justifyContent:'center'
+      justifyContent:'center',
     },
     buttons: {
       backgroundColor: 'transparent', 
       flexDirection: 'row', 
       position: 'absolute', 
-      top: 30, 
+      top: 80, 
       left: 0, 
       flex: 1, 
       paddingHorizontal: 20, 

@@ -22,8 +22,8 @@ const WeekSwiper= () => {
         showsPagination={false}
         scrollEnabled={false}
         buttonWrapperStyle={styles.buttons}
-        nextButton={ <Icon name="chevron-right" color={colors.off_white} size={35} style={{marginLeft:30,marginVertical:100}}/>}
-        prevButton={ <Icon name="chevron-left" color={colors.off_white} size={35} style={{marginRight:30,marginVertical:100}}/>   }
+        nextButton={ <Icon name="chevron-right" color={colors.off_white} size={35} style={{marginLeft:30,marginVertical:80}}/>}
+        prevButton={ <Icon name="chevron-left" color={colors.off_white} size={35} style={{marginRight:30,marginVertical:80}}/>   }
 		>
        
        
