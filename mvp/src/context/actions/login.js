@@ -27,8 +27,8 @@ export default ({
         console.log('err',err);
         dispatch({
             type: LOGIN_FAIL,
-            payload: err.Error ? 
-            err.Error : {error:'Something went wrong. Try again'},
+            payload:  err.response ? 
+            err.response.data : {error:'Something went wrong. Try again'},
         });
 
     });
