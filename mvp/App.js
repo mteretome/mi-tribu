@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import 'react-native-gesture-handler';
 import AppNavContainer from './src/navigation';
+import GlobalProvider from './src/context/Provider';
 
 import { NativeBaseProvider, Box,extendTheme } from 'native-base';
 import colors from './src/assets/theme/colors';

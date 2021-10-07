@@ -1,4 +1,3 @@
-
 import React,{useContext, useRef, useState} from 'react';
 import Swiper from 'react-native-swiper';
 import { ActivityIndicator } from "react-native";
@@ -13,9 +12,6 @@ import Icon from 'react-native-vector-icons/Ionicons'; //revisse
 import colors from '../../assets/theme/colors'; //revise
 
 import { GlobalContext } from '../../context/Provider';
-
-
-
 import LoginWrapper from '../../components/wrappers/LoginWrapper';
 import { useFocusEffect, useNavigation } from '@react-navigation/core';
 import login from '../../context/actions/login';

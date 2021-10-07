@@ -2,10 +2,6 @@ import {
 	LOGIN,
 	SIGNUP,
 	PILLARS,
-
-  ONBOARD,
-  PREGNANCY
-
   WELCOME
 
 } from '../constants/routeNames';

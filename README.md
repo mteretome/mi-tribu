@@ -5,6 +5,17 @@
 3. In MVP folder, run `npx react-native start` or `yarn start` to start Metro Bundler
 4. Open a new terminal and run `npx react-native run-android` or `yarn android` to see app runnning in Android emulator
 
+# MVP Backend Set up
+1. Install and run https://github.com/espinoza-sebastian/mi-tribu-mobile-app 
+2. If running the mvp in a separate simulator from your computer:
+	1. Download and install https://ngrok.com/download 
+	2. run `./ngrok 8000`  8000 should be the port name of the django server running on your computer 
+	3. copy the https email that ngrok returns and replace the value for `NGROK_URL` in `settings.py`
+	4. in the mvp (here),in `axiosInterceptor.js` replace the value for `BACKEND_URL` for the same ngrok url
+3. If running the mvp in a simulator in your computer:
+	1. in the mvp,in `axiosInterceptor.js` replace the value for `BACKEND_URL` for the url in which your server is running it should be something like `127.0.0.1:8000/`
+
+
 # MVP Installation
 
 1. This guide follows React's environment [set up](https://reactnative.dev/docs/environment-setup).
