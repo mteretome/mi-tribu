@@ -8,9 +8,9 @@ import GlobalProvider from './src/context/Provider';
 import { NativeBaseProvider, Box,extendTheme } from 'native-base';
 import colors from './src/assets/theme/colors';
 
-import GlobalProvider from './src/context/Provider';
 
 
+ 
 const theme = extendTheme({
   colors: {
     // Add new color
@@ -19,7 +19,7 @@ const theme = extendTheme({
       200: colors.tribu_bbpink,
     },
   } 
-});
+}); 
 
 
 export default class App extends Component {
@@ -34,6 +34,7 @@ export default class App extends Component {
         <AppNavContainer/>
         </GlobalProvider>
         </NativeBaseProvider>
+
     
 
     );
