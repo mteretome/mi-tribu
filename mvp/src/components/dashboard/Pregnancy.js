@@ -37,7 +37,8 @@ const PregnancyComponent = ({week}) => {
             overlayContainerStyle={{backgroundColor: colors.tribu_pink}}/>
         </View>
 
-        <WeeklyFruit fruit="lentil" weight="2" size="2,5" week={7}/>
+        <WeeklyFruit fruit="apple" weight="2" size="2,5" week={week}/>
+
 
         <InfoTab body="cuerpo info" baby="bebe info" symptoms="sintomas info"/>
         

@@ -44,8 +44,7 @@ const LoginComponent= ({swipe,
           Recupérala.</Link>
           </View>
 
-
-      {error?.response &&<Light style={{color:colors.tribu_pink}}>*Error{error.response.data}*</Light>} 
+      {error?.error &&<Light style={{color:colors.tribu_pink}}>*Error{error.error}*</Light>} 
 
         <CustomButton 
         loading={loading}

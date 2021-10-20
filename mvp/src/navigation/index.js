@@ -12,7 +12,9 @@ const RootStack = createStackNavigator();
 
 
 const AppNavContainer = () =>{
+
   return(
+
   <NavigationContainer>
        <RootStack.Navigator screenOptions={{headerShown: false}} >
           <RootStack.Screen name="DevPage" component={DevPage} />
