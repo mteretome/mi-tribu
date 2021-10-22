@@ -105,7 +105,7 @@ const Fruit = ({fruit}) => {
         return (<Grapes width="300%" height="300%" style={{position:'absolute',top:-66,left:-100}} />); }
 
     else if (fruit=='lettuce'){
-        return (<Lettuce width="350%" height="350%" style={{position:'absolute',top:-86,left:-120}}/>); }
+        return (<Lettuce width="350%" height="350%" style={{position:'absolute',top:-72,right:-200}}/>); }
         
     else if (fruit=='kale'){
         return (<Kale width="380%" height="380%" style={{position:'absolute',top:-95,left:-140}}/>); }
