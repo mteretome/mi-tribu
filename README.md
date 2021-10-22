@@ -1,9 +1,20 @@
 # MVP Set Up
 
 1.  Make sure to install [dependencies and environment](https://reactnative.dev/docs/environment-setup) as described on the link or below.
-2. In MVP folder, run `npm install` and `yarn install` to install packages
-3. In MVP folder, run `npx react-native start` or `yarn start` to start Metro Bundler
-4. Open a new terminal and run `npx react-native run-android` or `yarn android` to see app runnning in Android emulator
+	- Choose the "React Native CLI Quickstart" tab.
+	- Choose the your development OS and make the target OS Android.
+2. Remove the following from your local cloned repository: yarn.lock, package-lock.json, node_modules, android/app/build.
+	- On IOS run "rm -rf yarn.lock package-lock.json node_modules android/app/build".
+	- On Windows run "rmdir \s \q yarn.lock package-lock.json node_modules android/app/build".
+	- If some of these files are not found, delete only the ones who are found. 
+3. In MVP folder, run `npm install` and `yarn install` to install packages.
+	- Npm install is known to cause errors, if that is the case, just run 'yarn install' instead.
+	- If 'yarn' is not recognized, try running 'npm install --global yarn'.
+4. In MVP folder, run `npx react-native start` or `yarn start` to start Metro Bundler.
+5. Open the Android Studio app.
+	- Go to AVD manager.
+	- You should see a single device you set up earlier (in step 1), click the green button next to it to start the device before step 6.
+6. Open a new terminal and run `npx react-native run-android` or `yarn android` to see app runnning in the Android emulator.
 
 # MVP Backend Set up
 1. Install and run https://github.com/espinoza-sebastian/mi-tribu-mobile-app 
@@ -13,7 +24,7 @@
 	3. copy the https email that ngrok returns and replace the value for `NGROK_URL` in `settings.py`
 	4. in the mvp (here),in `axiosInterceptor.js` replace the value for `BACKEND_URL` for the same ngrok url
 3. If running the mvp in a simulator in your computer:
-	1. in the mvp,in `axiosInterceptor.js` replace the value for `BACKEND_URL` for the url in which your server is running it should be something like `127.0.0.1:8000/`
+	1. in the mvp\src\config ,in `axiosInterceptor.js` replace the value for `BACKEND_URL` for the url in which your server is running it should be something like `127.0.0.1:8000/`
 
 
 # MVP Installation
