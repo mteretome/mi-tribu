@@ -5,7 +5,7 @@
 	- Choose the your development OS and make the target OS Android.
 2. Remove the following from your local cloned repository: yarn.lock, package-lock.json, node_modules, android/app/build.
 	- On IOS run "rm -rf yarn.lock package-lock.json node_modules android/app/build".
-	- On Windows run "rmdir \s \q yarn.lock package-lock.json node_modules android/app/build".
+	- On Windows run "del \s \q yarn.lock package-lock.json node_modules android/app/build".
 	- If some of these files are not found, delete only the ones who are found. 
 3. In MVP folder, run `npm install` and `yarn install` to install packages.
 	- Npm install is known to cause errors, if that is the case, just run 'yarn install' instead.
