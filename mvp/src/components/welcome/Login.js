@@ -44,8 +44,7 @@ const LoginComponent= ({swipe,
           Recupérala.</Link>
           </View>
 
-      {error?.error &&<Light style={{color:colors.tribu_pink}}>*Error{error.error}*</Light>} 
-
+      {error &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
         <CustomButton 
         loading={loading}
         onPress={() => {

@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Bold, Regular} from '../common/Text';
 import colors from '../../assets/theme/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import { View } from 'react-native';
 import styles from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
@@ -42,10 +43,11 @@ const renderTabBar = props => (
     />
 );
 
-const InfoTab = ({body,baby,symptoms}) => {
+const InfoTab = ({baby,body,symptoms}) => {
+ 
   const Cuerpo = () => {
     return (
-        <Regular>{body}</Regular>
+        <Regular > {body}</Regular>
     );
   };
   const Sintomas = () => {

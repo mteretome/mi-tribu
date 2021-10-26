@@ -6,7 +6,7 @@ import { LOGIN_FAIL, LOGIN_LOADING, LOGIN_SUCCESS } from "../../constants/action
 
 export default ({
     email,
-    password,})=> (dispatch)  => (onSuccess) => {
+    password,})=> (dispatch)  => {
         dispatch({
             type: LOGIN_LOADING
         });
@@ -15,20 +15,17 @@ export default ({
         password,
     }).then((res) => {
         AsyncStorage.setItem("user",JSON.stringify(res.data.user));
-        AsyncStorage.setItem("current_week",JSON.stringify(res.data.current_week));
         AsyncStorage.setItem("week_dates",JSON.stringify(res.data.week_dates));
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data,
         });
         console.log("success login - data:>>",res.data)
-        onSuccess(res.data);
     }).catch((err)=>{
-        console.log('err',err);
+        console.log('err', err.message);
         dispatch({
             type: LOGIN_FAIL,
-            payload:  err.response ? 
-            err.response.data : {error:'Something went wrong. Try again'},
+            payload: err.message,
         });
 
     });

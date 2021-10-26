@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useContext, useEffect, useRef} from 'react';
 import {View} from 'react-native';
 
 import Swiper from 'react-native-swiper';
@@ -8,9 +8,14 @@ import Icon from 'react-native-vector-icons/Octicons';
 
 import PregnancyComponent from './Pregnancy';
 import styles from './styles';
+import { GlobalContext } from '../../context/Provider';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const WeekSwiper= () => {
+
+const WeekSwiper= ({name,week}) => {
 	const swiper = useRef(null);
+  
+
 	return (
 		
         
@@ -27,9 +32,9 @@ const WeekSwiper= () => {
 		>
        
        
-        <PregnancyComponent week={10}/>
-        <PregnancyComponent week={11}/>
-        <PregnancyComponent week={12}/>
+        <PregnancyComponent week={5} name={name}/>
+        <PregnancyComponent week={week} name={name}/>
+        <PregnancyComponent week={7} name={name}/>
 
        
 

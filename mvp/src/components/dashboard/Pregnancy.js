@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { Bold, Regular } from '../../components/common/Text';
 import LinearContainer from '../../components/common/LinearContainer';
@@ -11,17 +11,42 @@ import { useNavigation } from '@react-navigation/native';
 import { WEEKS } from '../../constants/routeNames';
 import { Avatar } from 'react-native-elements';
 import colors from '../../assets/theme/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { GlobalContext } from '../../context/Provider';
 
 
-const PregnancyComponent = ({week}) => {
+const PregnancyComponent = ({week,name}) => {
   const navigate= useNavigation();
+  const [bebe, setBebe] = useState(null);
+  const [cuerpo,setCuerpo]= useState(null);
+  const [sintomas,setSintomas]= useState(null);
+
+  const getDashboard = async () => {
+    var name = "dashboard_"+week;
+        
+    const dashboard = await AsyncStorage.getItem(name);
+   
+    
+    if(dashboard){
+        setBebe(JSON.stringify(JSON.parse(dashboard).bebe));
+        setCuerpo(JSON.stringify(JSON.parse(dashboard).cuerpo));
+        setSintomas(JSON.stringify(JSON.parse(dashboard).sintomas));
+
+    }
+
+};
+  useEffect(() => {
+    getDashboard();
+  }, []);
+
+ 
     return (
     
       <LinearContainer style={{flex:1}}>
         <Bg  width="100%" style={{position:'absolute',bottom:30}}/>
        
         <View style={styles.header}>
-            <Bold style={styles.heading}>Hola #Name,</Bold>
+            <Bold style={styles.heading}>Hola {name},</Bold>
             <View style={styles.subheader}>
                 <Regular style={styles.subheading} >Estás en tu </Regular>
                 <Link icon={true} onPress={() => {navigate.navigate(WEEKS);}} style={{fontSize:20}}>Semana {week}
@@ -39,7 +64,7 @@ const PregnancyComponent = ({week}) => {
 
         <WeeklyFruit fruit="apple" weight="2" size="2,5" week={week}/>
 
-        <InfoTab body="cuerpo info" baby="bebe info" symptoms="sintomas info"/>
+        <InfoTab baby={bebe} body={cuerpo} symptoms={sintomas}/>
         
       </LinearContainer>
     );

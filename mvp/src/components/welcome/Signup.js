@@ -130,7 +130,7 @@ const SignupComponent= ({
              <DuedateComponent toggleOverlay={toggleOverlay} parentSet={parentSetter}/>
             </Overlay>
         </View>
-      {error?.response &&<Light style={{color:colors.tribu_pink}}>*Error{error}*</Light>} 
+      {error &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
 
         <CustomButton 
         loading={loading}

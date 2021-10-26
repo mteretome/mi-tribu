@@ -34,16 +34,6 @@ const LogInPage = () => {
 		authState: {error,loading,data},
 	  } = useContext(GlobalContext); 
 
-	  useFocusEffect(
-		React.useCallback(()=>{
-	
-		  return () =>{
-		  if(data || error ){
-			clearAuthState()(authDispatch);
-		  }
-		};
-		},[data,error]),
-	  );
 	
 	const onChange = ({name,value}) =>{
 	  setForm({...form,[name]:value});
@@ -82,18 +72,15 @@ const LogInPage = () => {
 		form.password && form.email 
 		&&Object.values(errors).every((item)=>!item))
 		{
+		  clearAuthState()(authDispatch);
 		  console.log('successsful validation');
-		  console.log("form:>>",form);
-		  login(form)(authDispatch)((response)=>{
-			navigate.navigate('Dashboard',{data: response});
-		  });
-
-		  
-   
+		  console.log("form:>>",form.email);
+		  login(form)(authDispatch);
 		  
 		};
 	};
-	
+
+
 	return (
 	<LoginWrapper>
 			<NoScrollContainer>

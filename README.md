@@ -7,9 +7,10 @@
 
 # MVP Backend Set up
 1. Install and run https://github.com/espinoza-sebastian/mi-tribu-mobile-app 
-2. If running the mvp in a separate simulator from your computer:
+2. In `axiosInterceptor.js` make sure your auth user and password match your super user information from the previous step
+3. If running the mvp in a separate simulator from your computer:
 	1. Download and install https://ngrok.com/download 
-	2. run `./ngrok 8000`  8000 should be the port name of the django server running on your computer 
+	2. run `ngrok http 8000`  8000 should be the port name of the django server running on your computer 
 	3. copy the https email that ngrok returns and replace the value for `NGROK_URL` in `settings.py`
 	4. in the mvp (here),in `axiosInterceptor.js` replace the value for `BACKEND_URL` for the same ngrok url
 3. If running the mvp in a simulator in your computer:

@@ -1,9 +1,15 @@
 import axiosInstance from "../../config/axiosInterceptor";
-import { CLEAR_AUTH_STATE,REGISTER_FAIL, REGISTER_LOADING, REGISTER_SUCCESS } from "../../constants/actions";
+import { CLEAR_AUTH_STATE,CLEAR_MODE,REGISTER_FAIL, REGISTER_LOADING, REGISTER_SUCCESS } from "../../constants/actions";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export const clearAuthState =()=> dispatch=> {
     dispatch({
         type: CLEAR_AUTH_STATE,
+    });
+};
+
+export const clearMode =()=> dispatch=> {
+    dispatch({
+        type: CLEAR_MODE,
     });
 };
 
@@ -27,9 +33,7 @@ export default ({
         due_date,
     }).then((res) => {
         AsyncStorage.setItem("user",JSON.stringify(res.data.user));
-        AsyncStorage.setItem("current_week_raw",JSON.stringify(res.data.current_week_raw));
         AsyncStorage.setItem("week_dates",JSON.stringify(res.data.week_dates));
-        AsyncStorage.setItem("current_week_round",JSON.stringify(res.data.current_week_round));
         AsyncStorage.setItem("day",JSON.stringify(res.data.day));
 
         dispatch({
