@@ -1,18 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Pregnacy from '../screens/dashboard/Pregnancy';
-import { PREGNANCY, WEEKS, WEEK_NUMBERS } from '../constants/routeNames';
-import Weeks from '../screens/dashboard/Weeks';
+
+import { WEEK_NUMBERS } from '../constants/routeNames';
 import PregnancyComponent from '../components/dashboard/Pregnancy';
-import { GlobalContext } from '../context/Provider';
-import weekInfo from '../context/actions/weekInfo';
 
 
 
-//initialParams={{ itemId: 42 }}
 
 
 const PregDashNav = () => {

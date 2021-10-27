@@ -22,9 +22,6 @@ import Icon from 'react-native-vector-icons/Octicons';
 
 const PregnancyComponent = () => {
   const {params} = useRoute();
- 
-
-	
 
 
   const navigate= useNavigation();
@@ -77,21 +74,25 @@ const PregnancyComponent = () => {
     
       <LinearContainer style={{flex:1}}>
         <Bg  width="100%" style={{position:'absolute'}}/>
-        <TouchableOpacity onPress={() => {navigate.navigate(nextWeek);}}>
-        <Icon name="chevron-right" color={colors.off_white} size={35} style={{marginLeft:30,marginVertical:80}}/>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {navigate.navigate(prevWeek);}}>
-        <Icon name="chevron-left" color={colors.off_white} size={35} style={{marginRight:30,marginVertical:80}}/>
-        </TouchableOpacity>
+       
         
         <View style={styles.header}>
+        
+       
             <Bold style={styles.heading}>Hola {name},</Bold>
             <View style={styles.subheader}>
                 <Regular style={styles.subheading} >Estás en tu </Regular>
                 <TouchableOpacity onPress={() => {navigate.navigate(WEEKS);}} style={{zIndex:1}}>
                 <Link icon={true}  onPress={() => {navigate.navigate(WEEKS);}}style={{fontSize:20}}>Semana {week}
                 </Link></TouchableOpacity>
+                {/* <TouchableOpacity onPress={() => {navigate.navigate(nextWeek);}}>
+        <Icon name="chevron-right" color={colors.off_white} size={35} style={{left:0}}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {navigate.navigate(prevWeek);}}>
+        <Icon name="chevron-left" color={colors.off_white} size={35} style={{right:0}}/>
+        </TouchableOpacity> */}
             </View>
+           
             <Avatar  rounded  
             // source={require('../../assets/images/pink/lady2.png')}
             icon={{name: 'user', type: 'font-awesome'}}

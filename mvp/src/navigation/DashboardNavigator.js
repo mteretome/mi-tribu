@@ -59,7 +59,9 @@ const DashNav = () => {
   
 	return (
     <DashTab.Navigator 
-        screenOptions={{headerShown: false,tabBarVisible:false}} 
+        // screenOptions={{headerShown: false,tabBarVisible:false}} 
+        screenOptions={{headerShown: false,tabBarVisible:true}} 
+
         initialRouteName={PREGNANCY}
         tabBarOptions={{
             activeBackgroundColor: colors.pressed_green,
