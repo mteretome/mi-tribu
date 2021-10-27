@@ -2,7 +2,6 @@
 import React, { useContext, useEffect } from 'react';
 import {PREGNANCY, TOOLS,FEED,WEEKS, SETTINGS} from '../constants/routeNames';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Pregnacy from '../screens/dashboard/Pregnancy';
 import Social from '../screens/dashboard/Social';
 import LinearContainer from '../components/common/LinearContainer';
 import { Bold } from '../components/common/Text';
@@ -14,7 +13,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import OnboardingNav from './OnboardingNav';
 import { GlobalContext } from '../context/Provider';
 import { onboardComplete } from '../context/actions/register';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import PregDashNav from './PregDashNav';
 
 

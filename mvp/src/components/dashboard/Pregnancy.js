@@ -15,6 +15,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalContext } from '../../context/Provider';
 import { useRoute } from '@react-navigation/core';
 import weekInfo from '../../context/actions/weekInfo';
+import Icon from 'react-native-vector-icons/Octicons';
+
 
 
 
@@ -31,6 +33,8 @@ const PregnancyComponent = () => {
   const [sintomas,setSintomas]= useState(null);
   const [name,setName]= useState(null);
   const [week,setWeek]= useState(null);
+  const [nextWeek,setNext]= useState(null);
+  const [prevWeek,setPrev]= useState(null);
   const {
     authDispatch,
     } = useContext(GlobalContext); 
@@ -38,9 +42,10 @@ const PregnancyComponent = () => {
     React.useEffect(() => {
       if (params) {		
         setWeek(JSON.stringify(params.week));
+        setNext(JSON.stringify(params.week+1));
+        setNext(JSON.stringify(params.week-1));
       }
       }, [params]);
-      console.log("name",name);
 
   const getDashboard = async (week) => {
 
@@ -72,7 +77,13 @@ const PregnancyComponent = () => {
     
       <LinearContainer style={{flex:1}}>
         <Bg  width="100%" style={{position:'absolute'}}/>
-       
+        <TouchableOpacity onPress={() => {navigate.navigate(nextWeek);}}>
+        <Icon name="chevron-right" color={colors.off_white} size={35} style={{marginLeft:30,marginVertical:80}}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {navigate.navigate(prevWeek);}}>
+        <Icon name="chevron-left" color={colors.off_white} size={35} style={{marginRight:30,marginVertical:80}}/>
+        </TouchableOpacity>
+        
         <View style={styles.header}>
             <Bold style={styles.heading}>Hola {name},</Bold>
             <View style={styles.subheader}>
@@ -92,6 +103,9 @@ const PregnancyComponent = () => {
         </View>
 
         <WeeklyFruit fruit="apple" weight="2" size="2,5" week={week}/>
+        {/* <WeeklyFruit metrics={metrics} week={week}/> */}
+        {/* <WeeklyFruit week={week}/> */}
+
 
         <InfoTab baby={bebe} body={cuerpo} symptoms={sintomas}/>
         
