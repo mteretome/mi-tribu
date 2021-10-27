@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {View} from 'react-native';
 import colors from '../../assets/theme/colors';
 import WhiteContainer from '../common/WhiteContainer';
@@ -10,6 +10,8 @@ import { useNavigation } from '@react-navigation/native';
 import {FORGOTPASS,SIGNUP} from '../../constants/routeNames'; 
 import Icon from 'react-native-vector-icons/AntDesign';
 import {Bold,Light} from '../common/Text';
+import { clearAuthState } from '../../context/actions/register';
+import { GlobalContext } from '../../context/Provider';
 
 
 const LoginComponent= ({swipe,
@@ -20,6 +22,7 @@ const LoginComponent= ({swipe,
   error,
   loading}) => {
   const navigate= useNavigation();
+  const {authDispatch} = useContext(GlobalContext); 
 	return (
 <View >
 		
@@ -31,11 +34,11 @@ const LoginComponent= ({swipe,
       <View style={styles.inputContainer}>
         <Input placeholder="Email*"
         onChangeText={(value)=>{onFormChange({name:"email",value})}}
-        error={errors.email|| error?.email?.[0]}/>
+        error={errors.email|| error?.error.email?.[0]}/>
         <Input placeholder="Contraseña*"
         secureTextEntry={true}
         onChangeText={(value)=>{onFormChange({name:"password",value})}}
-          error={errors.password|| error?.password?.[0]}
+          error={errors.password|| error?.error.password?.[0]}
         />
         <View style={styles.footer}>
            <Icon name="questioncircleo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
@@ -43,8 +46,9 @@ const LoginComponent= ({swipe,
           <Link style={[{color:colors.grey_dark}]}  onPress={() => swipe(1) }>
           Recupérala.</Link>
           </View>
-
-      {error &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
+        
+        {error?.status_code<404 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
+      {error?.status_code>404 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
         <CustomButton 
         loading={loading}
         onPress={() => {
@@ -57,7 +61,8 @@ const LoginComponent= ({swipe,
          
           <Light style={styles.lightText}>¿No tienes cuenta? </Light>
           <Link onPress={() => {
-            navigate.navigate(SIGNUP)
+            clearAuthState()(authDispatch);
+            navigate.navigate(SIGNUP);
           }}>Crea una nueva cuenta.</Link>
       </View>
 	

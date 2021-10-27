@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {PREGNANCY, TOOLS,FEED,WEEKS, SETTINGS} from '../constants/routeNames';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Pregnacy from '../screens/dashboard/Pregnancy';
@@ -10,6 +10,14 @@ import colors from '../assets/theme/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Weeks from '../screens/dashboard/Weeks';
 import {createStackNavigator} from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import OnboardingNav from './OnboardingNav';
+import { GlobalContext } from '../context/Provider';
+import { onboardComplete } from '../context/actions/register';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import PregDashNav from './PregDashNav';
+
+
 
 const Tools = () => {
     return (
@@ -42,7 +50,7 @@ const PregnancyNav = () => {
     const PregnancyStack = createStackNavigator();
     return (
       <PregnancyStack.Navigator screenOptions={{headerShown: false}} initialRouteName={PREGNANCY}>
-      <PregnancyStack.Screen name={PREGNANCY} component={Pregnacy}></PregnancyStack.Screen>
+      <PregnancyStack.Screen name={PREGNANCY} component={PregDashNav}></PregnancyStack.Screen>
       <PregnancyStack.Screen name={WEEKS} component={Weeks}></PregnancyStack.Screen>
     </PregnancyStack.Navigator>
     );
@@ -50,9 +58,10 @@ const PregnancyNav = () => {
 
 const DashNav = () => {
 	const DashTab = createBottomTabNavigator();
+  
 	return (
     <DashTab.Navigator 
-        screenOptions={{headerShown: false}} 
+        screenOptions={{headerShown: false,tabBarVisible:false}} 
         initialRouteName={PREGNANCY}
         tabBarOptions={{
             activeBackgroundColor: colors.pressed_green,
@@ -61,6 +70,7 @@ const DashNav = () => {
                 backgroundColor: colors.soft_blue,
                 height: '8%',
             }
+            
         }}
     >
         <DashTab.Screen 
@@ -96,8 +106,31 @@ const DashNav = () => {
 };
 
 const DashboardNavigator = () => {
+  const { authDispatch,authState: {onboarding}} = useContext(GlobalContext);
+  const [onboard, setOnboard] = React.useState(onboarding);
+ 
+
+  const getOnboarding = async () => {
+    try {
+      const onboarded = await AsyncStorage.getItem('onboarding');
+      if(onboarded){
+        setOnboard(true);
+        onboardComplete()(authDispatch);
+
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getOnboarding();
+  }, []);
+
   return (
-    <DashNav/>    
+    <>
+    {onboarding ? <DashNav/>  :
+    <OnboardingNav/>}
+    </>
   );
 };
 

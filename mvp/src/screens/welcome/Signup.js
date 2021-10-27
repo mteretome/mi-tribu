@@ -17,16 +17,7 @@ const SignupPage = () => {
   } = useContext(GlobalContext); //error returned here are server errors
 
   
-  useFocusEffect(
-    React.useCallback(()=>{
-
-      return () =>{
-      if(data || error ){
-        clearAuthState()(authDispatch);
-      }
-    };
-    },[data,error]),
-  );
+ 
 
    //form validation
    const[form, setForm] = useState({});
@@ -115,10 +106,11 @@ const SignupPage = () => {
      Object.values(form).length===6
      &&Object.values(errors).every((item)=>!item)
      //&&Object.values(error).every((item)=>!item)
-     ){
+     ){clearAuthState()(authDispatch);
        register(form)(authDispatch)((response)=>{
          navigate.navigate(CONGRATS,{data: response});
        });
+       
       
       };
    };

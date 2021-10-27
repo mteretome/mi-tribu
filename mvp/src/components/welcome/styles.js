@@ -39,8 +39,8 @@ export default StyleSheet.create({
   },
   congratsSub: { 
     color: colors.tribu_green,
-    fontSize:18, 
-    marginBottom:30,
+    fontSize:24, 
+    marginBottom:15,
   },
   container:{
     paddingHorizontal:60,
@@ -53,7 +53,7 @@ export default StyleSheet.create({
     fontSize: 46,
     color: colors.white,
     textAlign: 'center',
-    marginVertical:30
+  
   },
   welcomeLady1:{
     top:125,

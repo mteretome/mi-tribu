@@ -1,4 +1,4 @@
-import React, { useState, useCallback} from 'react';
+import React, { useState, useCallback, useContext} from 'react';
 import {Overlay } from 'react-native-elements';
 import {View,TouchableOpacity} from 'react-native';
 import colors from '../../assets/theme/colors';
@@ -14,6 +14,8 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {Bold,Light} from '../common/Text';
 import { format } from 'date-fns'
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { clearAuthState } from '../../context/actions/register';
+import { GlobalContext } from '../../context/Provider';
 
 
 
@@ -63,6 +65,8 @@ const SignupComponent= ({
   }, [setDate]);
 
   const navigate = useNavigation();
+  const {authDispatch} = useContext(GlobalContext); 
+
 	return (
    
 			<WhiteContainer>
@@ -77,32 +81,32 @@ const SignupComponent= ({
           <Input style={{marginEnd:'12%'}}
           placeholder="Nombre*   "
           onChangeText={(value)=>{onFormChange({name:"first_name",value})}}
-          error={errors.first_name|| error?.first_name?.[0]}/>
+          error={errors.first_name|| error?.error.first_name?.[0]}/>
           <Input style={{marginEnd:'20%'}} 
           placeholder="Apellido*  "
           onChangeText={(value)=>{onFormChange({name:"last_name",value})}}
-          error={errors.last_name|| error?.last_name?.[0]}/>
+          error={errors.last_name|| error?.error.last_name?.[0]}/>
         </View>
 
         <Input  placeholder="Email*"
         onChangeText={(value)=>{onFormChange({name:"email",value})}}
-        error={errors.email|| error?.email?.[0]}/>
+        error={errors.email|| error?.error.email?.[0]}/>
         <Input  placeholder="Celular*"
         onChangeText={(value)=>{onFormChange({name:"phone",value})}}
-        error={errors.phone|| error?.phone?.[0]}/>
+        error={errors.phone|| error?.error.phone?.[0]}/>
         <Input  placeholder="Crea tu contraseña*" secureTextEntry={true}
         onChangeText={(value)=>{onFormChange({name:"password",value})}}
-        error={errors.password|| error?.password?.[0]}/>
+        error={errors.password|| error?.error.password?.[0]}/>
         
         <TouchableOpacity onPress={showDatePicker}>
               {text ?  
               <Input editable={false} 
               placeholder="Fecha de Parto Estimada*"
-              error={errors.due_date|| error?.due_date?.[0]}> 
+              error={errors.due_date|| error?.error.due_date?.[0]}> 
               </Input>
               : 
               <Input editable={false} 
-              error={errors.due_date|| error?.due_date?.[0]}>
+              error={errors.due_date|| error?.error.due_date?.[0]}>
               {format(date,'dd/MM/yyyy')}</Input> }
               </TouchableOpacity>
                <DateTimePickerModal
@@ -130,7 +134,8 @@ const SignupComponent= ({
              <DuedateComponent toggleOverlay={toggleOverlay} parentSet={parentSetter}/>
             </Overlay>
         </View>
-      {error &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
+      {error?.status_code>400 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
+      {error?.status_code<400 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
 
         <CustomButton 
         loading={loading}
@@ -143,7 +148,8 @@ const SignupComponent= ({
         <View style={styles.footer}>
           <Light style={styles.lightText}>¿Ya tienes cuenta? </Light>
           <Link onPress={() => {
-            navigate.navigate(LOGIN)
+            clearAuthState()(authDispatch);
+            navigate.navigate(LOGIN);
           }}>Inicia Sesión</Link>
         </View>
      </WhiteContainer>

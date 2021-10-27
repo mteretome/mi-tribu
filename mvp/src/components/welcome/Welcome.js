@@ -12,16 +12,16 @@ import {Bold,Regular} from '../common/Text';
 
 
 
-const WelcomeComponent= () => {
+const WelcomeComponent= ({name}) => {
   const navigate= useNavigation();
   return (
     
       <LinearContainer>
        <Container style={styles.container}>
         <View style={styles.heading}>
-          <Bold style={styles.whiteTitle}>
-          Bienvenida,
-          #Name</Bold>
+          <Bold style={[styles.whiteTitle,{marginTop:30}]}>
+          Bienvenida,</Bold>
+          <Bold style={[styles.whiteTitle,{marginBottom:30}]}>{name}</Bold>
           <Regular style={styles.subtitle}>Te estábamos esperando.</Regular>
         </View>
     <View style={{flexShrink:1,flexDirection:"row"}}>
@@ -43,7 +43,10 @@ const WelcomeComponent= () => {
       <CustomButton style={{bottom:50}}
         textStyle={{fontSize:17}}
         title="Ingresar a Mi Embarazo" gradient={true}
-        onPress={() => {navigate.navigate('Dashboard')}}/>
+        onPress={() => {
+          navigate.navigate('Dashboard');
+          }}/>
+        
       </View>
         </Container>
       </LinearContainer>

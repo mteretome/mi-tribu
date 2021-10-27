@@ -1,12 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
-import { Bold, Regular} from '../common/Text';
+import { Bold, Light, Regular} from '../common/Text';
 import colors from '../../assets/theme/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import styles from './styles';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
@@ -47,17 +46,27 @@ const InfoTab = ({baby,body,symptoms}) => {
  
   const Cuerpo = () => {
     return (
-        <Regular > {body}</Regular>
+      <ScrollView style={{marginHorizontal:30,marginVertical:10}}>
+        <Light style={{fontSize:18,textAlign:'justify'}}> {body}</Light>
+        </ScrollView>
     );
   };
   const Sintomas = () => {
       return (
-          <Regular>{symptoms}</Regular>
+        <ScrollView style={{marginHorizontal:30,marginVertical:10}}>
+
+
+          <Light style={{fontSize:18,textAlign:'justify'}} >{symptoms}</Light>
+          </ScrollView>
       );
     };
   const Bebe = () => {
       return (
-          <Regular>{baby}</Regular>
+        <ScrollView style={{marginHorizontal:30,marginVertical:10}}>
+
+
+          <Light  style={{fontSize:18}}>{baby}</Light>
+          </ScrollView>
       );
   };
   

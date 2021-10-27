@@ -16,16 +16,20 @@ export default ({
     }).then((res) => {
         AsyncStorage.setItem("user",JSON.stringify(res.data.user));
         AsyncStorage.setItem("week_dates",JSON.stringify(res.data.week_dates));
+        AsyncStorage.setItem("onboarding",JSON.stringify(res.data.onboarding));
+        AsyncStorage.setItem("current_week",JSON.stringify(res.data.current_week));
+
+
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data,
         });
         console.log("success login - data:>>",res.data)
     }).catch((err)=>{
-        console.log('err', err.message);
+        console.log('err', err.response.status);
         dispatch({
             type: LOGIN_FAIL,
-            payload: err.message,
+            payload: {'status_code': err.response.status, 'error' : err.response.data},
         });
 
     });

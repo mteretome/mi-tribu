@@ -17,7 +17,7 @@ const getCurrent =(week) =>{
       }
       i++;
     }
-    return JSON.parse(current);
+    return JSON.stringify(current);
 
 };
 
@@ -49,6 +49,7 @@ useEffect(() => {
   getUser();
   weekInfo(week)(authDispatch);
 }, []);
+
 
   
 

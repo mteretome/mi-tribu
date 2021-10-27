@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity,FlatList } from 'react-native';
 import LinearContainer from '../../components/common/LinearContainer';
 import Bg from '../../assets/images/svg/pregnancy.svg';
 import Icon from 'react-native-vector-icons/Octicons';
 import colors from '../../assets/theme/colors';
-import { PREGNANCY } from '../../constants/routeNames';
+import { PREGNANCY, WEEK_NUMBERS } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 import CustomCard from '../common/CustomCard';
 import Fruit from '../../assets/images/fruit_outline.svg';
 import FruitGreen from '../../assets/images/fruit_green_outline.svg';
+import { indexOf, sortedIndex } from 'lodash';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import setWeek from 'date-fns/setWeek';
 
 
 const WEEKS_EX = [
@@ -58,8 +61,9 @@ const WEEKS_EX = [
 
 
 
-const WeekList = () => {
+const WeekList = ({weeks}) => {
   const navigate= useNavigation();
+ 
     return (
     
       <LinearContainer style={{flex:1,flexDirection:'row'}}>
@@ -71,7 +75,7 @@ const WeekList = () => {
 
             <View style={{paddingHorizontal:20,flex:10}}>
               <FlatList
-              data={WEEKS_EX}
+              data={weeks}
               renderItem = {({ item }) => 
                 (
                   <View>
@@ -84,7 +88,7 @@ const WeekList = () => {
                           position:'absolute',
                           }}>
                           </View>
-                  <TouchableOpacity style={styles.card}  onPress={() => {navigate.navigate(PREGNANCY)}}>
+                  <TouchableOpacity style={styles.card}  onPress={() => {navigate.navigate(item.id)}}>
                             {item.active ? 
                             <CustomCard center={false}
                             activeCircle={item.active} week={true}

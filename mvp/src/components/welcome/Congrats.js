@@ -11,12 +11,15 @@ import Blob from '../../assets/images/svg/congrats.svg';
 import {Bold,Light,ExtraBold, SemiBold} from '../common/Text';
 
 import { useRoute } from '@react-navigation/native';
+import daysToWeeks from 'date-fns/daysToWeeks/index.js';
 
 
-const CongratsComponent= () => {
+const CongratsComponent= ({name,week,days}) => {
   
-  const route = useRoute();
   const navigate= useNavigation();
+  const weeks_left = 41-week;
+  const days_left = 7-days;
+
 	return (
     
 			<WhiteContainer>
@@ -37,9 +40,9 @@ const CongratsComponent= () => {
 
       <View style={{marginTop:30, marginBottom:30, alignItems:'center'}}>
       
-        <SemiBold style={styles.congratsSub}>#NAME + ,", estás en tu Semana X + Y días de embarazo.</SemiBold>
+        <SemiBold style={styles.congratsSub}>{JSON.parse(name)} estás en tu Semana {week} + {days} días de embarazo.</SemiBold>
        
-        <Light  style={styles.congratsSub}>Te quedan W semanas y Z días.</Light>
+        <Light  style={styles.congratsSub}>Te quedan {weeks_left} semanas y {days_left} días.</Light>
         
       </View>
       <CustomButton onPress={() => {

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { Bold, Regular } from '../../components/common/Text';
 import LinearContainer from '../../components/common/LinearContainer';
 import Bg from '../../assets/images/svg/pregnancy.svg';
@@ -13,44 +13,73 @@ import { Avatar } from 'react-native-elements';
 import colors from '../../assets/theme/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalContext } from '../../context/Provider';
+import { useRoute } from '@react-navigation/core';
+import weekInfo from '../../context/actions/weekInfo';
 
 
-const PregnancyComponent = ({week,name}) => {
+
+const PregnancyComponent = () => {
+  const {params} = useRoute();
+ 
+
+	
+
+
   const navigate= useNavigation();
   const [bebe, setBebe] = useState(null);
   const [cuerpo,setCuerpo]= useState(null);
   const [sintomas,setSintomas]= useState(null);
+  const [name,setName]= useState(null);
+  const [week,setWeek]= useState(null);
+  const {
+    authDispatch,
+    } = useContext(GlobalContext); 
 
-  const getDashboard = async () => {
-    var name = "dashboard_"+week;
+    React.useEffect(() => {
+      if (params) {		
+        setWeek(JSON.stringify(params.week));
+      }
+      }, [params]);
+      console.log("name",name);
+
+  const getDashboard = async (week) => {
+
         
-    const dashboard = await AsyncStorage.getItem(name);
+    const dashboard = await AsyncStorage.getItem("dashboard_"+week);
+    const userString = await AsyncStorage.getItem('user');
    
     
+    
+    if(userString){
+        setName(JSON.parse(userString).first_name);
+    }
+    
     if(dashboard){
-        setBebe(JSON.stringify(JSON.parse(dashboard).bebe));
-        setCuerpo(JSON.stringify(JSON.parse(dashboard).cuerpo));
-        setSintomas(JSON.stringify(JSON.parse(dashboard).sintomas));
+        setBebe(JSON.parse(dashboard).bebe);
+        setCuerpo(JSON.parse(dashboard).cuerpo);
+        setSintomas(JSON.parse(dashboard).sintomas);
 
     }
 
 };
   useEffect(() => {
-    getDashboard();
+    weekInfo(JSON.parse(week))(authDispatch);
+    getDashboard(week);
   }, []);
 
  
     return (
     
       <LinearContainer style={{flex:1}}>
-        <Bg  width="100%" style={{position:'absolute',bottom:30}}/>
+        <Bg  width="100%" style={{position:'absolute'}}/>
        
         <View style={styles.header}>
             <Bold style={styles.heading}>Hola {name},</Bold>
             <View style={styles.subheader}>
                 <Regular style={styles.subheading} >Estás en tu </Regular>
-                <Link icon={true} onPress={() => {navigate.navigate(WEEKS);}} style={{fontSize:20}}>Semana {week}
-                </Link>
+                <TouchableOpacity onPress={() => {navigate.navigate(WEEKS);}} style={{zIndex:1}}>
+                <Link icon={true}  onPress={() => {navigate.navigate(WEEKS);}}style={{fontSize:20}}>Semana {week}
+                </Link></TouchableOpacity>
             </View>
             <Avatar  rounded  
             // source={require('../../assets/images/pink/lady2.png')}

@@ -13,9 +13,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AppNavContainer = () =>{
   const RootStack = createStackNavigator();
-  const { authState: {developerMode,isLoggedIn},} = useContext(GlobalContext);
+  const { authState: {developerMode,isLoggedIn,},} = useContext(GlobalContext);
   const [isAuthenticated, setIsAuthenticated] = React.useState(isLoggedIn);
   const [authLoaded, setAuthLoaded] = React.useState(false);
+
 
   const getUser = async () => {
     try {
@@ -24,10 +25,12 @@ const AppNavContainer = () =>{
       if (user&&weeks) {
         setAuthLoaded(true);
         setIsAuthenticated(true);
+
         console.log("authenticated");
         console.log(user);
         console.log(weeks);
-      } else {
+      } 
+      else{
         setAuthLoaded(true);
 
         setIsAuthenticated(false);
@@ -49,7 +52,7 @@ const AppNavContainer = () =>{
         <RootStack.Navigator screenOptions={{headerShown: false}}>
         <RootStack.Screen name="DevPage" component={DevPage} />
           {isAuthenticated ? 
-              (<RootStack.Screen name="Dashboard" component={DashboardNavigator} />):
+              (<RootStack.Screen name="Dashboard" component={DashboardNavigator} />) :
               (<RootStack.Screen name="Welcome" component={WelcomeNavigator} />)  }
               
         </RootStack.Navigator>
