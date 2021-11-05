@@ -26,10 +26,12 @@ export default ({
         });
         console.log("success login - data:>>",res.data)
     }).catch((err)=>{
-        console.log('err', err.response.status);
+        console.log('err', err);
         dispatch({
             type: LOGIN_FAIL,
-            payload: {'status_code': err.response.status, 'error' : err.response.data},
+            payload:  err.response  ? 
+            {"status_code": err.response.status, "error" : err.response.data}  : 
+            {"status_code": err.status_code,"error": "Something went wrong, try again"}
         });
 
     });
