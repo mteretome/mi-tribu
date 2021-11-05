@@ -25,6 +25,13 @@ const PregnancyComponent = () => {
 
 
   const navigate= useNavigation();
+  const [metrics=[], setMetrics] = useState(null);
+  const [weekNumber, setWeekNumber] = useState(null);
+  const [length,setLength]= useState(null);
+  const [weight,setWeight]= useState(null);
+  const [weightUnit,setWeightUnit]= useState(null);
+  const [fruit,setFruit]= useState(null);
+  //
   const [bebe, setBebe] = useState(null);
   const [cuerpo,setCuerpo]= useState(null);
   const [sintomas,setSintomas]= useState(null);
@@ -64,11 +71,28 @@ const PregnancyComponent = () => {
     }
 
 };
-  useEffect(() => {
-    weekInfo(JSON.parse(week))(authDispatch);
-    getDashboard(week);
-  }, []);
 
+const getBabyMetric = async (week) => {
+  
+  const baby = await AsyncStorage.getItem("babystats_"+week);
+  
+  if(baby !== null){
+    setWeekNumber(JSON.parse(baby)[0]);
+    setLength(JSON.parse(baby)[1]);
+    setWeight(JSON.parse(baby)[2]);
+    setWeightUnit(JSON.parse(baby)[3]);
+    setFruit(JSON.parse(baby)[4]);
+    console.log("This is the data--> weekNumber: ",weekNumber ,"Length:",length, "wieght: ", weight, "weight unit: ", weightUnit,"fruit name: ", fruit );
+    console.log("week is ------->", week);
+
+  }    
+}
+
+useEffect(() => {
+  weekInfo(JSON.parse(week))(authDispatch);
+  getDashboard(week);
+  getBabyMetric(week);
+}, []);
  
     return (
     
@@ -102,10 +126,18 @@ const PregnancyComponent = () => {
               elevation: 10,}}
             overlayContainerStyle={{backgroundColor: colors.tribu_pink}}/>
         </View>
+        <WeeklyFruit fruit={fruit} weight={weight} weightUnit={weightUnit} length={length} week={week}/>
 
-        <WeeklyFruit fruit="apple" weight="2" size="2,5" week={week}/>
         {/* <WeeklyFruit metrics={metrics} week={week}/> */}
         {/* <WeeklyFruit week={week}/> */}
+        {/*
+        const [metrics=[], setMetrics] = useState(null);
+        const [weekNumber, setWeekNumber] = useState(null);
+        const [length,setLength]= useState(null);
+        const [weight,setWeight]= useState(null);
+        const [weightUnit,setWeightUnit]= useState(null);
+        const [fruit,setFruit]= useState(null);
+        */}
 
 
         <InfoTab baby={bebe} body={cuerpo} symptoms={sintomas}/>

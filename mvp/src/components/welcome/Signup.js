@@ -50,10 +50,10 @@ const SignupComponent= ({
         return new Date();
       }
       else if(n==2){
-        return new Date(year + 1, month, day);
+        return new Date(year, month+9, day);
       }
       else{
-        return new Date(year, month-10, day-9);
+        return new Date(year, month, day);
       }
   };
 
