@@ -5,7 +5,7 @@ import Container from '../common/Container';
 import CustomButton from '../common/CustomButton';
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native';
-import {SIGNUP} from '../../constants/routeNames'; 
+import {LOGIN, SIGNUP} from '../../constants/routeNames'; 
 import Bg1 from '../../assets/images/svg/pillar1.svg';
 
 
@@ -31,7 +31,7 @@ const PillarWrapper= ({children, one, two, three,swipe}) => {
         <CustomButton  style={[styles.floating,{top:99}]} 
         textStyle={{fontSize:18}} title="Comienza tu viaje"
         onPress={() => {
-          navigate.navigate(SIGNUP) }}/> }
+          navigate.navigate(LOGIN) }}/> }
       {two &&
         <CustomButton  
         style={[styles.floating,{paddingHorizontal:90,top:134}]} 

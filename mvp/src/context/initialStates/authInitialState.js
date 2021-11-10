@@ -4,7 +4,6 @@ export default{
     error:null,
     loading:false,
     developerMode: true,
-    onboarding: true,
 
     
 };

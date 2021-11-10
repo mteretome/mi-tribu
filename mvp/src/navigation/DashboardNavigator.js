@@ -10,9 +10,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Weeks from '../screens/dashboard/Weeks';
 import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import OnboardingNav from './OnboardingNav';
 import { GlobalContext } from '../context/Provider';
-import { onboardComplete } from '../context/actions/register';
 import PregDashNav from './PregDashNav';
 
 
@@ -73,7 +71,7 @@ const DashNav = () => {
             
         }}
     >
-        <DashTab.Screen 
+        {/* <DashTab.Screen 
             name={TOOLS} 
             component={Tools}
             options={{
@@ -82,7 +80,7 @@ const DashNav = () => {
                     <Icon name="build" size={30} color={colors.white} />
                 )
             }}
-            />
+            /> */}
         <DashTab.Screen 
             name={PREGNANCY} 
             component={PregnancyNav}
@@ -106,31 +104,11 @@ const DashNav = () => {
 };
 
 const DashboardNavigator = () => {
-  const { authDispatch,authState: {onboarding}} = useContext(GlobalContext);
-  const [onboard, setOnboard] = React.useState(onboarding);
- 
-
-  const getOnboarding = async () => {
-    try {
-      const onboarded = await AsyncStorage.getItem('onboarding');
-      if(onboarded){
-        setOnboard(true);
-        onboardComplete()(authDispatch);
-
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getOnboarding();
-  }, []);
+  
 
   return (
-    <>
-    {onboarding ? <DashNav/>  :
-    <OnboardingNav/>}
-    </>
+  
+    <DashNav/>  
   );
 };
 

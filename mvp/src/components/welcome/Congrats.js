@@ -5,7 +5,7 @@ import Container from '../common/Container';
 import WhiteContainer from '../common/WhiteContainer';
 import CustomButton from '../common/CustomButton';
 import styles from './styles'
-import { ONBOARD,CONGRATS,SIGNUP } from '../../constants/routeNames';
+import { ONBOARD,CONGRATS,SIGNUP, WELCOME } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
 import Blob from '../../assets/images/svg/congrats.svg';
 import {Bold,Light,ExtraBold, SemiBold} from '../common/Text';
@@ -46,7 +46,7 @@ const CongratsComponent= ({name,week,days}) => {
         
       </View>
       <CustomButton onPress={() => {
-            navigate.navigate(ONBOARD)
+            navigate.navigate(WELCOME);
           }} title="Continuar" gradient={true}/>
 
       </WhiteContainer>

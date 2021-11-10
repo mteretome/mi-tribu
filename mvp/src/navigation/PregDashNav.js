@@ -42,7 +42,7 @@ const PregDashNav = () => {
     
     
     if(userString){
-        setName(JSON.parse(userString).first_name);
+        setName(userString);
     }
     if(weeksRaw){
       setWeek(getCurrent(JSON.parse(weeksRaw)));

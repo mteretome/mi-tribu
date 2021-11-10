@@ -15,7 +15,7 @@ import CustomButton from '../components/common/CustomButton';
 import Container from '../components/common/Container';
 import { useNavigation } from '@react-navigation/native';
 import { GlobalContext } from '../context/Provider';
-import { clearMode } from '../context/actions/register';
+import { clearMode } from '../context/actions/welcome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
@@ -88,7 +88,7 @@ const DevPage = () => {
           <CustomButton 
           title="Go to LogIn" bgColor='pink'
           onPress={() => {
-            navigate.navigate('Welcome', { screen: LOGIN })
+            navigate.navigate('Welcome')
           }}/>
        
         )}

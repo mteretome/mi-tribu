@@ -11,8 +11,8 @@ const CongratsPage = () => {
 	const {params} = useRoute();
 	React.useEffect(() => {
 		if (params?.data) {
-		  setName(JSON.stringify(params.data.user.first_name));
-		  setWeek(JSON.stringify(params.data.current_week_round));
+		  setName(JSON.stringify(params.data.name));
+		  setWeek(JSON.stringify(params.data.current_week));
 		  setDay(JSON.stringify(params.data.day));
 		}
 	  }, [params]);

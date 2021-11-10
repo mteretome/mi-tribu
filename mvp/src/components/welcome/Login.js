@@ -1,69 +1,132 @@
-import React, { useContext } from 'react';
-import {View} from 'react-native';
+import React, { useCallback, useContext, useState } from 'react';
 import colors from '../../assets/theme/colors';
-import WhiteContainer from '../common/WhiteContainer';
 import Input from '../common/Input';
+
 import CustomButton from '../common/CustomButton';
 import Link from '../common/Link';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
-import {FORGOTPASS,SIGNUP} from '../../constants/routeNames'; 
-import Icon from 'react-native-vector-icons/AntDesign';
+import {SIGNUP} from '../../constants/routeNames'; 
 import {Bold,Light} from '../common/Text';
-import { clearAuthState } from '../../context/actions/register';
+import { clearAuthState } from '../../context/actions/welcome';
 import { GlobalContext } from '../../context/Provider';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+
+import {Overlay } from 'react-native-elements';
+import {View,TouchableOpacity} from 'react-native';
+import {CONGRATS} from '../../constants/routeNames';
+import DuedateComponent from './Duedate';
+import Icon from 'react-native-vector-icons/AntDesign';
+import { format } from 'date-fns'
 
 
-const LoginComponent= ({swipe,
+
+const LoginComponent= ({
   onSubmit,
   onFormChange,
-  form,
   errors,
-  error,
   loading}) => {
   const navigate= useNavigation();
-  const {authDispatch} = useContext(GlobalContext); 
+  const [visible, setVisible] = useState(false);
+  const toggleOverlay = () => {setVisible(!visible);setText(false);};
+  const [date, setDate] = useState(new Date());
+  const [show, setShow] = useState(false);
+  const [text,setText] = useState(true);
+  const showDatePicker = () => {
+    setShow(!show);
+  };
+  const onChange = (value) => {
+    setShow(false);
+    setText(false);
+    setDate(value); 
+    onFormChange({name:"due_date",value: format(value,'yyyy-MM-dd')});  
+  };
+  
+  const getDate =(n) =>{
+      var day = new Date().getDate();
+      var month = new Date().getMonth();
+      var year = new Date().getFullYear();
+      if(n==1){
+        return new Date();
+      }
+      else if(n==2){
+        return new Date(year, month+9, day);
+      }
+      else{
+        return new Date(year, month, day);
+      }
+  };
+
+   const parentSetter = useCallback(val => {
+    setDate(val);
+    onFormChange({name:"due_date",value: format(val,'yyyy-MM-dd')});
+
+
+  }, [setDate]);
+
+  
 	return (
+
 <View >
 		
         <View style={styles.heading}>
-    			<Bold style={styles.title}>¡Bienvenida de vuelta!</Bold>
-          <Light style={styles.subtitle}>Inicia sesión para comenzar.</Light>
+    			<Bold style={styles.title}>¡Bienvenida!</Bold>
+          <Light style={styles.subtitle}>Necesitamos tu informacion para proceder.</Light>
   		  </View>
 
       <View style={styles.inputContainer}>
-        <Input placeholder="Email*"
-        onChangeText={(value)=>{onFormChange({name:"email",value})}}
-        error={errors.email|| error?.error.email?.[0]}/>
-        <Input placeholder="Contraseña*"
-        secureTextEntry={true}
-        onChangeText={(value)=>{onFormChange({name:"password",value})}}
-          error={errors.password|| error?.error.password?.[0]}
-        />
+        <Input placeholder="Nombre*"
+        onChangeText={(value)=>{onFormChange({name:"name",value})}}
+        error={errors.name}/>
+         
+         <TouchableOpacity onPress={showDatePicker}>
+              {text ?  
+              <Input editable={false} 
+              placeholder="Fecha de Parto Estimada*"
+              error={errors.due_date}> 
+              </Input>
+              : 
+              <Input editable={false} 
+              error={errors.due_date}>
+              {format(date,'dd/MM/yyyy')}</Input> }
+              </TouchableOpacity>
+               <DateTimePickerModal
+                isVisible={show}
+                date={date}
+                onCancel={showDatePicker}
+                onConfirm={onChange}
+                maximumDate={getDate(2)}
+                minimumDate={getDate(0)}
+                mode="date"
+                display="spinner"
+              />
+
+        {/*  footer   */}
         <View style={styles.footer}>
-           <Icon name="questioncircleo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
-          <Light style={styles.lightText}>  ¿Se te olvidó tu contraseña? </Light>
-          <Link style={[{color:colors.grey_dark}]}  onPress={() => swipe(1) }>
-          Recupérala.</Link>
-          </View>
+        <Icon name="infocirlceo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
+          <Light style={styles.lightText}>  ¿No conoces tu fecha de parto? </Light>
+          
+          <Link  onPress={toggleOverlay} >Calcúlala</Link>
+            <Overlay  
+              overlayStyle={styles.overlay} 
+              animationType="fade" 
+              isVisible={visible} 
+              backdropStyle={styles.backdrop}>
+             <DuedateComponent toggleOverlay={toggleOverlay} parentSet={parentSetter}/>
+            </Overlay>
+        </View>
         
-        {error?.status_code<400 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
-      {error?.status_code>400 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
         <CustomButton 
         loading={loading}
         onPress={() => {
             onSubmit();
           }}
-        title="Inicia Sesión" gradient={true}/>
+        title="Comenzar" gradient={true}/>
       </View>
 
         <View style={styles.footer}>
          
-          <Light style={styles.lightText}>¿No tienes cuenta? </Light>
-          <Link onPress={() => {
-            clearAuthState()(authDispatch);
-            navigate.navigate(SIGNUP);
-          }}>Crea una nueva cuenta.</Link>
+         
       </View>
 	
     </View>

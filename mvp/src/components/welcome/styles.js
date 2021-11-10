@@ -22,11 +22,11 @@ export default StyleSheet.create({
   heading:{
   	alignItems: 'center',
     marginTop: 15,
-    marginBottom:12,
+    marginBottom:15,
   },
   footer:{
   	alignItems: 'center',
-    margin:5,
+    margin:7,
     flexDirection:'row',
     alignSelf: 'center'
   },

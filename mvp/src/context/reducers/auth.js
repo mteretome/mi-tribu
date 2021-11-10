@@ -1,48 +1,31 @@
-import { CLEAR_AUTH_STATE, CLEAR_MODE, LOGIN_FAIL, LOGIN_LOADING, LOGIN_SUCCESS, ONBOARD_COMPLETE, REGISTER_FAIL, REGISTER_LOADING, REGISTER_SUCCESS, WEEK_FAILED, WEEK_LOADING, WEEK_SUCCESS } from "../../constants/actions";
+import { CLEAR_AUTH_STATE, DASH_CLEAR,CLEAR_MODE, WELCOME_FAIL, WELCOME_LOADING, WELCOME_SUCCESS, WEEK_FAILED, WEEK_LOADING, WEEK_SUCCESS } from "../../constants/actions";
 
 const auth = (state,{type,payload}) =>{
     switch(type) {
-        case ONBOARD_COMPLETE:
+        case WELCOME_FAIL:
             return{
                 ...state,
-                onboarding:true,
+                loading:false,
+                error: {'error':'Porfavor trata otra vez!'}
             };
-        case LOGIN_LOADING:
+        case WELCOME_LOADING:
             return{
                 ...state,
                 loading:true,
             };
-        case REGISTER_LOADING:
-            return{
-                ...state,
-                loading:true,
-            };
-        case LOGIN_SUCCESS:
+
+        case WELCOME_SUCCESS:
             return{
                 ...state,
                 loading:false,
-                data:payload,
-                isLoggedIn: true,
-            };  
-        case REGISTER_SUCCESS:
-            return{
-                ...state,
-                loading:false,
-                data:payload,
                 isLoggedIn: false,
             };  
-        case REGISTER_FAIL:
-            return{
-                ...state,
-                loading:false,
-                error:payload,
-            };
-        case LOGIN_FAIL:
+            case DASH_CLEAR:
                 return{
                     ...state,
                     loading:false,
-                    error:payload,
-                };
+                    isLoggedIn: true,
+                };  
         case CLEAR_AUTH_STATE:
             return {
                 ...state,

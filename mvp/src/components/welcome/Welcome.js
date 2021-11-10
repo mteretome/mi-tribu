@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Text,View,Image} from 'react-native';
-import colors from '../../assets/theme/colors';
 import LinearContainer from '../common/LinearContainer';
 import CustomButton from '../common/CustomButton';
 import styles from './styles';
@@ -8,12 +7,19 @@ import { useNavigation } from '@react-navigation/native';
 import Container from '../common/LinearContainer';
 import Logo from '../../assets/images/svg/welcomeLogo.svg';
 import {Bold,Regular} from '../common/Text';
+import { dashboardClear } from '../../context/actions/welcome';
+import { GlobalContext } from '../../context/Provider';
 
 
 
 
 const WelcomeComponent= ({name}) => {
   const navigate= useNavigation();
+  const {
+    authDispatch,
+    authState: {error,loading,data},
+    } = useContext(GlobalContext); 
+  
   return (
     
       <LinearContainer>
@@ -44,7 +50,7 @@ const WelcomeComponent= ({name}) => {
         textStyle={{fontSize:17}}
         title="Ingresar a Mi Embarazo" gradient={true}
         onPress={() => {
-          navigate.navigate('Dashboard');
+          dashboardClear()(authDispatch);
           }}/>
         
       </View>

@@ -60,7 +60,7 @@ const PregnancyComponent = () => {
     
     
     if(userString){
-        setName(JSON.parse(userString).first_name);
+        setName(userString);
     }
     
     if(dashboard){

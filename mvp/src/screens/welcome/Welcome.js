@@ -11,7 +11,7 @@ const WelcomePage = () => {
 	   
 		
 		if(userString){
-			setName(JSON.parse(userString).first_name);
+			setName(userString);
 		}
 	
 	};
