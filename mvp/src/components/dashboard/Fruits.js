@@ -40,120 +40,114 @@ import Strawberry from '../../assets/images/FruitsSVG/strawberry.svg';
 import Watermelon from '../../assets/images/FruitsSVG/watermelon.svg';
 
 
-{/* <SvgUri
-width="100%"
-height="100%"
-uri="http://thenewcode.com/assets/images/thumbnails/homer-simpson.svg"
-/> */}
-
 
 const Fruit = ({fruit}) => {
-    if (fruit=="alcachofa"){
+    if (fruit=="una alcachofa"){
 	return (<Artichoke width="150%" height="150%" style={{position:'absolute',left:-15,}}/>); }
 
-    else if (fruit=="Manzana"){
-        return (<Apple width="200%" height="250%" style={{position:'absolute',top:-15,left:-45}}/>); }
+    else if (fruit=="una manzana"){
+        return (<Apple width="200%" height="250%" style={{position:'absolute'}}/>); }
 
-    else if (fruit=='espárrago'){
+    else if (fruit=='un espárrago'){
         return (<Asparagus width="200%" height="200%" style={{position:'absolute',top:-15,left:-45}}/>); }
 
-    else if (fruit=='palta'){
+    else if (fruit=='una palta'){
         return (<Avocado width="100%" height="100%" style={{position:'absolute',top:15,left:5}}/>); }
 
-    else if (fruit=='plátano'){
+    else if (fruit=='un plátano'){
         return (<Banana width="200%" height="200%" style={{position:'absolute',top:-20,left:-30}}/>); }
         
-    else if (fruit=='arándano'){
+    else if (fruit=='un arándano'){
         return (<Bluberry width="200%" height="200%" style={{position:'absolute',top:-20,left:-40}}/>); }
 
-    else if (fruit=='repollo'){
+    else if (fruit=='un repollo'){
         return (<Cabbage width="250%" height="250%" style={{position:'absolute',bottom:-5,right:-20}}/>); }
 
-    else if (fruit=='capsicum'){
+    else if (fruit=='un pimentón'){
         return (<Capsicum width="250%" height="250%" style={{position:'absolute',bottom:-15,right:-35}}/>); }
         
-    else if (fruit=='zanahoria'){
+    else if (fruit=='una zanahoria'){
         return (<Carrot width="110%" height="110%" style={{position:'absolute',bottom:-15,left:15}}/>); } 
 
-    else if (fruit=='coliflor'){
+    else if (fruit=='un coliflor'){
         return (<Cauliflower width="150%" height="150%" style={{position:'absolute',bottom:-25,left:-15}}/>); }
 
-    else if (fruit=='apio'){
+    else if (fruit=='un apio'){
         return (<Celery width="200%" height="200%" style={{position:'absolute',top:-15,left:-35}}/>); }
         
-    else if (fruit=='acelga'){
+    else if (fruit=='una acelga'){
         return (<Chards width="200%" height="200%" />); }
 
-    else if (fruit=='cherimoya'){
+    else if (fruit=='una cherimoya'){
         return (<Cherimoya width="200%" height="200%"/>); }
 
-    else if (fruit=='chip de chocolate'){
+    else if (fruit=='un chip de chocolate'){
         return (<ChocolateChip width="200%" height="200%"/>); }
         
-    else if (fruit=='clementine'){
+    else if (fruit=='una mandarina'){
         return (<Clementine width="200%" height="200%"/>); }
 
-    else if (fruit=='choclo'){
+    else if (fruit=='un choclo'){
         return (<Corn width="200%" height="200%"/>); }
 
-    else if (fruit=='pepino alaska'){
+    else if (fruit=='un pepino'){
         return (<Cucumber width="200%" height="200%"/>); }
         
-    else if (fruit=='berenjena'){
+    else if (fruit=='una berenjena'){
         return (<Eggplant width="200%" height="200%"/>); }
 
-    else if (fruit=='racimo de uvas'){
+    else if (fruit=='un racimo de uvas'){
         return (<Grapes width="200%" height="200%"/>); }
 
-    else if (fruit=='lechuga'){
+    else if (fruit=='una lechuga'){
         return (<Lettuce width="200%" height="200%"/>); }
         
-    else if (fruit=='kale'){
+    else if (fruit=='un col rizado'){
         return (<Kale width="200%" height="200%"/>); }
 
-    else if (fruit=='limón'){
+    else if (fruit=='un limón'){
         return (<Lemon width="200%" height="200%"/>); }
         
-    else if (fruit=='lenteja'){
+    else if (fruit=='una lenteja'){
         return (<Lentil width="200%" height="200%" style={{position:'absolute',top:-25,left:-35}}/>); }
 
-    else if (fruit=='Limón sutil'){
+    else if (fruit=='un limón sutil'){
         return (<Lime width="200%" height="200%"/>); }
 
-    else if (fruit=='mango'){
+    else if (fruit=='un mango'){
         return (<Mango width="200%" height="200%"/>); }
 
-    else if (fruit=='melón'){
+    else if (fruit=='un melón'){
         return (<Melon width="200%" height="200%"/>); }
         
-    else if (fruit=='aceituna'){
+    else if (fruit=='una aceituna'){
         return (<Olive width="200%" height="200%"/>); }
 
-    else if (fruit=='cebolla'){
+    else if (fruit=='una cebolla'){
         return (<Onion width="200%" height="200%"/>); }
 
-    else if (fruit=='durazno'){
+    else if (fruit=='un durazno'){
         return (<Peach width="200%" height="200%"/>); }
         
-    else if (fruit=='piña'){
+    else if (fruit=='una piña'){
         return (<Pineapple width="200%" height="200%"/>); }
 
-     else if (fruit=='zapallo'){
+     else if (fruit=='un zapallo'){
         return (<Pumpkin width="200%" height="200%"/>); }
         
-    else if (fruit=='frambuesa'){
+    else if (fruit=='una frambuesa'){
         return (<Raspberry width="200%" height="200%"/>); }
 
-    else if (fruit=='cebollín'){
+    else if (fruit=='un cebollín'){
         return (<Scallion width="200%" height="200%"/>); }
 
-    else if (fruit=='espinaca'){
+    else if (fruit=='una espinaca'){
         return (<Spinach width="200%" height="200%"/>); }
         
-    else if (fruit=='Frutilla'){
+    else if (fruit=='una frutilla'){
         return (<Strawberry width="200%" height="200%"/>); }
 
-    else if (fruit=='sandía'){
+    else if (fruit=='una sandía'){
         return (<Watermelon width="200%" height="200%"/>); }
 
     return (<Apple width="200%" height="200%"/>);

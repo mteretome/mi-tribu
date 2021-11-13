@@ -4,6 +4,8 @@ import styles from './styles';
 import colors from '../../assets/theme/colors';
 import LinearGradient from 'react-native-linear-gradient';
 import {Bold,Light} from './Text';
+import Icon from 'react-native-vector-icons/Octicons';
+
 
 
 const CustomButton = ({
@@ -14,6 +16,8 @@ const CustomButton = ({
 	bgColor,
 	onPress,
 	textStyle,
+	rightarrow,
+	leftarrow,
 }) => {
 	const getBgColor =() =>{
 		if (bgColor === 'pink'){
@@ -24,6 +28,7 @@ const CustomButton = ({
 		}
 
 	};
+	
 
 	return (
 	<View style={styles.inputContainer}>
@@ -48,8 +53,13 @@ const CustomButton = ({
 			elevation: 5,
           }
         ]}> 
+        
+		
+		{leftarrow && <Icon name="chevron-left" color={'rgba(249, 247, 246, 0.5)'} size={25}/>}
+
 			{loading && <ActivityIndicator color={colors.off_white}/>}
 	  		{title && <Bold style={[styles.buttonText,textStyle]}>{title}</Bold>}
+			{rightarrow && <Icon name="chevron-right" color={'rgba(249, 247, 246, 0.5)'} size={25} />}
 		</LinearGradient>
 		</TouchableOpacity>
 		: 

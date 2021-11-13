@@ -52,7 +52,7 @@ export default StyleSheet.create({
 	},
 	card: {
 		borderRadius: 10,
-		backgroundColor: 'rgba(255,255,255,0.8)',
+		backgroundColor: 'rgba(255,255,255,1)',
 		alignSelf: 'stretch',
 		padding: 10,
 		margin:10,
@@ -60,7 +60,10 @@ export default StyleSheet.create({
 		flex:1
 	},
 	cardCenter: {
-		justifyContent: 'center'
+		justifyContent: 'center',
+		alignSelf: 'center',
+		flex:1
+		
 	},
 	cardLeft: {
 		flexDirection: 'row',

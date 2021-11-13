@@ -42,19 +42,12 @@ import Map41 from '../../assets/images/TrackersSVG/41.svg'
 
 
 
-{/* <SvgUri
-width="100%"
-height="100%"
-uri="http://thenewcode.com/assets/images/thumbnails/homer-simpson.svg"
-/> */}
-
-
 export const Tracker = ({week, style}) => {
     if (week==6){
-	    return (<Map6 style={{top:50}}/>); }
+	    return (<Map6 style={{alignSelf:'center',justifyContent:'center',positon:'absolute',bottom:120}}/>); }
 
     else  if (week==7){
-	    return (<Map7 style={{top:50}}/>); }
+	    return (<Map7 style={{alignSelf:'center',justifyContent:'center',positon:'absolute',bottom:120}}/>); }
 
     else  if (week==8){
         return (<Map8 style={{top:50}}/>); }
@@ -158,5 +151,5 @@ export const Tracker = ({week, style}) => {
     else  if (week==41){
         return (<Map41 style={{top:40}}/>); }
   
-    return (<Map5 style={{top:40}}/>);
+    return (<Map5 style={{alignSelf:'center',justifyContent:'center',positon:'absolute',bottom:120}}/>);
 };
