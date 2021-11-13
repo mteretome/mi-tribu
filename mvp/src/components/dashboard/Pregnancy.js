@@ -141,6 +141,8 @@ useEffect(() => {
         const [fruit,setFruit]= useState(null);
         */}
 
+        <WeeklyFruit fruit="lettuce" weight="2" size="2,5" week={week}/>
+
 
         <InfoTab baby={bebe} body={cuerpo} symptoms={sintomas}/>
         
