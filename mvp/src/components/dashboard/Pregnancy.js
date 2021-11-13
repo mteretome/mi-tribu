@@ -2,7 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Bold, Regular } from '../../components/common/Text';
 import LinearContainer from '../../components/common/LinearContainer';
-import Bg from '../../assets/images/svg/pregnancy.svg';
+// import Bg from '../../assets/images/svg/pregnancy.svg';
+import Bg from '../../assets/images/pregnancy.svg';
+
+
 import styles from './styles';
 import Link from '../../components/common/Link';
 import WeeklyFruit from './WeeklyFruit';
@@ -21,11 +24,10 @@ import Icon from 'react-native-vector-icons/Octicons';
 
 
 const PregnancyComponent = () => {
-  const {params} = useRoute();
+  
 
 
   const navigate= useNavigation();
-  const [metrics=[], setMetrics] = useState(null);
   const [weekNumber, setWeekNumber] = useState(null);
   const [length,setLength]= useState(null);
   const [weight,setWeight]= useState(null);
@@ -42,12 +44,12 @@ const PregnancyComponent = () => {
   const {
     authDispatch,
     } = useContext(GlobalContext); 
-
+    const {params} = useRoute();
     React.useEffect(() => {
       if (params) {		
         setWeek(JSON.stringify(params.week));
         setNext(JSON.stringify(params.week+1));
-        setNext(JSON.stringify(params.week-1));
+        setPrev(JSON.stringify(params.week-1));
       }
       }, [params]);
 
@@ -95,9 +97,16 @@ useEffect(() => {
 }, []);
  
     return (
+    <>
     
-      <LinearContainer style={{flex:1}}>
-        <Bg  width="100%" style={{position:'absolute'}}/>
+      <LinearContainer style={{flex:1}}> 
+      <Bg  height="100%" width="100%" style={{position:'absolute'}}/>
+      {nextWeek < 42 && <TouchableOpacity style={{borderWidth:1}}onPress={() => {navigate.navigate(nextWeek);}} style={{position:'absolute', zIndex:1,right:5, top:100,margin:20}}>
+        <Icon name="chevron-right" color={colors.off_white} size={40} />
+        </TouchableOpacity> }
+       {prevWeek > 4 && <TouchableOpacity onPress={() => {navigate.navigate(prevWeek);}} style={{position:'absolute',zIndex:1, left:5, top:100,margin:20}}>
+        <Icon name="chevron-left" color={colors.off_white} size={40} />
+        </TouchableOpacity> }
        
         
         <View style={styles.header}>
@@ -109,12 +118,8 @@ useEffect(() => {
                 <TouchableOpacity onPress={() => {navigate.navigate(WEEKS);}} style={{zIndex:1}}>
                 <Link icon={true}  onPress={() => {navigate.navigate(WEEKS);}}style={{fontSize:20}}>Semana {week}
                 </Link></TouchableOpacity>
-                {/* <TouchableOpacity onPress={() => {navigate.navigate(nextWeek);}}>
-        <Icon name="chevron-right" color={colors.off_white} size={35} style={{left:0}}/>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {navigate.navigate(prevWeek);}}>
-        <Icon name="chevron-left" color={colors.off_white} size={35} style={{right:0}}/>
-        </TouchableOpacity> */}
+                
+       
             </View>
            
             <Avatar  rounded  
@@ -128,21 +133,10 @@ useEffect(() => {
         </View>
         <WeeklyFruit fruit={fruit} weight={weight} weightUnit={weightUnit} length={length} week={week}/>
 
-        {/* <WeeklyFruit metrics={metrics} week={week}/> */}
-        {/* <WeeklyFruit week={week}/> */}
-        {/*
-        const [metrics=[], setMetrics] = useState(null);
-        const [weekNumber, setWeekNumber] = useState(null);
-        const [length,setLength]= useState(null);
-        const [weight,setWeight]= useState(null);
-        const [weightUnit,setWeightUnit]= useState(null);
-        const [fruit,setFruit]= useState(null);
-        */}
-
-
         <InfoTab baby={bebe} body={cuerpo} symptoms={sintomas}/>
         
-      </LinearContainer>
+      </LinearContainer> 
+      </>
     );
   };
 

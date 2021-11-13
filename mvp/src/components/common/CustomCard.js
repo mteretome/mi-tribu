@@ -15,7 +15,9 @@ const CustomCard = ({
     titleStyle,
     contentStyle,
     activeCircle,
-    week
+    week,
+    voting,
+    accordion,
 }) => {
 	
     const getWeek =() =>{

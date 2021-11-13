@@ -27,17 +27,12 @@ export default StyleSheet.create({
         flexDirection:'row',
     },
     floating: {
-      alignItems:'center',
-      justifyContent:'center',
-      alignSelf:'center',
-      alignContent:'center',
-      top:50,
-    },
-    floatingMiddle: {
+      flex:1,
       flexDirection:'row',
       position:'absolute',
-      paddingTop:50,
+
     },
+
     tabBar:{
       backgroundColor: 'rgba(255,255,255,0.0)',
       elevation:0,
@@ -63,10 +58,11 @@ export default StyleSheet.create({
       borderTopRightRadius: 30,
     },
     fruitContainer:{
-      marginHorizontal:30,
+      marginHorizontal:20,
       marginVertical:50, 
       height: '30%',
       justifyContent:'center',
+
     },
     buttons: {
       backgroundColor: 'transparent', 
@@ -88,6 +84,26 @@ export default StyleSheet.create({
       shadowColor: colors.off_white,
 			shadowOpacity: 1,
 
+    },
+    cardShadow: {
+      shadowColor:  'black',
+			shadowOffset: {
+				width: 5,
+				height: 10,
+			},
+			shadowOpacity: 1,
+			shadowRadius: 1,
+			elevation: 10,
+      backgroundColor: '#E0ECEE',
+    
+
+
+    },
+    cardTitle:{
+      color:colors.grey_darkest,
+      fontSize:24,
+      marginHorizontal:20, 
+    
     }
 
 
