@@ -47,8 +47,8 @@ const LoginComponent= ({swipe,
           Recupérala.</Link>
           </View>
         
-        {error?.status_code<404 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
-      {error?.status_code>404 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
+        {error?.status_code<400 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
+      {error?.status_code>400 &&<Light style={{color:colors.tribu_pink,fontSize:12}}>*Error interno: por favor intenta de nuevo.*</Light>} 
         <CustomButton 
         loading={loading}
         onPress={() => {

@@ -49,12 +49,14 @@ export default ({
             payload: res.data,
         });
        console.log("success register - data:>>",res.data)
-       onSuccess(res.data);
+       
     }).catch((err)=>{
-        console.log('err', err.response.data);
+        console.log('err', err);
         dispatch({
             type: REGISTER_FAIL,
-            payload: {'status_code': err.response.status, 'error' : err.response.data},
+            payload:  err.response  ? 
+            {"status_code": err.response.status, "error" : err.response.data}  : 
+            {"status_code": 0,"error": "Something went wrong, try again"}
         });
     });
 

@@ -107,9 +107,7 @@ const SignupPage = () => {
      &&Object.values(errors).every((item)=>!item)
      //&&Object.values(error).every((item)=>!item)
      ){clearAuthState()(authDispatch);
-       register(form)(authDispatch)((response)=>{
-         navigate.navigate(CONGRATS,{data: response});
-       });
+       register(form)(authDispatch)();
        
       
       };

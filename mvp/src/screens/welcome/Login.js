@@ -25,7 +25,6 @@ const LogInPage = () => {
 	const swipe =(n) =>{
     if (swiper) swiper.current.scrollBy(n || 1) };
 
-	const navigate = useNavigation();
 	const[form, setForm] = useState({});
 	const[errors,setErrors] = useState({});
 
