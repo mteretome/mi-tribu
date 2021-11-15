@@ -13,15 +13,16 @@ const WeeklyFruit = ({fruit,weight,weightUnit,length,week}) => {
     const width = useWindowDimensions().width;
     const scale = useWindowDimensions().scale;
     var margin=0;
-    if (scale >2.5&&scale<2.75){
+    if (scale >2.5&&scale<2.6){
        margin = Math.abs(width-370+(scale-2.5)*125);
         
-    } else if(scale>=3.5){
+    } 
+    else if(scale>=3.5){
         margin = Math.abs(width-390+useWindowDimensions().height/20);
         
-    } 
+    }
     else {
-        margin = Math.abs(width-370);
+        margin = Math.abs(width-380);
 
     }
     console.log("scale", scale);
@@ -50,7 +51,7 @@ const WeeklyFruit = ({fruit,weight,weightUnit,length,week}) => {
                 <Bold style={{color:colors.tribu_pink,fontSize:16,top:10}}>está como</Bold> 
                 <Fruit fruit={fruit}/>
 
-                <Bold style={{color:colors.tribu_pink,fontSize:16,bottom:18}}>una {fruit}</Bold>
+                <Bold style={{color:colors.tribu_pink,fontSize:16,bottom:18}}> {fruit}</Bold>
                 {/* <Bold style={{color:colors.tribu_pink,fontSize:16,bottom:20}}>una manzana</Bold> */}
             </View>
             <View style={{ flex:1,flexDirection:'column',alignItems:'center',left:5}}>

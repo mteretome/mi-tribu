@@ -41,7 +41,9 @@ const Weeks = () => {
             
           }
     }
-    setWeeks(WEEKS.reverse());
+    // setWeeks(WEEKS.reverse());
+    setWeeks(WEEKS);
+
 
 };
   useEffect(() => {

@@ -58,7 +58,7 @@ const Fruit = ({fruit}) => {
         return (<Banana width="200%" height="200%" style={{position:'absolute',top:-20,left:-30}}/>); }
         
     else if (fruit=='un arándano'){
-        return (<Bluberry width="200%" height="200%" style={{position:'absolute',top:-20,left:-40}}/>); }
+        return (<Bluberry  width="50%" height="50%" style={{flexShrink:1}}/>); }
 
     else if (fruit=='un repollo'){
         return (<Cabbage width="250%" height="250%" style={{position:'absolute',bottom:-5,right:-20}}/>); }
@@ -82,7 +82,7 @@ const Fruit = ({fruit}) => {
         return (<Cherimoya width="200%" height="200%"/>); }
 
     else if (fruit=='un chip de chocolate'){
-        return (<ChocolateChip width="200%" height="200%"/>); }
+        return (<ChocolateChip  width="50%" height="50%" style={{flexShrink:1}}/>); }
         
     else if (fruit=='una mandarina'){
         return (<Clementine width="200%" height="200%"/>); }
@@ -109,7 +109,7 @@ const Fruit = ({fruit}) => {
         return (<Lemon width="200%" height="200%"/>); }
         
     else if (fruit=='una lenteja'){
-        return (<Lentil width="200%" height="200%" style={{position:'absolute',top:-25,left:-35}}/>); }
+        return (<Lentil  width="50%" height="50%" style={{flexShrink:1}}/>); }
 
     else if (fruit=='un limón sutil'){
         return (<Lime width="200%" height="200%"/>); }
