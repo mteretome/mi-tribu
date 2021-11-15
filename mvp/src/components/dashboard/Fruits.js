@@ -91,7 +91,7 @@ const Fruit = ({fruit}) => {
         return (<Corn width="200%" height="200%"/>); }
 
     else if (fruit=='un pepino'){
-        return (<Cucumber width="200%" height="200%"/>); }
+        return (<Cucumber width="50%" height="50%" style={{flexShrink:1}}/>); }
         
     else if (fruit=='una berenjena'){
         return (<Eggplant width="200%" height="200%"/>); }
@@ -139,18 +139,18 @@ const Fruit = ({fruit}) => {
         return (<Raspberry width="200%" height="200%"/>); }
 
     else if (fruit=='un cebollín'){
-        return (<Scallion width="200%" height="200%"/>); }
+        return (<Scallion width="50%" height="50%" style={{flexShrink:1}}/>); }
 
     else if (fruit=='una espinaca'){
         return (<Spinach width="200%" height="200%"/>); }
         
     else if (fruit=='una frutilla'){
-        return (<Strawberry width="200%" height="200%"/>); }
+        return (<Strawberry width="50%" height="50%" style={{flexShrink:1}}/>); }
 
     else if (fruit=='una sandía'){
         return (<Watermelon width="200%" height="200%"/>); }
 
-    return (<Apple width="200%" height="200%"/>);
+    return (<Apple width="50%" height="50%" style={{}}/>);
 };
 
 export default Fruit;

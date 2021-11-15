@@ -15,21 +15,21 @@ export default StyleSheet.create({
         
     },
     header:{
-        marginVertical:20,
+        marginTop:20,
+        marginBottom:5,
         marginHorizontal:20,
-        
         justifyContent: 'flex-start',
-        flex:1
+        flex:1,
+      
     },
     subheader:{ 
         alignItems: 'center',
-        marginVertical:5,
         flexDirection:'row',
     },
     floating: {
       flex:1,
       flexDirection:'row',
-      position:'absolute',
+      alignItems:'center'
 
     },
 
@@ -58,10 +58,8 @@ export default StyleSheet.create({
       borderTopRightRadius: 30,
     },
     fruitContainer:{
-      marginHorizontal:20,
-      marginVertical:50, 
-      height: '30%',
       justifyContent:'center',
+      flex:3,
 
     },
     buttons: {

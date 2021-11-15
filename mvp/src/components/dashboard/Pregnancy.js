@@ -3,7 +3,7 @@ import { TouchableOpacity, View } from 'react-native';
 import { Bold, Regular } from '../../components/common/Text';
 import LinearContainer from '../../components/common/LinearContainer';
 // import Bg from '../../assets/images/svg/pregnancy.svg';
-import Bg from '../../assets/images/pregnancy.svg';
+import Bg from '../../assets/images/pregnancynoC.svg';
 
 
 import styles from './styles';
@@ -19,6 +19,8 @@ import { GlobalContext } from '../../context/Provider';
 import { useRoute } from '@react-navigation/core';
 import weekInfo from '../../context/actions/weekInfo';
 import Icon from 'react-native-vector-icons/Octicons';
+import { Tracker } from './Trackers';
+
 
 
 
@@ -118,22 +120,25 @@ useEffect(() => {
                 <TouchableOpacity onPress={() => {navigate.navigate(WEEKS);}} style={{zIndex:1}}>
                 <Link icon={true}  onPress={() => {navigate.navigate(WEEKS);}}style={{fontSize:20}}>Semana {week}
                 </Link></TouchableOpacity>
-                
-       
             </View>
            
-            <Avatar  rounded  
+           
+        </View>
+        <Avatar  rounded  
             // source={require('../../assets/images/pink/lady2.png')}
             icon={{name: 'user', type: 'font-awesome'}}
             size="medium"   onPress={() => console.log("Works!")}  activeOpacity={0.7}
-            containerStyle={{position:'absolute',right:0, top:5,borderColor:colors.white,borderWidth:2, shadowColor:colors.off_white,
+            containerStyle={{position:'absolute',right:10, top:10,borderColor:colors.white,borderWidth:2, shadowColor:colors.off_white,
               shadowOpacity: 1,
               elevation: 10,}}
             overlayContainerStyle={{backgroundColor: colors.tribu_pink}}/>
-        </View>
+      <View style={{flex:1,marginHorizontal:40}}>
+            <Tracker  week={week}/>
+      </View>
         <WeeklyFruit fruit={fruit} weight={weight} weightUnit={weightUnit} length={length} week={week}/>
-
-        <InfoTab baby={bebe} body={cuerpo} symptoms={sintomas}/>
+        <View style={{flex:3}}>
+          <InfoTab baby={bebe} body={cuerpo} symptoms={sintomas}/>
+        </View>
         
       </LinearContainer> 
       </>
