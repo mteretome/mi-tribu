@@ -51,112 +51,112 @@ uri="http://thenewcode.com/assets/images/thumbnails/homer-simpson.svg"
 
 export const Tracker = ({week, style}) => {
     if (week==6){
-	    return (<Map6 style={{top:50}}/>); }
+	    return (<Map6 width="110%" height="110%" style={{top: 45, left: -10}}/>); }
 
     else  if (week==7){
-	    return (<Map7 style={{top:50}}/>); }
+	    return (<Map7 width="110%" height="110%" style={{top: 45, left: -10}}/>); }
 
     else  if (week==8){
-        return (<Map8 style={{top:50}}/>); }
+        return (<Map8 width="110%" height="110%" style={{top: 55, left: -10}}/>); }
 
     else  if (week==9){
-	    return (<Map9 style={{top:50}}/>); }
+	    return (<Map9 width="110%" height="110%" style={{top: 60, left: -25}}/>); }
 
     else  if (week==10){
-	    return (<Map10 style={{top:40}}/>); }
+	    return (<Map10 width="110%" height="110%" style={{top: 35, left: -10}}/>); }
         
     else  if (week==11){
-        return (<Map11 style={{top:40}}/>); }
+        return (<Map11 width="110%" height="110%" style={{top: 45, left: -10}}/>); }
 
     else  if (week==12){
-	    return (<Map12 style={{top:50}}/>); }
+	    return (<Map12 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==13){
-        return (<Map13 style={{top:40}}/>); }
+        return (<Map13 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==14){
-	    return (<Map14 style={{top:40}}/>); }
+	    return (<Map14 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==15){
-	    return (<Map15 style={{top:40}}/>); }
+	    return (<Map15 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
         
     else  if (week==16){
-        return (<Map16 style={{top:40}}/>); }
+        return (<Map16 width="110%" height="110%" style={{top: 60, left: -30}}/>); }
 
     else  if (week==17){
-	    return (<Map17 style={{top:40}}/>); }
+	    return (<Map17 width="110%" height="110%" style={{top: 45, left: -25}}/>); }
 
     else  if (week==18){
-        return (<Map18 style={{top:40}}/>); }
+        return (<Map18 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==19){
-	    return (<Map19 style={{top:40}}/>); }
+	    return (<Map19 width="110%" height="110%" style={{top: 50, left: -30}}/>); }
 
     else  if (week==20){
-	    return (<Map20 style={{top:40}}/>); }
+	    return (<Map20 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
         
     else  if (week==21){
-        return (<Map21 style={{top:40}}/>); }
+        return (<Map21 width="110%" height="110%" style={{top: 55, left: -30}}/>); }
     
     else  if (week==22){
-	    return (<Map22 style={{top:40}}/>); }
+	    return (<Map22 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==23){
-        return (<Map23 style={{top:40}}/>); }
+        return (<Map23 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==24){
-	    return (<Map24 style={{top:40}}/>); }
+	    return (<Map24 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==25){
-	    return (<Map25 style={{top:40}}/>); }
+	    return (<Map25 width="110%" height="110%" style={{top: 55, left: -35}}/>); }
         
     else  if (week==26){
-        return (<Map26 style={{top:40}}/>); }
+        return (<Map26 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==27){
-	    return (<Map27 style={{top:40}}/>); }
+	    return (<Map27 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==28){
-        return (<Map28 style={{top:40}}/>); }
+        return (<Map28 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==29){
-	    return (<Map29 style={{top:40}}/>); }
+	    return (<Map29 width="110%" height="110%" style={{top: 45, left: -25}}/>); }
 
     else  if (week==30){
-	    return (<Map30 style={{top:40}}/>); }
+	    return (<Map30 width="110%" height="110%" style={{top: 65, left: -25}}/>); }
         
     else  if (week==31){
-        return (<Map31 style={{top:40}}/>); }
+        return (<Map31 width="110%" height="110%" style={{top: 65, left: -25}}/>); }
         
     else  if (week==32){
-	    return (<Map32 style={{top:40}}/>); }
+	    return (<Map32 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==33){
-        return (<Map33 style={{top:40}}/>); }
+        return (<Map33 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==34){
-	    return (<Map34 style={{top:40}}/>); }
+	    return (<Map34 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==35){
-	    return (<Map35 style={{top:40}}/>); }
+	    return (<Map35 width="110%" height="110%" style={{top: 60, left: -25}}/>); }
         
     else  if (week==36){
-        return (<Map36 style={{top:40}}/>); }
+        return (<Map36 width="110%" height="110%" style={{top: 65, left: -25}}/>); }
 
     else  if (week==37){
-	    return (<Map37 style={{top:40}}/>); }
+	    return (<Map37 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==38){
-        return (<Map38 style={{top:40}}/>); }
+        return (<Map38 width="110%" height="110%" style={{top: 70, left: -25}}/>); }
 
     else  if (week==39){
-	    return (<Map39 style={{top:40}}/>); }
+	    return (<Map39 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
 
     else  if (week==40){
-	    return (<Map40 style={{top:40}}/>); }
+	    return (<Map40 width="110%" height="110%" style={{top: 55, left: -15}}/>); }
         
     else  if (week==41){
-        return (<Map41 style={{top:40}}/>); }
+        return (<Map41 width="110%" height="110%" style={{top: 55, left: -25}}/>); }
   
-    return (<Map5 style={{top:40}}/>);
+    return (<Map5 width="110%" height="110%" style={{top: 55, left: -25}}/>);
 };

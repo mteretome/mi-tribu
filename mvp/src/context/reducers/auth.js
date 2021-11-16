@@ -1,4 +1,4 @@
-import { CLEAR_AUTH_STATE, CLEAR_MODE, LOGIN_FAIL, LOGIN_LOADING, LOGIN_SUCCESS, ONBOARD_COMPLETE, REGISTER_FAIL, REGISTER_LOADING, REGISTER_SUCCESS, WEEK_FAILED, WEEK_LOADING, WEEK_SUCCESS } from "../../constants/actions";
+import { CLEAR_AUTH_STATE, CLEAR_MODE, LOGIN_FAIL, LOGIN_LOADING, LOGIN_SUCCESS, ONBOARD_COMPLETE, REGISTER_FAIL, REGISTER_LOADING, REGISTER_SUCCESS, WEEK_FAILED, WEEK_LOADING, WEEK_SUCCESS, SOCIAL_FAILED, SOCIAL_LOADING, SOCIAL_SUCCESS } from "../../constants/actions";
 
 const auth = (state,{type,payload}) =>{
     switch(type) {
@@ -67,6 +67,23 @@ const auth = (state,{type,payload}) =>{
                     error: payload,
                 };
                 case WEEK_LOADING:
+                    return{
+                        ...state,
+                        loading:true,
+                    };
+                case SOCIAL_SUCCESS:
+                    return{
+                        ...state,
+                        loading:false,
+                        error: null,
+                    };  
+                case SOCIAL_FAILED:
+                    return{
+                        ...state,
+                        loading:false,
+                        error: payload,
+                    };
+                case SOCIAL_LOADING:
                     return{
                         ...state,
                         loading:true,

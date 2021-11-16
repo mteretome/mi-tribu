@@ -15,6 +15,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalContext } from '../../context/Provider';
 import { useRoute } from '@react-navigation/core';
 import weekInfo from '../../context/actions/weekInfo';
+import social from '../../context/actions/social';
 import Icon from 'react-native-vector-icons/Octicons';
 
 
@@ -90,6 +91,7 @@ const getBabyMetric = async (week) => {
 
 useEffect(() => {
   weekInfo(JSON.parse(week))(authDispatch);
+  //social(JSON.parse(41))(authDispatch);  Used for testing in setting up social :)
   getDashboard(week);
   getBabyMetric(week);
 }, []);
@@ -126,7 +128,7 @@ useEffect(() => {
               elevation: 10,}}
             overlayContainerStyle={{backgroundColor: colors.tribu_pink}}/>
         </View>
-        <WeeklyFruit fruit={fruit} weight={weight} weightUnit={weightUnit} length={length} week={week}/>
+        <WeeklyFruit fruit={fruit} weight={weight} weightUnit = {weightUnit}length={length} week={week}/>
 
         {/* <WeeklyFruit metrics={metrics} week={week}/> */}
         {/* <WeeklyFruit week={week}/> */}
@@ -138,6 +140,8 @@ useEffect(() => {
         const [weightUnit,setWeightUnit]= useState(null);
         const [fruit,setFruit]= useState(null);
         */}
+
+        <WeeklyFruit fruit="lettuce" weight="2" size="2,5" week={week}/>
 
 
         <InfoTab baby={bebe} body={cuerpo} symptoms={sintomas}/>
