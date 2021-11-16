@@ -60,11 +60,12 @@ const PregDashNav = () => {
 
  useEffect(() => {
    getUser();
+   console.log(week);
  }, []);
 
 	return (
 
-    <Tab.Navigator tabBar={() => null} initialRouteName={week}  screenOptions={{
+    <Tab.Navigator tabBar={() => null} initialRouteName={week}  backBehavior='none' screenOptions={{
      lazy:true,
      lazyPreloadDistance:2,
     }}>

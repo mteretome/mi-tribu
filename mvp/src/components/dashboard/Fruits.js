@@ -78,7 +78,7 @@ const Fruit = ({fruit}) => {
     else if (fruit=='una acelga'){
         return (<Chards width="200%" height="200%" />); }
 
-    else if (fruit=='una cherimoya'){
+    else if (fruit=='una chirimoya'){
         return (<Cherimoya width="200%" height="200%"/>); }
 
     else if (fruit=='un chip de chocolate'){
@@ -102,7 +102,7 @@ const Fruit = ({fruit}) => {
     else if (fruit=='una lechuga'){
         return (<Lettuce width="200%" height="200%"/>); }
         
-    else if (fruit=='un col rizado'){
+    else if (fruit=='un kale'){
         return (<Kale width="200%" height="200%"/>); }
 
     else if (fruit=='un limón'){

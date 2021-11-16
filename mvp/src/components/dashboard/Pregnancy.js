@@ -47,13 +47,7 @@ const PregnancyComponent = () => {
     authDispatch,
     } = useContext(GlobalContext); 
     const {params} = useRoute();
-    React.useEffect(() => {
-      if (params) {		
-        setWeek(JSON.stringify(params.week));
-        setNext(JSON.stringify(params.week+1));
-        setPrev(JSON.stringify(params.week-1));
-      }
-      }, [params]);
+   
 
   const getDashboard = async (week) => {
 
@@ -96,7 +90,13 @@ useEffect(() => {
   weekInfo(JSON.parse(week))(authDispatch);
   getDashboard(week);
   getBabyMetric(week);
-}, []);
+  if (params) {		
+    setWeek(JSON.stringify(params.week));
+    setNext(JSON.stringify(params.week+1));
+    setPrev(JSON.stringify(params.week-1));
+  }
+  }, [params]);
+
  
     return (
     <>

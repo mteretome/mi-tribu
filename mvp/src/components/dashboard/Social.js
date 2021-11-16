@@ -18,9 +18,29 @@ import Accordion from '../common/Accordion';
 
 
 const SocialComponent = () => {
+  const [week,setWeek]= useState(null);
+  const [nextWeek,setNext]= useState(null);
+  const [prevWeek,setPrev]= useState(null);
   const navigate= useNavigation();
 
   const {params} = useRoute();
+
+  // const getSocial = async (week) => {
+  
+  //   const socialBlock = await AsyncStorage.getItem("social_"+week);
+    
+  //   if(socialBlock !== null){
+  //     setWeekNumber(JSON.parse(baby)[0]);
+  //     setLength(JSON.parse(baby)[1]);
+  //     setWeight(JSON.parse(baby)[2]);
+  //     setWeightUnit(JSON.parse(baby)[3]);
+  //     setFruit(JSON.parse(baby)[4]);
+  //     console.log("This is the data--> weekNumber: ",);
+  //     console.log("week is ------->", week);
+  
+  //   }    
+  // }
+
     React.useEffect(() => {
       if (params) {		
         setWeek(JSON.stringify(params.week));
@@ -28,11 +48,12 @@ const SocialComponent = () => {
         setPrev(JSON.stringify(params.week-1));
       }
       }, [params]);
-      const [week,setWeek]= useState(null);
-      const [nextWeek,setNext]= useState(null);
-      const [prevWeek,setPrev]= useState(null);
+    
       const titleNext = "Semana " + nextWeek + " ";
       const titlePrev = " Semana " + prevWeek;
+      const next = nextWeek+"S";
+      const prev = prevWeek+"S";
+
 
   
     return (
@@ -85,8 +106,8 @@ const SocialComponent = () => {
         
         
         <View style={{flexDirection:'row',alignSelf:'center'}}> 
-        {prevWeek > 4 && <CustomButton gradient={true} style={{marginLeft:5}} leftarrow={true} title={titlePrev} onPress={() => {navigate.navigate(prevWeek);}}/> }
-        {nextWeek < 42 && <CustomButton gradient={true} style={{marginLeft:5}} rightarrow = {true} title={titleNext} onPress={() => {navigate.navigate(nextWeek);}} />}
+        {prevWeek > 4 && <CustomButton gradient={true} style={{marginLeft:5}} leftarrow={true} title={titlePrev} onPress={() => {navigate.navigate(prev);}}/> }
+        {nextWeek < 42 && <CustomButton gradient={true} style={{marginLeft:5}} rightarrow = {true} title={titleNext} onPress={() => {navigate.navigate(next);}} />}
         </View>
 
       </ScrollView>
