@@ -18,6 +18,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalContext } from '../../context/Provider';
 import { useRoute } from '@react-navigation/core';
 import weekInfo from '../../context/actions/weekInfo';
+import social from '../../context/actions/social';
 import Icon from 'react-native-vector-icons/Octicons';
 import { Tracker } from './Trackers';
 
@@ -88,6 +89,7 @@ const getBabyMetric = async (week) => {
 
 useEffect(() => {
   weekInfo(JSON.parse(week))(authDispatch);
+  //social(JSON.parse(41))(authDispatch);  Used for testing in setting up social :)
   getDashboard(week);
   getBabyMetric(week);
   if (params) {		
