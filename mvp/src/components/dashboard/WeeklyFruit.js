@@ -41,20 +41,20 @@ const WeeklyFruit = ({fruit,weight,weightUnit,length,week}) => {
     
         <View style={[styles.floating,{marginHorizontal:margin}]}>
             <View style={{ flex:1,flexDirection:'column',alignItems:'center'}}>
-                <SemiBold style={{color:colors.grey_darkest,fontSize:14, }}>{weight} {weightUnit}</SemiBold>
+                <SemiBold style={{color:colors.grey_darkest,fontSize:14,right:-10 }}>{weight} {weightUnit}</SemiBold>
                 {/* <SemiBold style={{color:colors.grey_darkest,fontSize:14, }}>2 KG</SemiBold> */}
 
-                <SemiBold style={{color:colors.grey_light,fontSize:12,}}>SU PESO</SemiBold>
+                <SemiBold style={{color:colors.grey_light,fontSize:12,right: -10}}>SU PESO</SemiBold>
             </View>
             <View style={{flex:2, flexDirection:'column',alignItems:'center'}}>
-                <Bold style={{color:colors.tribu_pink,fontSize:16,top:15}}>Tu bebé </Bold> 
-                <Bold style={{color:colors.tribu_pink,fontSize:16,top:10}}>está como</Bold> 
+                <Bold style={{color:colors.tribu_pink,fontSize:16,top:10}}>Tu bebé </Bold> 
+                <Bold style={{color:colors.tribu_pink,fontSize:16,top:5}}>está como</Bold> 
                 <Fruit fruit={fruit}/>
 
                 <Bold style={{color:colors.tribu_pink,fontSize:16,bottom:18}}> {fruit}</Bold>
                 {/* <Bold style={{color:colors.tribu_pink,fontSize:16,bottom:20}}>una manzana</Bold> */}
             </View>
-            <View style={{ flex:1,flexDirection:'column',alignItems:'center',left:5}}>
+            <View style={{ flex:1,flexDirection:'column',alignItems:'center',left:-5}}>
                 <SemiBold style={{color:colors.grey_darkest,fontSize:14,}}>{length} CM </SemiBold>
                 {/* <SemiBold style={{color:colors.grey_darkest,fontSize:14,}}>2.3 CM </SemiBold> */}
 
