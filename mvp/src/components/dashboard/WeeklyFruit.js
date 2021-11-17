@@ -12,20 +12,23 @@ import { useWindowDimensions } from 'react-native';
 const WeeklyFruit = ({fruit,weight,weightUnit,length,week}) => {
     const width = useWindowDimensions().width;
     const scale = useWindowDimensions().scale;
+    const height = useWindowDimensions().height;
+    const ratio = width/height;
+
     var margin=0;
     if (scale >2.5&&scale<2.6){
        margin = Math.abs(width-370+(scale-2.5)*125);
         
     } 
-    else if(scale>=3.5){
-        margin = Math.abs(width-390+useWindowDimensions().height/20);
-        
-    }
     else {
         margin = Math.abs(width-380);
 
     }
-    console.log("scale", scale);
+    // console.log("scale", scale);
+    // console.log("height", height);
+
+    // console.log("aspect", ratio);
+
 
 
 

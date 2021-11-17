@@ -18,6 +18,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalContext } from '../../context/Provider';
 import { useRoute } from '@react-navigation/core';
 import weekInfo from '../../context/actions/weekInfo';
+import social from '../../context/actions/social';
 import Icon from 'react-native-vector-icons/Octicons';
 import { Tracker } from './Trackers';
 
@@ -47,13 +48,7 @@ const PregnancyComponent = () => {
     authDispatch,
     } = useContext(GlobalContext); 
     const {params} = useRoute();
-    React.useEffect(() => {
-      if (params) {		
-        setWeek(JSON.stringify(params.week));
-        setNext(JSON.stringify(params.week+1));
-        setPrev(JSON.stringify(params.week-1));
-      }
-      }, [params]);
+   
 
   const getDashboard = async (week) => {
 
@@ -94,9 +89,16 @@ const getBabyMetric = async (week) => {
 
 useEffect(() => {
   weekInfo(JSON.parse(week))(authDispatch);
+  //social(JSON.parse(41))(authDispatch);  Used for testing in setting up social :)
   getDashboard(week);
   getBabyMetric(week);
-}, []);
+  if (params) {		
+    setWeek(JSON.stringify(params.week));
+    setNext(JSON.stringify(params.week+1));
+    setPrev(JSON.stringify(params.week-1));
+  }
+  }, [params]);
+
  
     return (
     <>

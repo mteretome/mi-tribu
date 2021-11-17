@@ -81,32 +81,32 @@ const SignupComponent= ({
           <Input style={{marginEnd:'12%'}}
           placeholder="Nombre*   "
           onChangeText={(value)=>{onFormChange({name:"first_name",value})}}
-          error={errors.first_name|| error?.error.first_name?.[0]}/>
+          error={errors.first_name|| error?.error[0].first_name}/>
           <Input style={{marginEnd:'20%'}} 
           placeholder="Apellido*  "
           onChangeText={(value)=>{onFormChange({name:"last_name",value})}}
-          error={errors.last_name|| error?.error.last_name?.[0]}/>
+          error={errors.last_name|| error?.error[0].last_name}/>
         </View>
 
         <Input  placeholder="Email*"
         onChangeText={(value)=>{onFormChange({name:"email",value})}}
-        error={errors.email|| error?.error.email?.[0]}/>
+        error={errors.email||  error?.error[0].email}/>
         <Input  placeholder="Celular*"
         onChangeText={(value)=>{onFormChange({name:"phone",value})}}
-        error={errors.phone|| error?.error.phone?.[0]}/>
+        error={errors.phone||  error?.error[0].phone}/>
         <Input  placeholder="Crea tu contraseña*" secureTextEntry={true}
         onChangeText={(value)=>{onFormChange({name:"password",value})}}
-        error={errors.password|| error?.error.password?.[0]}/>
+        error={errors.password||  error?.error[0].password}/>
         
         <TouchableOpacity onPress={showDatePicker}>
               {text ?  
               <Input editable={false} 
               placeholder="Fecha de Parto Estimada*"
-              error={errors.due_date|| error?.error.due_date?.[0]}> 
+              error={errors.due_date||  error?.error[0].due_date}> 
               </Input>
               : 
               <Input editable={false} 
-              error={errors.due_date|| error?.error.due_date?.[0]}>
+              error={errors.due_date||  error?.error[0].due_date}>
               {format(date,'dd/MM/yyyy')}</Input> }
               </TouchableOpacity>
                <DateTimePickerModal

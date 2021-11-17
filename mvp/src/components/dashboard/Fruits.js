@@ -102,8 +102,8 @@ const Fruit = ({fruit}) => {
     else if (fruit=='una lechuga'){
         return (<Lettuce width="40%" height="50%" style={{flexShrink:1}}/>); }
         
-    else if (fruit=='un col rizado'){
-        return (<Kale width="50%" height="50%" style={{flexShrink:1}}/>); }
+    else if (fruit=='un kale'){
+        return (<Kale width="40%" height="50%" style={{flexShrink:1}}/>); }
 
     else if (fruit=='un limón'){
         return (<Lemon width="40%" height="50%" style={{flexShrink:1}}/>); }

@@ -23,6 +23,7 @@ const LoginComponent= ({swipe,
   loading}) => {
   const navigate= useNavigation();
   const {authDispatch} = useContext(GlobalContext); 
+  console.log(error);
 	return (
 <View >
 		
@@ -34,11 +35,11 @@ const LoginComponent= ({swipe,
       <View style={styles.inputContainer}>
         <Input placeholder="Email*"
         onChangeText={(value)=>{onFormChange({name:"email",value})}}
-        error={errors.email|| error?.error.email?.[0]}/>
+        error={errors.email|| error?.error[0].email}/>
         <Input placeholder="Contraseña*"
         secureTextEntry={true}
         onChangeText={(value)=>{onFormChange({name:"password",value})}}
-          error={errors.password|| error?.error.password?.[0]}
+          error={errors.password|| error?.error[0].password}
         />
         <View style={styles.footer}>
            <Icon name="questioncircleo" size={15} color={colors.grey_dark} style={{marginTop:3}}/>
