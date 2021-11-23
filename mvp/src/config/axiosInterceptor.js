@@ -4,12 +4,12 @@ import envs from './env';
 
 let headers = {};
 
-BACKEND_URL = "http://25ed-68-161-205-79.ngrok.io"
+BACKEND_URL = "https://238b-160-39-164-225.ngrok.io"
 
 const axiosInstance = axios.create({
     baseURL: BACKEND_URL,
     auth: {
-        username: 'yinon',
+        username: 'tere',
         password: 'RayRay2020'
       },
     headers,

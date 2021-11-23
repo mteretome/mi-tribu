@@ -17,7 +17,7 @@ export default (week)=> (dispatch)  => {
  
         AsyncStorage.setItem(dashboard,JSON.stringify(res.data.Dashboard));
         AsyncStorage.setItem(baby,JSON.stringify(res.data.BabyStats));
-        console.log("week info retrieved- data:>>",res.data)
+        // console.log("week info retrieved- data:>>",res.data)
 
         dispatch({
             type: WEEK_SUCCESS,

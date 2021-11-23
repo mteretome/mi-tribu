@@ -15,21 +15,21 @@ export default StyleSheet.create({
         
     },
     header:{
-        marginVertical:20,
+        marginTop:20,
+        marginBottom:5,
         marginHorizontal:20,
-        
         justifyContent: 'flex-start',
-        flex:1
+        flex:1,
+      
     },
     subheader:{ 
         alignItems: 'center',
-        marginVertical:5,
         flexDirection:'row',
     },
     floating: {
       flex:1,
       flexDirection:'row',
-      position:'absolute',
+      alignItems:'center'
 
     },
 
@@ -58,10 +58,8 @@ export default StyleSheet.create({
       borderTopRightRadius: 30,
     },
     fruitContainer:{
-      marginHorizontal:20,
-      marginVertical:50, 
-      height: '30%',
       justifyContent:'center',
+      flex:3,
 
     },
     buttons: {
@@ -87,24 +85,35 @@ export default StyleSheet.create({
     },
     cardShadow: {
       shadowColor:  'black',
-			shadowOffset: {
-				width: 5,
-				height: 10,
-			},
-			shadowOpacity: 1,
-			shadowRadius: 1,
 			elevation: 10,
       backgroundColor: '#E0ECEE',
+      height:'auto'
     
 
 
     },
     cardTitle:{
-      color:colors.grey_darkest,
+      color:colors.grey_dark,
       fontSize:24,
-      marginHorizontal:20, 
+      marginHorizontal:15, 
     
-    }
+    },
+    surveyCard: {
+      borderRadius: 10,
+      backgroundColor: 'rgba(255,255,255,1)',
+      alignSelf: 'stretch',
+      paddingTop:10,
+      marginHorizontal:10,
+      marginTop:10,
+      flex:1,
+      marginBottom:10
+    },
+    cardCenter: {
+      justifyContent: 'center',
+      alignSelf: 'center',
+      flex:1
+      
+    },
 
 
 
