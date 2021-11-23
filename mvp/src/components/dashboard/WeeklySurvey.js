@@ -9,6 +9,7 @@ import { WebView } from 'react-native-webview';
 
 const WeeklySurvey = ({
     containerStyle,
+    uri,
     question,
     loading,
     titleStyle,
@@ -17,7 +18,11 @@ const WeeklySurvey = ({
 	
    
       const [submit,setSubmit] = useState(false);
-     
+      if(uri==null){
+          uri="https://docs.google.com/forms/d/e/1FAIpQLSdjFAeXYnDMn5LfpMN7whOS8XBW48TAfEllmeMakBeNR6qOuA/viewform?usp=sf_link";
+      }
+      const analyticsURI = uri.substring(0, uri.indexOf("viewform?usp=sf_link")) + "viewanalytics"
+    //  console.log(uri);
 
 	return (
        
@@ -30,8 +35,8 @@ const WeeklySurvey = ({
             {/* <Medium style={titleStyle}>Resultados</Medium> */}
             <WebView 
                 originWhitelist={['*']} 
-            source={{ uri: 'https://docs.google.com/forms/d/e/1FAIpQLScsVcoN84ZfAE6adi8VSmKVKytPMbMiispy3TSo4-65mPwg_A/viewanalytics'}}
-            style={{height:700,width:'auto'}}
+            source={{ uri: analyticsURI}}
+            style={{height:800,width:'auto'}}
             scrollEnabled={true} /> 
             </>
             : 
@@ -39,8 +44,8 @@ const WeeklySurvey = ({
              {/* <Medium style={titleStyle}>{question}</Medium> */}
              <WebView 
                 originWhitelist={['*']} 
-                source={{ uri: 'https://docs.google.com/forms/d/e/1FAIpQLScsVcoN84ZfAE6adi8VSmKVKytPMbMiispy3TSo4-65mPwg_A/viewform?usp=sf_link'}}
-                style={{height:700,width:'auto'}}
+                source={{ uri: uri}}
+                style={{height:800,width:'auto'}}
                 scrollEnabled={true}
                 onNavigationStateChange={event => {
                     if (!event.url) return;

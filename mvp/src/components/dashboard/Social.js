@@ -29,9 +29,12 @@ const SocialComponent = () => {
   const navigate= useNavigation();
 
   const [survey,setSurvey] = useState(null);
-  const [faq,setFaq] = useState(null);
-  const [tips,setTips] = useState(null);
+  const [tips,setTips] = useState([]);
   const [icons,setIcons] = useState(null);
+  const [answers,setAnswers] = useState([]);
+  const [questions,setQuestions] = useState([]);
+
+
 
 
   const {
@@ -42,30 +45,74 @@ const SocialComponent = () => {
   
   const getSocial = async (week) => {
   
-    const surveyStorage = await AsyncStorage.getItem("survey_"+week);
-    const faqStorage = await AsyncStorage.getItem("q&a_"+week);
-    const tipsStorage = await AsyncStorage.getItem("tip_"+week);
+    const surveyAS = await AsyncStorage.getItem("survey_"+week);
+    const q1AS = await AsyncStorage.getItem("q1_"+week);
+    const a1AS = await AsyncStorage.getItem("a1_"+week);
+    const q2AS = await AsyncStorage.getItem("q2_"+week);
+    const a2AS = await AsyncStorage.getItem("a2_"+week);
+    const q3AS = await AsyncStorage.getItem("q3_"+week);
+    const a3AS = await AsyncStorage.getItem("a3_"+week);
+    const q4AS = await AsyncStorage.getItem("q4_"+week);
+    const a4AS = await AsyncStorage.getItem("a4_"+week);
+    const tip1AS = await AsyncStorage.getItem("tip1_"+week);
+    const tip2AS = await AsyncStorage.getItem("tip2_"+week);
+    const tip3AS = await AsyncStorage.getItem("tip3_"+week);
+    const tip4AS = await AsyncStorage.getItem("tip4_"+week);
+
 
     
-    if(surveyStorage !== null){
-      setSurvey(JSON.parse(survey));
-      console.log("This is the survey-->",survey);
-    }  else {
-      setSurvey("Hubo un problema.")
+    if(surveyAS !== null){
+      setSurvey(surveyAS);
     }  
-    if(faqStorage !== null){
-      setFaq(JSON.parse(faqStorage));
-       console.log("This is the faq-->",faq);
-     }   else {
-      setFaq("Hubo un problema.")
-    }  
-     if(tipsStorage !== null){
-      setTips(JSON.parse(tipsStorage));
-       console.log("This is the tips-->",tips);
-   
-     }   else {
-      setTips("Hubo un problema.")
-    }  
+    /**********QUESTION & ANSWER 1***********/
+    if(q1AS !== null){
+      setQuestions(questions => [...questions, q1AS]);
+     }   
+    if(a1AS !== null){
+      setAnswers(answers => [...answers, a1AS]);
+     }   
+    /**********QUESTION & ANSWER 2***********/
+    if(q2AS !== null){
+      setQuestions(questions => [...questions, q2AS]);
+     }  
+    if(a2AS !== null){
+      setAnswers(answers => [...answers, a2AS]);
+     }  
+    /**********QUESTION & ANSWER 3***********/
+    if(q3AS !== null){
+      setQuestions(questions => [...questions, q3AS]);
+     }  
+    if(a3AS !== null){
+      setAnswers(answers => [...answers, a3AS]);
+     }  
+    /**********QUESTION & ANSWER 4***********/
+    if(q4AS !== null){
+      setQuestions(questions => [...questions, q4AS]);
+     }  
+    if(a4AS !== null){
+      setAnswers(answers => [...answers, a4AS]);
+     }   
+      /**********TIP  1***********/
+     if(tip1AS !== null){
+      setTips(tips => [...tips, tip1AS]);
+     }  
+    /**********TIP  2**********/
+    if(tip2AS !== null){
+      setTips(tips => [...tips, tip2AS]);
+     }  
+    /**********TIP  3***********/
+    if(tip3AS !== null){
+      setTips(tips => [...tips, tip3AS]);
+     }   
+    /**********TIP  4***********/
+    if(tip4AS !== null){
+      setTips(tips => [...tips, tip4AS]);
+     }  
+    console.log("This is the questions-->",questions);
+    console.log("This is the answers-->",answers);
+
+    console.log("This is the tips-->",tips);
+
   }
 
     React.useEffect(() => {
@@ -74,9 +121,9 @@ const SocialComponent = () => {
         setNext(JSON.stringify(params.week+1));
         setPrev(JSON.stringify(params.week-1));
       }
-      social(JSON.parse(week))(authDispatch); 
-      getSocial(week);
-      }, [params,week]);
+      social(JSON.parse(params.week))(authDispatch); 
+      getSocial(params.week);
+      }, [params]);
     
       const titleNext = "Semana " + nextWeek + " ";
       const titlePrev = " Semana " + prevWeek;
@@ -102,8 +149,11 @@ const SocialComponent = () => {
        
         <CustomCard containerStyle={styles.cardShadow} titleStyle={styles.cardTitle} center={true} title="¡Algunos TIPS que podrían ayudarte!">
         <ScrollView horizontal={true} style={{flexDirection:'row',elevation:20,}}>
-         <ImgAccordion icon="apple_pink" week={week} data={faq}/> 
-         <ImgAccordion icon="pill_green" wseek={week} data={faq}/>
+         <ImgAccordion icon="apple_pink" week={week} data={tips[0]}/> 
+         {tips[1] && <ImgAccordion icon="apple_pink" wseek={week} data={tips[1]}/>}
+         {tips[2] && <ImgAccordion icon="apple_pink" wseek={week} data={tips[2]}/>}
+         {tips[3] && <ImgAccordion icon="apple_pink" wseek={week} data={tips[3]}/>}
+
         </ScrollView>
         </CustomCard>
         
@@ -112,11 +162,15 @@ const SocialComponent = () => {
 
         {/*********FAQ**********/}
         <CustomCard containerStyle={styles.cardShadow}  titleStyle={styles.cardTitle} center={true} title="Preguntas y respuestas frecuentes">
-          <Accordion line ={true} data={faq} icon="apple_pink" week={week} title="¿Que son las arañitas?" image="path"/>
+          <Accordion line ={true} data={answers[0]} icon="apple_pink" week={week} title={questions[0]} />
+          {questions[1]&&  <Accordion line ={true} data={answers[1]} icon="apple_pink" week={week} title={questions[1]} />}
+          {questions[2] &&  <Accordion line ={true} data={answers[2]} icon="apple_pink" week={week} title={questions[2]} />}
+          {questions[3] &&  <Accordion line ={true} data={answers[3]} icon="apple_pink" week={week} title={questions[3]} />}
+
         </CustomCard>
 
         {/*********SURVEY**********/} 
-        <WeeklySurvey containerStyle={styles.cardShadow}  titleStyle={styles.cardTitle} question="Pregunta" multipleChoice={true}/>
+        <WeeklySurvey containerStyle={styles.cardShadow}  uri={survey} titleStyle={styles.cardTitle} multipleChoice={true}/>
              
         {/*********MEME**********/}
        <CustomCard containerStyle={styles.cardShadow} meme={true}

@@ -58,9 +58,9 @@ const ImgAccordion = ({data, icon,week}) => {
                     
                         {expanded ? 
                         <Light style={{textAlign:'left',color:colors.grey_darkest,
-                        fontSize:16, paddingTop:10}}>{data} Hola expanded</Light>   :
+                        fontSize:16, paddingTop:10}}>{data} </Light>   :
                         <Light style={{textAlign:'left',color:colors.grey_darkest,
-                        fontSize:16, paddingTop:10}} numberOfLines={2} >{data} Hola not</Light> }
+                        fontSize:16, paddingTop:10}} numberOfLines={2} >{data} </Light> }
                         <FAB 
                         size="small"
                         style={{top:30,}}

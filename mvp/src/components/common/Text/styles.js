@@ -30,7 +30,6 @@ export default StyleSheet.create({
   },
   bold: {
     fontFamily:'Montserrat-Bold',
-    textAlign:'center'
   },
   extrabold: {
     fontFamily:'Montserrat-ExtraBold',

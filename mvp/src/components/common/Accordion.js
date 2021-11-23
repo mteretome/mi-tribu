@@ -12,7 +12,7 @@ const Accordion = ({data, title,icon,line,week}) => {
         setExpanded(!expanded);
       };
     return(
-        <View>
+        <View style={{}}>
              {line && <View style={{marginHorizontal:0,borderBottomWidth:1.5,borderBottomColor:colors.grey_lightest}}/>}    
              
              
@@ -21,11 +21,10 @@ const Accordion = ({data, title,icon,line,week}) => {
             
             style={{
                 flexDirection: 'row',
-                justifyContent:'space-between',
                 height:'auto',
                 flex:1,
                 marginVertical:10,
-                marginHorizontal:10}}
+                marginHorizontal:10,}}
                 
                 onPress={()=>toggleExpand()}>
 
@@ -44,14 +43,11 @@ const Accordion = ({data, title,icon,line,week}) => {
 
               <View style={{flexDirection:'column',flex:4,}}>
                 <View style={{flexDirection: 'row'}}>
-                    <View  style={{
-                    alignSelf:'flex-start',
-                    justifyContent:'flex-start',
-                    alignItems:'flex-start',textAlign:'right'}}>
-                    <Bold style={{color:colors.grey_dark,fontSize:16}}>{title}</Bold>
+                    <View  style={{flex:10}}>
+                    <Bold align="left" style={{color:colors.grey_dark,fontSize:16}}>{title}</Bold>
                     </View>
                     <Icon name={expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} 
-                    size={30} color={colors.grey_lightest} style={{}}/>
+                    size={25} color={colors.grey_lightest} style={{flex:1}}/>
                 </View>
             
                 <View style={{flex:1,width:'100%'}}>

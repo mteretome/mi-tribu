@@ -56,10 +56,16 @@ export const SemiBold = ({children,style}) => {
 	);
 };
 
-export const Bold = ({children,style}) => {
+export const Bold = ({children,style,align}) => {
+	const getAlign = () => {
+		if(align){
+		return align}
+		else {
+		return "center"}
+	}
 
 	return (
-	<Text style={[style,styles.bold]}>
+	<Text style={[style,{textAlign:getAlign()},styles.bold]}>
       {children}
   	</Text>
 	);
