@@ -29,7 +29,7 @@ const ImgAccordion = ({data, icon,week}) => {
                     
                 }}>
                        
-                    <IconSocial icon={icon} week={week} height={100}
+                    <IconSocial icon={icon}  height={100}
                     style={{alignSelf:'center',marginVertical:20}}/>
                    
                    <View style={{padding:10,margin:10}}>

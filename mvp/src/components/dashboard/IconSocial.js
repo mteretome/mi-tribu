@@ -6,8 +6,8 @@ import { SvgCssUri } from 'react-native-svg';
 
 
 
-const IconSocial = ({icon,style,week,width,height}) => {
-const iconURI = "https://storage.googleapis.com/mitribu-mobile/social/icons/" +week+"/"+icon+".svg";
+const IconSocial = ({icon,style,width,height}) => {
+const iconURI = "https://storage.googleapis.com/mitribu-mobile/social/icons/"+icon;
 // console.log(iconURI);
 const getDim= (val) =>{
       if(val){

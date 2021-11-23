@@ -59,6 +59,15 @@ export default (week)=> (dispatch)  => {
         var t4 = "tip4_"+week;
         AsyncStorage.setItem(t4,res.data.Social.tip4);
 
+        var iconsT = "tipIcons_"+week;
+        AsyncStorage.setItem(iconsT,JSON.stringify(res.data.Social.tip_icons));
+
+        var iconsQ = "questionIcons_"+week;
+        AsyncStorage.setItem(iconsQ,JSON.stringify(res.data.Social.question_icons));
+       
+       
+
+
 
     
        

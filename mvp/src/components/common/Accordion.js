@@ -31,7 +31,7 @@ const Accordion = ({data, title,icon,line,week}) => {
              {icon && 
               
              <View style={{flex:1,marginRight:10, maxHeight:100}}>
-             <IconSocial icon={icon} week={week} width="90%" height="90%" />
+             <IconSocial icon={icon} width="90%" height="90%" />
              </View>
                
              } 

@@ -95,7 +95,7 @@ export default StyleSheet.create({
     cardTitle:{
       color:colors.grey_dark,
       fontSize:24,
-      marginHorizontal:10, 
+      marginHorizontal:15, 
     
     },
     surveyCard: {

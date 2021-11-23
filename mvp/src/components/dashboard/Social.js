@@ -30,7 +30,9 @@ const SocialComponent = () => {
 
   const [survey,setSurvey] = useState(null);
   const [tips,setTips] = useState([]);
-  const [icons,setIcons] = useState(null);
+  const [iconsQ,setIconsQ] = useState(["apple_pink"]);
+  const [iconsT,setIconsT] = useState(["calendar_green"]);
+
   const [answers,setAnswers] = useState([]);
   const [questions,setQuestions] = useState([]);
 
@@ -58,6 +60,10 @@ const SocialComponent = () => {
     const tip2AS = await AsyncStorage.getItem("tip2_"+week);
     const tip3AS = await AsyncStorage.getItem("tip3_"+week);
     const tip4AS = await AsyncStorage.getItem("tip4_"+week);
+    
+    const iconsTAS = await AsyncStorage.getItem("tipIcons_"+week);
+    const iconsQAS = await AsyncStorage.getItem("questionIcons_"+week);
+
 
 
     
@@ -108,10 +114,26 @@ const SocialComponent = () => {
     if(tip4AS !== null){
       setTips(tips => [...tips, tip4AS]);
      }  
-    console.log("This is the questions-->",questions);
-    console.log("This is the answers-->",answers);
 
-    console.log("This is the tips-->",tips);
+      /**********ICONS QUESTIONS**********/
+    if(iconsQAS !== null){
+      setIconsQ(JSON.parse(iconsQAS));
+     }  
+
+       /**********ICONS TIPS**********/
+       if(iconsTAS !== null){
+        setIconsT(JSON.parse(iconsTAS));
+       }  
+    // console.log("This is the questions-->",questions);
+    // console.log("This is the answers-->",answers);
+
+    console.log("This is the tips-->");
+    console.log("iconTs: ", iconsT);
+    console.log("iconQs: ", iconsQ);
+
+
+
+
 
   }
 
@@ -149,10 +171,10 @@ const SocialComponent = () => {
        
         <CustomCard containerStyle={styles.cardShadow} titleStyle={styles.cardTitle} center={true} title="¡Algunos TIPS que podrían ayudarte!">
         <ScrollView horizontal={true} style={{flexDirection:'row',elevation:20,}}>
-         <ImgAccordion icon="apple_pink" week={week} data={tips[0]}/> 
-         {tips[1] && <ImgAccordion icon="apple_pink" wseek={week} data={tips[1]}/>}
-         {tips[2] && <ImgAccordion icon="apple_pink" wseek={week} data={tips[2]}/>}
-         {tips[3] && <ImgAccordion icon="apple_pink" wseek={week} data={tips[3]}/>}
+         <ImgAccordion icon={iconsT[0]} data={tips[0]}/> 
+         {tips[1] && <ImgAccordion icon={iconsT[1]}  data={tips[1]}/>}
+         {tips[2] && <ImgAccordion icon={iconsT[2]} data={tips[2]}/>}
+         {tips[3] && <ImgAccordion icon={iconsT[3]}  data={tips[3]}/>}
 
         </ScrollView>
         </CustomCard>
@@ -162,10 +184,10 @@ const SocialComponent = () => {
 
         {/*********FAQ**********/}
         <CustomCard containerStyle={styles.cardShadow}  titleStyle={styles.cardTitle} center={true} title="Preguntas y respuestas frecuentes">
-          <Accordion line ={true} data={answers[0]} icon="apple_pink" week={week} title={questions[0]} />
-          {questions[1]&&  <Accordion line ={true} data={answers[1]} icon="apple_pink" week={week} title={questions[1]} />}
-          {questions[2] &&  <Accordion line ={true} data={answers[2]} icon="apple_pink" week={week} title={questions[2]} />}
-          {questions[3] &&  <Accordion line ={true} data={answers[3]} icon="apple_pink" week={week} title={questions[3]} />}
+          <Accordion line ={true} data={answers[0]} icon={iconsQ[0]} week={week} title={questions[0]} />
+          {questions[1]&&  <Accordion line ={true} data={answers[1]} icon={iconsQ[1]} title={questions[1]} />}
+          {questions[2] &&  <Accordion line ={true} data={answers[2]} icon={iconsQ[2]}  title={questions[2]} />}
+          {questions[3] &&  <Accordion line ={true} data={answers[3]} icon={iconsQ[3]} title={questions[3]} />}
 
         </CustomCard>
 
