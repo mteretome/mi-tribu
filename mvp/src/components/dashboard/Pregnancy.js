@@ -31,12 +31,10 @@ const PregnancyComponent = () => {
 
 
   const navigate= useNavigation();
-  const [weekNumber, setWeekNumber] = useState(null);
   const [length,setLength]= useState(null);
   const [weight,setWeight]= useState(null);
   const [weightUnit,setWeightUnit]= useState(null);
   const [fruit,setFruit]= useState(null);
-  //
   const [bebe, setBebe] = useState(null);
   const [cuerpo,setCuerpo]= useState(null);
   const [sintomas,setSintomas]= useState(null);
@@ -44,10 +42,20 @@ const PregnancyComponent = () => {
   const [week,setWeek]= useState(null);
   const [nextWeek,setNext]= useState(null);
   const [prevWeek,setPrev]= useState(null);
+  const [weekNumber, setWeekNumber] = useState(null);
+
   const {
     authDispatch,
     } = useContext(GlobalContext); 
     const {params} = useRoute();
+    useEffect(() => {
+
+      if (params) {		
+        setWeek(JSON.stringify(params.week));
+        setNext(JSON.stringify(params.week+1));
+        setPrev(JSON.stringify(params.week-1));
+      }
+    }, [params]);
    
 
   const getDashboard = async (week) => {
@@ -60,13 +68,17 @@ const PregnancyComponent = () => {
     
     if(userString){
         setName(JSON.parse(userString).first_name);
-    }
+    } else {setName("Mamá")}
     
     if(dashboard){
         setBebe(JSON.parse(dashboard).bebe);
         setCuerpo(JSON.parse(dashboard).cuerpo);
         setSintomas(JSON.parse(dashboard).sintomas);
 
+    } else {
+      setBebe("¡Hubo un error por favor trata más tarde!");
+      setCuerpo("¡Hubo un error por favor trata más tarde!");
+      setSintomas("¡Hubo un error por favor trata más tarde!");
     }
 
 };
@@ -75,28 +87,27 @@ const getBabyMetric = async (week) => {
   
   const baby = await AsyncStorage.getItem("babystats_"+week);
   
+  
   if(baby !== null){
     setWeekNumber(JSON.parse(baby)[0]);
     setLength(JSON.parse(baby)[1]);
     setWeight(JSON.parse(baby)[2]);
     setWeightUnit(JSON.parse(baby)[3]);
     setFruit(JSON.parse(baby)[4]);
-    console.log("This is the data--> weekNumber: ",weekNumber ,"Length:",length, "wieght: ", weight, "weight unit: ", weightUnit,"fruit name: ", fruit );
-    console.log("week is ------->", week);
+    // console.log("This is the data--> weekNumber: ",weekNumber ,"Length:",length, "wieght: ", weight, "weight unit: ", weightUnit,"fruit name: ", fruit );
+    // console.log("week is ------->", week);
 
   }    
 }
 
 useEffect(() => {
-  weekInfo(JSON.parse(week))(authDispatch);
+
+
+  weekInfo(params.week)(authDispatch);
   //social(JSON.parse(41))(authDispatch);  Used for testing in setting up social :)
-  getDashboard(week);
-  getBabyMetric(week);
-  if (params) {		
-    setWeek(JSON.stringify(params.week));
-    setNext(JSON.stringify(params.week+1));
-    setPrev(JSON.stringify(params.week-1));
-  }
+  getDashboard(params.week);
+  getBabyMetric(params.week);
+  
   }, [params]);
 
  

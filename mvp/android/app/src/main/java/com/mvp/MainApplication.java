@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -31,7 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
           //packages.add(new SplashScreenReactPackage());
           //packages.add(new RNDateTimePickerPackage());
           return packages;
-          // return Arrays.<ReactPackage>asList(new MainReactPackage(),new SplashScreenReactPackage()  //here);
+          // return Arrays.<ReactPackage>asList(new MainReactPackage(),
+          //   new RNCWebViewPackage(),
+          //   new SplashScreenReactPackage()  );//here
         }
 
         @Override

@@ -30,10 +30,10 @@ export const ExtraLight = ({children,style}) => {
 	);
 };
 
-export const Light = ({children,style}) => {
+export const Light = ({children,style,numberOfLines}) => {
 
 	return (
-	<Text style={[style,styles.light]}>
+	<Text style={[style,styles.light]} numberOfLines={numberOfLines}>
       {children}
   	</Text>
 	);

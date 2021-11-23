@@ -4,6 +4,8 @@ import styles from './styles';
 import colors from '../../assets/theme/colors';
 import {Bold, Light, Medium, Regular} from './Text';
 import Svg,{ Circle,Rect } from 'react-native-svg';
+import LinearContainer from './LinearContainer';
+import LinearGradient from 'react-native-linear-gradient';
 
 
 const CustomCard = ({
@@ -15,16 +17,22 @@ const CustomCard = ({
     titleStyle,
     contentStyle,
     activeCircle,
+    current,
     week,
+    meme
 }) => {
 	
     const getWeek =() =>{
+        if (current==true){
+            activeCircle=false;
+            return false;
+        }
 		if (week==true){
 			return !activeCircle;
 		}
 		else {
 			return false;
-    }
+    } 
 	};
     const inactiveCircle = getWeek() ;
 	return (
@@ -48,18 +56,29 @@ const CustomCard = ({
               cx="50"
               cy="50"
               r="45"
-              stroke={colors.off_white}
+              stroke={colors.tribu_green}
               strokeWidth="4"
-              fill={colors.tribu_green}
+              fill={colors.off_white}
             /></Svg>} 
+            {current && 
+             <Svg height="20%" width="20%" viewBox="0 0 100 100 ">
+             <Circle
+               cx="50"
+               cy="50"
+               r="45"
+               stroke={colors.off_white}
+               strokeWidth="4"
+               fill={colors.tribu_green}
+             /></Svg>}
            
 		<View style={[styles.card,containerStyle]}>
+            
            
             {center ? 
             <View  style={[styles.cardCenter]} >
                 <Medium style={titleStyle}>{title}</Medium>
                 <Light style={contentStyle} > {content} </Light>
-                <View style={{margin:10}}>{children}</View>
+                {meme ? <View>{children}</View>:<View style={{margin:10}}>{children}</View>} 
             </View>
             :
             <View style={[styles.cardLeft,{flex:1,justifyContent:'flex-start'}]}>
@@ -72,9 +91,10 @@ const CustomCard = ({
 
             </View>  
             }
-
-
-        </View>
+                
+            </View>
+           
+       
         </View>
 	);
 };

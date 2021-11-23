@@ -19,7 +19,6 @@ export default StyleSheet.create({
   },
   light: {
     fontFamily:'Montserrat-Light',
-    textAlign:'center'
   },
   medium: {
     fontFamily:'Montserrat-Medium',

@@ -85,24 +85,35 @@ export default StyleSheet.create({
     },
     cardShadow: {
       shadowColor:  'black',
-			shadowOffset: {
-				width: 5,
-				height: 10,
-			},
-			shadowOpacity: 1,
-			shadowRadius: 1,
 			elevation: 10,
       backgroundColor: '#E0ECEE',
+      height:'auto'
     
 
 
     },
     cardTitle:{
-      color:colors.grey_darkest,
+      color:colors.grey_dark,
       fontSize:24,
-      marginHorizontal:20, 
+      marginHorizontal:10, 
     
-    }
+    },
+    surveyCard: {
+      borderRadius: 10,
+      backgroundColor: 'rgba(255,255,255,1)',
+      alignSelf: 'stretch',
+      paddingTop:10,
+      marginHorizontal:10,
+      marginTop:10,
+      flex:1,
+      marginBottom:10
+    },
+    cardCenter: {
+      justifyContent: 'center',
+      alignSelf: 'center',
+      flex:1
+      
+    },
 
 
 

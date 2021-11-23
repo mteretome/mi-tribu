@@ -9,15 +9,30 @@ export default (week)=> (dispatch)  => {
             type: SOCIAL_LOADING
         });
         const params = { week: week };
-    axiosInstance.get("/social",  {params} ).then((res) => { // what is the correct path?
+    axiosInstance.get("/social",  {params} ).then((res) => { 
        
+        console.log("social data retrieved- data:>>",res.data);
        
-        var social = "social_"+week;
+        var tips = [res.data.Social.tip1,res.data.Social.tip2,res.data.Social.tip3,res.data.Social.tip4];
+        var faqs = [res.data.Social["q&a1"],res.data.Social["q&a2"],res.data.Social["q&a3"],res.data.Social["q&a4"]];
+        var survey = res.data.Social.encuesta;
+        var surveyTitle = "survey_"+week;
+        var faqTitle = "q&a_"+week;
+        var tipTitle = "tip_"+week;
         
-        
-        AsyncStorage.setItem(social,JSON.stringify(res.data.Social));
-        console.log("*************WEEK*********",week)
-        console.log("social data retrieved- data:>>",res.data)
+        console.log("tips ",tips);
+        console.log("faqs ",faqs);
+        console.log("survey ",survey);
+
+
+        AsyncStorage.setItem(surveyTitle,JSON.stringify(survey));
+        AsyncStorage.setItem(faqTitle,JSON.stringify(faqs));
+        AsyncStorage.setItem(tipTitle,JSON.stringify(tips));
+
+
+
+        // console.log("*************WEEK*********",week)
+        // console.log("social data retrieved- data:>>",res.data)
 
         dispatch({
             type: SOCIAL_SUCCESS,

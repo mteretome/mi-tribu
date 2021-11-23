@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/Octicons';
 
 
 
+
 const CustomButton = ({
 	title,
 	loading,
@@ -20,9 +21,9 @@ const CustomButton = ({
 	leftarrow,
 }) => {
 	const getBgColor =() =>{
-		if (bgColor === 'pink'){
-			return colors.tribu_pink;
-		}
+		if (bgColor){
+			return bgColor;
+		} 
 		else {
 			return colors.tribu_green;
 		}
@@ -35,7 +36,7 @@ const CustomButton = ({
 	{gradient 
 		? <TouchableOpacity 
 		disabled={loading}
-		style={style}
+		style={[style]}
 		 onPress={onPress}>
 		<LinearGradient
 	     colors={[colors.tribu_green, colors.tribu_blue]}
@@ -43,12 +44,7 @@ const CustomButton = ({
 			[styles.button,
 			{flexDirection:'row',
 			shadowColor:  colors.tribu_blue,
-			shadowOffset: {
-				width: 0,
-				height: 5,
-			},
-			shadowOpacity: 0.5,
-			shadowRadius: 0.5,
+		
 
 			elevation: 5,
           }
@@ -71,13 +67,6 @@ const CustomButton = ({
 			style,
 			{backgroundColor: getBgColor(),
 			shadowColor:  colors.tribu_blue,
-			shadowOffset: {
-				width: 0,
-				height: 5,
-			},
-			shadowOpacity: 0.5,
-			shadowRadius: 0.5,
-
 			elevation: 5,
           }
           ]}

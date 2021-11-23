@@ -13,14 +13,13 @@ import { Bold } from '../../components/common/Text';
 
 
 const Social = () => {
-  const [expanded, setExpanded] = React.useState(true);
-
-  const handlePress = () => setExpanded(!expanded);
   
     return (
       <>
-        <View style={{paddingVertical:25,paddingHorizontal:20,backgroundColor:colors.tribu_green,flexDirection:'row',justifyContent:'space-between'}}>
-          <Bold style={{color:colors.white,fontSize:24,left:150}}>Social </Bold>
+        <View style={{paddingVertical:25,paddingHorizontal:20,backgroundColor:colors.tribu_green,flexDirection:'row',justifyContent:'center'}}>
+          <View style={{alignItems:'center',alignSelf:'center',flex:1}}>
+          <Bold style={{color:colors.white,fontSize:24,}}>Social </Bold>
+          </View>
           <TouchableOpacity onPress={() => {navigate.navigate(SETTINGS)}}>
           <Avatar  rounded  
             // source={require('../../assets/images/pink/lady2.png')}

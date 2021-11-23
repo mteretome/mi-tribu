@@ -18,6 +18,7 @@ const Weeks = () => {
     if(dates&&current){
         dates = JSON.parse(dates);
         var i = 0, len = WEEK_NUMBERS.length;
+        var currentBool= false;
         current = JSON.parse(current);
         var green = false;
           while (i < len) {
@@ -25,6 +26,9 @@ const Weeks = () => {
             var index = WEEK_NUMBERS[i];
             if(current<=JSON.parse(index)){
               green=true;
+            }
+            if (current==JSON.parse(index)){
+              currentBool=true;
             }
           
             var date1 = new Date(dates[index]);
@@ -35,7 +39,8 @@ const Weeks = () => {
             WEEKS.push({
               id: index,
               dates:  string1 + " - " + string2,
-              active: green
+              active: green,
+              current: currentBool,
             });
             i++;
             
