@@ -20,14 +20,6 @@ const Social = () => {
           <View style={{alignItems:'center',alignSelf:'center',flex:1}}>
           <Bold style={{color:colors.white,fontSize:24,}}>Social </Bold>
           </View>
-          <TouchableOpacity onPress={() => {navigate.navigate(SETTINGS)}}>
-          <Avatar  rounded  
-            // source={require('../../assets/images/pink/lady2.png')}
-            icon={{name: 'user', type: 'font-awesome'}}
-            size="small"   onPress={() => console.log("Works!")}  activeOpacity={0.7}
-            containerStyle={{borderColor:colors.white,borderWidth:2,}}
-            overlayContainerStyle={{backgroundColor: colors.tribu_pink}}/>
-          </TouchableOpacity>
           
           </View>
           <SocialNav/>

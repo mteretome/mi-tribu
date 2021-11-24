@@ -79,6 +79,7 @@ const PregDashNav = () => {
     <Tab.Navigator tabBar={() => null} initialRouteName={week}  backBehavior='none' screenOptions={{
      lazy:true,
      lazyPreloadDistance:2,
+     swipeEnabled:false
     }}>
   
     <Tab.Screen name={"5"} component={PregnancyComponent} initialParams={{ week: 5}}/>

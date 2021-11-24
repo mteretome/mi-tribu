@@ -105,7 +105,6 @@ useEffect(() => {
 
 
   weekInfo(params.week)(authDispatch);
-  //social(JSON.parse(41))(authDispatch);  Used for testing in setting up social :)
   getDashboard(params.week);
   getBabyMetric(params.week);
   
@@ -138,14 +137,7 @@ useEffect(() => {
            
            
         </View>
-        <Avatar  rounded  
-            // source={require('../../assets/images/pink/lady2.png')}
-            icon={{name: 'user', type: 'font-awesome'}}
-            size="medium"   onPress={() => console.log("Works!")}  activeOpacity={0.7}
-            containerStyle={{position:'absolute',right:10, top:10,borderColor:colors.white,borderWidth:2, shadowColor:colors.off_white,
-              shadowOpacity: 1,
-              elevation: 10,}}
-            overlayContainerStyle={{backgroundColor: colors.tribu_pink}}/>
+       
       <View style={{flex:1,marginHorizontal:40}}>
             <Tracker  week={week}/>
       </View>

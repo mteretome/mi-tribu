@@ -63,6 +63,7 @@ const SocialNav = () => {
     <Tab.Navigator tabBar={() => null} initialRouteName={route} backBehavior='none' screenOptions={{
      lazy:true,
      lazyPreloadDistance:2,
+     swipeEnabled:false
     }}>
   
     <Tab.Screen name={"5S"} component={SocialComponent} initialParams={{ week: 5}}/>

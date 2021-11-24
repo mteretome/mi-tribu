@@ -18,11 +18,12 @@ const WeeklySurvey = ({
 	
    
       const [submit,setSubmit] = useState(false);
+    //   console.log(uri);
       if(uri==null){
           uri="https://docs.google.com/forms/d/e/1FAIpQLSdjFAeXYnDMn5LfpMN7whOS8XBW48TAfEllmeMakBeNR6qOuA/viewform?usp=sf_link";
       }
       const analyticsURI = uri.substring(0, uri.indexOf("viewform?usp=sf_link")) + "viewanalytics"
-    //  console.log(uri);
+    
 
 	return (
        
@@ -37,7 +38,7 @@ const WeeklySurvey = ({
                 originWhitelist={['*']} 
             source={{ uri: analyticsURI}}
             style={{height:800,width:'auto'}}
-            scrollEnabled={true} /> 
+        /> 
             </>
             : 
             <>
@@ -45,8 +46,7 @@ const WeeklySurvey = ({
              <WebView 
                 originWhitelist={['*']} 
                 source={{ uri: uri}}
-                style={{height:800,width:'auto'}}
-                scrollEnabled={true}
+                style={{height:700,width:'auto'}}
                 onNavigationStateChange={event => {
                     if (!event.url) return;
                     if (event.url.includes('formResponse')) {

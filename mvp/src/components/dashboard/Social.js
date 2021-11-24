@@ -72,7 +72,7 @@ const SocialComponent = () => {
     }  
     /**********QUESTION & ANSWER 1***********/
     if(q1AS !== null){
-      setQuestions(questions => [...questions, q1AS]);
+      setQuestions(questions => [...questions,q1AS]);
      }   
     if(a1AS !== null){
       setAnswers(answers => [...answers, a1AS]);
@@ -124,12 +124,12 @@ const SocialComponent = () => {
        if(iconsTAS !== null){
         setIconsT(JSON.parse(iconsTAS));
        }  
-    // console.log("This is the questions-->",questions);
-    // console.log("This is the answers-->",answers);
+    console.log("This is the questions-->",questions);
+     console.log("This is the answers-->",answers);
 
-    console.log("This is the tips-->");
-    console.log("iconTs: ", iconsT);
-    console.log("iconQs: ", iconsQ);
+    console.log("This is the tips-->",tips);
+    // console.log("iconTs: ", iconsT);
+    // console.log("iconQs: ", iconsQ);
 
 
 
@@ -145,6 +145,7 @@ const SocialComponent = () => {
       }
       social(JSON.parse(params.week))(authDispatch); 
       getSocial(params.week);
+    
       }, [params]);
     
       const titleNext = "Semana " + nextWeek + " ";
@@ -174,7 +175,7 @@ const SocialComponent = () => {
          <ImgAccordion icon={iconsT[0]} data={tips[0]}/> 
          {tips[1] && <ImgAccordion icon={iconsT[1]}  data={tips[1]}/>}
          {tips[2] && <ImgAccordion icon={iconsT[2]} data={tips[2]}/>}
-         {tips[3] && <ImgAccordion icon={iconsT[3]}  data={tips[3]}/>}
+         {tips[3]!==tips[0] ? <></> : <ImgAccordion icon={iconsT[3]}  data={tips[3]}/>}
 
         </ScrollView>
         </CustomCard>
@@ -187,7 +188,7 @@ const SocialComponent = () => {
           <Accordion line ={true} data={answers[0]} icon={iconsQ[0]} week={week} title={questions[0]} />
           {questions[1]&&  <Accordion line ={true} data={answers[1]} icon={iconsQ[1]} title={questions[1]} />}
           {questions[2] &&  <Accordion line ={true} data={answers[2]} icon={iconsQ[2]}  title={questions[2]} />}
-          {questions[3] &&  <Accordion line ={true} data={answers[3]} icon={iconsQ[3]} title={questions[3]} />}
+          {questions[3]!==questions[0] ? <></> :  <Accordion line ={true} data={answers[3]} icon={iconsQ[3]} title={questions[3]} />}
 
         </CustomCard>
 
