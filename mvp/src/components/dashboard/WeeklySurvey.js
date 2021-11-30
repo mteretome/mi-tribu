@@ -18,7 +18,7 @@ const WeeklySurvey = ({
 	
    
       const [submit,setSubmit] = useState(false);
-    //   console.log(uri);
+    console.log(uri);
       if(uri==null){
           uri="https://docs.google.com/forms/d/e/1FAIpQLSdjFAeXYnDMn5LfpMN7whOS8XBW48TAfEllmeMakBeNR6qOuA/viewform?usp=sf_link";
       }

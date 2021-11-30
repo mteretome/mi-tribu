@@ -10,6 +10,7 @@ export default (week)=> (dispatch)  => {
         });
         const params = { week: week };
     axiosInstance.get("/social",  {params} ).then((res) => { 
+        console.log("request sent success", week)
        
         // console.log("social data retrieved- data:>>",res.data);
        
