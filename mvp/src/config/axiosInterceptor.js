@@ -4,14 +4,10 @@ import envs from './env';
 
 let headers = {};
 
-BACKEND_URL = "https://238b-160-39-164-225.ngrok.io"
+BACKEND_URL = "https://mi-tribu-mobile-app.herokuapp.com";
 
 const axiosInstance = axios.create({
     baseURL: BACKEND_URL,
-    auth: {
-        username: 'tere',
-        password: 'RayRay2020'
-      },
     headers,
 });
 
