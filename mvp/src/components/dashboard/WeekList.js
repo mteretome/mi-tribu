@@ -93,6 +93,7 @@ const WeekList = ({weeks}) => {
                             <CustomCard center={false}
                             activeCircle={item.active} week={true}
                              title={"Semana " +item.id} content={item.dates}
+                             current={item.current}
                              titleStyle={{color:colors.tribu_green}}>
                             <FruitGreen/>
                             </CustomCard>

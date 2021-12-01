@@ -33,6 +33,7 @@ const PregDashNav = () => {
   
   const [name, setName] = React.useState(null);
   const [week, setWeek] = React.useState(null);
+
   const getUser = async () => {
         
     const userString = await AsyncStorage.getItem('user');
@@ -46,12 +47,17 @@ const PregDashNav = () => {
     }
     if(weeksRaw){
       setWeek(getCurrent(JSON.parse(weeksRaw)));
-      if(current<week){
-        const diff = week-current;
-        const current = current+diff;
-        setWeek(current); 
-        AsyncStorage.setItem("current_week",JSON.stringify(week));
+      // console.log("current", getCurrent(JSON.parse(weeksRaw)))
+      // console.log("current", week)
+      if (current){
+        if(JSON.parse(current)<JSON.parse(week)){
+          const diff = week-current;
+          const current = current+diff;
+          setWeek(current); 
+          AsyncStorage.setItem("current_week",JSON.stringify(week));
+        }
       }
+      
      
 
     }
@@ -60,11 +66,17 @@ const PregDashNav = () => {
 
  useEffect(() => {
    getUser();
+  //  if(week==null){
+  //   console.log('null week',week)
+  //   setWeek("5");
+  //   console.log('not null week',week)
+
+  // }
  }, []);
 
 	return (
 
-    <Tab.Navigator tabBar={() => null} initialRouteName={week}  screenOptions={{
+    <Tab.Navigator tabBar={() => null} initialRouteName={week}  backBehavior='none' screenOptions={{
      lazy:true,
      lazyPreloadDistance:2,
     }}>

@@ -30,10 +30,10 @@ export const ExtraLight = ({children,style}) => {
 	);
 };
 
-export const Light = ({children,style}) => {
+export const Light = ({children,style,numberOfLines}) => {
 
 	return (
-	<Text style={[style,styles.light]}>
+	<Text style={[style,styles.light]} numberOfLines={numberOfLines}>
       {children}
   	</Text>
 	);
@@ -56,10 +56,16 @@ export const SemiBold = ({children,style}) => {
 	);
 };
 
-export const Bold = ({children,style}) => {
+export const Bold = ({children,style,align}) => {
+	const getAlign = () => {
+		if(align){
+		return align}
+		else {
+		return "center"}
+	}
 
 	return (
-	<Text style={[style,styles.bold]}>
+	<Text style={[style,{textAlign:getAlign()},styles.bold]}>
       {children}
   	</Text>
 	);

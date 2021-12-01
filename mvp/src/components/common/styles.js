@@ -32,12 +32,13 @@ export default StyleSheet.create({
 		fontSize:10
 	},
 	button : {
-		paddingHorizontal:40,
+		paddingHorizontal:30,
     	paddingVertical: 18,
     	marginVertical:5,
     	alignItems:'center',
     	justifyContent: 'space-evenly',
     	borderRadius: 60,
+		
 	},
 	buttonText : {
 		color: colors.white,
@@ -52,15 +53,19 @@ export default StyleSheet.create({
 	},
 	card: {
 		borderRadius: 10,
-		backgroundColor: 'rgba(255,255,255,0.8)',
+		backgroundColor: 'rgba(255,255,255,1)',
 		alignSelf: 'stretch',
 		padding: 10,
 		margin:10,
 		flexDirection:'row',
 		flex:1
 	},
+	
 	cardCenter: {
-		justifyContent: 'center'
+		justifyContent: 'center',
+		alignSelf: 'center',
+		flex:1
+		
 	},
 	cardLeft: {
 		flexDirection: 'row',

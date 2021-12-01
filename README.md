@@ -65,7 +65,9 @@ Assuming that you completed MVP Installation and Set Up correctly but `npx react
 		- run `watchman watch-del-all
 rm -rf yarn.lock package-lock.json node_modules
 rm -rf android/app/build
-npm start -- --reset-cache` and open a new terminal window and complete steps in MVP Set Up again from the start. 
+yarn install
+yarn start --reset-cache
+rm -rf /tmp/metro-*` and open a new terminal window and complete steps in MVP Set Up again from the start. 
 		- if still unable to run reach out to cbl-engineers channel on mi tribu's slack 
 
 
