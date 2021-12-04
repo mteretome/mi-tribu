@@ -22,23 +22,23 @@ const CongratsComponent= ({name,week,days}) => {
 
 	return (
     
-			<WhiteContainer>
+			<WhiteContainer style={{paddingHorizontal:30}}>
         <View style={styles.heading}>
-        <Blob style={{position:'absolute', top:50}}/>
+        <Blob style={{position:'absolute', top:20}}/>
     			<Bold style={{
           color:colors.tribu_pink,
-          fontSize: 28,
-          marginTop: 30,
+          fontSize: 24,
+          marginTop: 20,
           alignSelf:'center'}}>🎉¡Felicitaciones,</Bold>
 
           <Bold style={{
           color:colors.tribu_pink,
-          fontSize: 24,
+          fontSize: 20,
           marginBottom:5,
           alignSelf:'center'}}>tu cuenta ha sido creada!🎉  </Bold>
   		  </View>
 
-      <View style={{marginTop:30, marginBottom:30, alignItems:'center'}}>
+      <View style={{marginTop:10, marginBottom:20, alignItems:'center'}}>
       
         <SemiBold style={styles.congratsSub}>{JSON.parse(name)} estás en tu Semana {week} + {days} días de embarazo.</SemiBold>
        

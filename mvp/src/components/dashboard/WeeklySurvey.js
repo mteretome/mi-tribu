@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {View,TouchableOpacity} from 'react-native';
 import styles from './styles';
 import {Medium} from '../common/Text';
@@ -18,12 +18,18 @@ const WeeklySurvey = ({
 	
    
       const [submit,setSubmit] = useState(false);
-    console.log(uri);
-      if(uri==null){
-          uri="https://docs.google.com/forms/d/e/1FAIpQLSdjFAeXYnDMn5LfpMN7whOS8XBW48TAfEllmeMakBeNR6qOuA/viewform?usp=sf_link";
-      }
-      const analyticsURI = uri.substring(0, uri.indexOf("viewform?usp=sf_link")) + "viewanalytics"
-    
+        // console.log(uri);
+        var analyticsURI;
+        useEffect(() => {
+            if(uri==null){
+                uri="https://docs.google.com/forms/d/e/1FAIpQLSdjFAeXYnDMn5LfpMN7whOS8XBW48TAfEllmeMakBeNR6qOuA/viewform?usp=sf_link";
+            } 
+            analyticsURI = uri.substring(0, uri.indexOf("viewform?usp=sf_link")) + "viewanalytics"
+
+          }, [uri]);
+        
+        
+     
 
 	return (
        
@@ -45,7 +51,7 @@ const WeeklySurvey = ({
              {/* <Medium style={titleStyle}>{question}</Medium> */}
              <WebView 
                 originWhitelist={['*']} 
-                source={{ uri: uri}}
+                source={{ uri: uri }} 
                 style={{height:700,width:'auto'}}
                 onNavigationStateChange={event => {
                     if (!event.url) return;
@@ -76,7 +82,7 @@ const WeeklySurvey = ({
                 }}
             colors={[colors.tribu_green, colors.tribu_blue]}> 
            {submit ? <Medium style={[{alignSelf: 'center',
-             color:colors.off_white,fontSize:24}]}> ¡Gracias por contribuir tu opinión!  </Medium>
+             color:colors.off_white,fontSize:24}]}> ¡Gracias por contribuir con tu opinión!  </Medium>
              : <Medium style={[{alignSelf: 'center',
              color:colors.off_white,fontSize:24}]}> Vota y conoce la opinión de tú Tribu </Medium>}
             

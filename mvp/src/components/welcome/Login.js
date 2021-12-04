@@ -67,14 +67,14 @@ const LoginComponent= ({
   
 	return (
 
-<View >
+<View style={{flex:1}} >
 		
         <View style={styles.heading}>
     			<Bold style={styles.title}>¡Bienvenida!</Bold>
-          <Light style={styles.subtitle}>Necesitamos tu informacion para proceder.</Light>
+          <Light style={styles.subtitle}>Necesitamos tu información para proceder.</Light>
   		  </View>
 
-      <View style={styles.inputContainer}>
+      
         <Input placeholder="Nombre*"
         onChangeText={(value)=>{onFormChange({name:"name",value})}}
         error={errors.name}/>
@@ -122,7 +122,7 @@ const LoginComponent= ({
             onSubmit();
           }}
         title="Comenzar" gradient={true}/>
-      </View>
+   
 
         <View style={styles.footer}>
          

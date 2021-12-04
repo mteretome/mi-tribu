@@ -1,5 +1,5 @@
 import React, {useState,useRef,useEffect} from 'react';
-import {View,TouchableOpacity,Dimensions} from 'react-native';
+import {View,TouchableOpacity,Dimensions, ScrollView} from 'react-native';
 import colors from '../../assets/theme/colors';
 import Input from '../common/Input';
 import CustomButton from '../common/CustomButton';
@@ -62,9 +62,9 @@ const DuedateComponent= ({toggleOverlay,duedate, parentSet}) => {
 
   const BeforeCalc= () => {
       return (  
-          <View>
+          <ScrollView>
              <View style={styles.heading}>
-              <Bold style={{color: colors.tribu_green, fontSize:24,}}>
+              <Bold style={{color: colors.tribu_green, fontSize:20,}}>
               Calculadora de fecha de parto</Bold>
              
           </View>
@@ -111,13 +111,13 @@ const DuedateComponent= ({toggleOverlay,duedate, parentSet}) => {
             
               title="Calcular" gradient={true}/>
             </View>
-          </View>
+          </ScrollView>
       );
   };
 
  const AfterCalc= () => {
       return (  
-          <View>
+          <ScrollView>
            <View style={styles.heading}>
              <View style={{marginVertical:20, alignItems:'center'}}>
               <Blob style={{position:'absolute', bottom:-60}}/>
@@ -131,11 +131,11 @@ const DuedateComponent= ({toggleOverlay,duedate, parentSet}) => {
              title="Continuar" gradient={true}/>
             <Regular 
             style={{fontSize:16, textAlign:'center',color: colors.tribu_green,marginTop:10}}
-            >*Recuerda que lo anterior es una estimación. 
-            Siempre podrás actualizar tu fecha de parto en</Regular> 
+            >*Recuerda que lo anterior es una estimación. </Regular> 
+            {/* Siempre podrás actualizar tu fecha de parto en
             <Bold style={{fontSize:16, textAlign:'center',color: colors.tribu_green,marginBottom:10}}>
-            configuraciones.</Bold>
-          </View>
+            configuraciones.</Bold> */}
+          </ScrollView>
       );
   };
 

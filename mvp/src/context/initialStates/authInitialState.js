@@ -3,7 +3,7 @@ export default{
     data: {},
     error:null,
     loading:false,
-    developerMode: false,
+    developerMode: true,
 
     
 };

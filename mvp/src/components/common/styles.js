@@ -5,6 +5,7 @@ import colors from '../../assets/theme/colors';
 export default StyleSheet.create({
 	inputContainer: {
 		marginVertical:5,
+		paddingHorizontal:50,
 	},
  textinput: {
     backgroundColor: colors.white,
@@ -24,7 +25,6 @@ export default StyleSheet.create({
     paddingVertical: 20,
 	},
   	scrollBox:{
-	paddingHorizontal:50,
  	},
 	error: {
 		color: colors.tribu_pink,

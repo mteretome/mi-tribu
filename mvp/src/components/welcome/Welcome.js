@@ -4,7 +4,6 @@ import LinearContainer from '../common/LinearContainer';
 import CustomButton from '../common/CustomButton';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
-import Container from '../common/LinearContainer';
 import Logo from '../../assets/images/svg/welcomeLogo.svg';
 import {Bold,Regular} from '../common/Text';
 import { dashboardClear } from '../../context/actions/welcome';
@@ -23,14 +22,16 @@ const WelcomeComponent= ({name}) => {
   return (
     
       <LinearContainer>
-       <Container style={styles.container}>
-        <View style={styles.heading}>
-          <Bold style={[styles.whiteTitle,{marginTop:30}]}>
+       <View style={styles.container}>
+        
+        <View style={[styles.heading,{flex:1}]}>
+          <Bold style={[styles.whiteTitle,]}>
           Bienvenida,</Bold>
-          <Bold style={[styles.whiteTitle,{marginBottom:30}]}>{name}</Bold>
+          <Bold style={[styles.whiteTitle,{}]}>{name}</Bold>
           <Regular style={styles.subtitle}>Te estábamos esperando.</Regular>
         </View>
-    <View style={{flexShrink:1,flexDirection:"row"}}>
+    
+    <View style={{flex:1,flexDirection:"row"}}>
     
       <Image style={styles.welcomeLady3}
       source={require('../../assets/images/pink/lady3.png')}/>
@@ -39,13 +40,17 @@ const WelcomeComponent= ({name}) => {
 
     </View>
     <Logo style={{position:'absolute'}}/>
-     <Image style={{position:'absolute',width:'13%',resizeMode:'contain', right:177}}
-      source={require('../../assets/images/logo.png')}/>
 
-     
-      <Image style={styles.welcomeLady1}
-      source={require('../../assets/images/pink/lady1.png')}/>
-       <View>
+<Image style={{position:'absolute',width:'13%',resizeMode:'contain', right:177}}
+ source={require('../../assets/images/logo.png')}/>
+    <View style={{flex:1, position:'absolute'}}>
+    
+
+ 
+ </View>
+    <View style={{flex:4}}>
+    <Image style={styles.welcomeLady1}
+ source={require('../../assets/images/pink/lady1.png')}/>
       <CustomButton style={{bottom:50}}
         textStyle={{fontSize:17}}
         title="Ingresar a Mi Embarazo" gradient={true}
@@ -53,8 +58,8 @@ const WelcomeComponent= ({name}) => {
           dashboardClear()(authDispatch);
           }}/>
         
-      </View>
-        </Container>
+     </View>
+        </View>
       </LinearContainer>
 
   );

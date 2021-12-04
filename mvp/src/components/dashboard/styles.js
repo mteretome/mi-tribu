@@ -94,7 +94,7 @@ export default StyleSheet.create({
     },
     cardTitle:{
       color:colors.grey_dark,
-      fontSize:24,
+      fontSize:20,
       marginHorizontal:15, 
     
     },

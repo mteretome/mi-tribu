@@ -23,12 +23,15 @@ export default StyleSheet.create({
   	alignItems: 'center',
     marginTop: 15,
     marginBottom:15,
+    paddingVertical:10,
+    marginHorizontal:10
   },
   footer:{
   	alignItems: 'center',
     margin:7,
     flexDirection:'row',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    flex:1
   },
 
   lightText: {
@@ -39,38 +42,38 @@ export default StyleSheet.create({
   },
   congratsSub: { 
     color: colors.tribu_green,
-    fontSize:24, 
-    marginBottom:15,
+    fontSize:18, 
+    marginBottom:10,
   },
   container:{
     paddingHorizontal:60,
-    paddingVertical: 15,
+    paddingTop: 20,
     alignItems: 'center',
     flex:1,
     justifyContent:'center'
   },
   whiteTitle:{
-    fontSize: 46,
+    fontSize: 40,
     color: colors.white,
     textAlign: 'center',
   
   },
   welcomeLady1:{
-    top:125,
-    width:'80%',
-    resizeMode:'contain'
+    resizeMode:'contain',
+    height:'80%',
+    top:60
   },
   welcomeLady2:{
     width:'70%',
     resizeMode:'contain',
-    bottom:140,
+    bottom:120,
     left:30
   },
   welcomeLady3:{
     width:'70%',
     resizeMode:'contain',
     right:35,
-    bottom:120
+    bottom:100
 
   },
   overlay:{
