@@ -16,9 +16,9 @@ const Social = () => {
   
     return (
       <>
-        <View style={{paddingVertical:25,paddingHorizontal:20,backgroundColor:colors.tribu_green,flexDirection:'row',justifyContent:'center'}}>
+        <View style={{paddingVertical:10,paddingHorizontal:15,backgroundColor:colors.tribu_green,flexDirection:'row',justifyContent:'center'}}>
           <View style={{alignItems:'center',alignSelf:'center',flex:1}}>
-          <Bold style={{color:colors.white,fontSize:24,}}>Social </Bold>
+          <Bold style={{color:colors.white,fontSize:20,}}>Social </Bold>
           </View>
           
           </View>

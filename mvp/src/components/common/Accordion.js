@@ -43,9 +43,9 @@ const Accordion = ({data, title,icon,line,week}) => {
 
               <View style={{flexDirection:'column',flex:4,}}>
                 <View style={{flexDirection: 'row'}}>
-                    <View  style={{flex:10}}>
-                    <Bold align="left" style={{color:colors.grey_dark,fontSize:16}}>{title}</Bold>
-                    </View>
+                     <View  style={{flex:10}}>
+                     <Bold align="left" style={{color:colors.grey_dark,fontSize:16}}>{title}</Bold> 
+                    </View> 
                     <Icon name={expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} 
                     size={25} color={colors.grey_lightest} style={{flex:1}}/>
                 </View>

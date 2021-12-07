@@ -4,7 +4,7 @@ import envs from './env';
 
 let headers = {};
 
-BACKEND_URL = " https://mi-tribu-mobile-app.herokuapp.com"
+BACKEND_URL = "https://mi-tribu-mobile-app.herokuapp.com"
 
 const axiosInstance = axios.create({
     baseURL: BACKEND_URL,

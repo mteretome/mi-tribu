@@ -25,8 +25,7 @@ const WeeklySurvey = ({
                 uri="https://docs.google.com/forms/d/e/1FAIpQLSdjFAeXYnDMn5LfpMN7whOS8XBW48TAfEllmeMakBeNR6qOuA/viewform?usp=sf_link";
             } 
             analyticsURI = uri.substring(0, uri.indexOf("viewform?usp=sf_link")) + "viewanalytics"
-
-          }, [uri]);
+          }, []);
         
         
      

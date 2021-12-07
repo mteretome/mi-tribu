@@ -48,14 +48,7 @@ const PregnancyComponent = () => {
     authDispatch,
     } = useContext(GlobalContext); 
     const {params} = useRoute();
-    useEffect(() => {
-
-      if (params) {		
-        setWeek(JSON.stringify(params.week));
-        setNext(JSON.stringify(params.week+1));
-        setPrev(JSON.stringify(params.week-1));
-      }
-    }, [params]);
+   
    
 
   const getDashboard = async (week) => {
@@ -71,12 +64,13 @@ const PregnancyComponent = () => {
     } else {setName("Mamá")}
 
     
-    if(dashboard){
+    if(dashboard!==null){
         setBebe(JSON.parse(dashboard).bebe);
         setCuerpo(JSON.parse(dashboard).cuerpo);
         setSintomas(JSON.parse(dashboard).sintomas);
 
-    } else {
+    } 
+    else {
       setBebe("¡Hubo un error por favor trata más tarde!");
       setCuerpo("¡Hubo un error por favor trata más tarde!");
       setSintomas("¡Hubo un error por favor trata más tarde!");
@@ -95,24 +89,26 @@ const getBabyMetric = async (week) => {
     setWeight(JSON.parse(baby)[2]);
     setWeightUnit(JSON.parse(baby)[3]);
     setFruit(JSON.parse(baby)[4]);
-    // console.log("This is the data--> weekNumber: ",weekNumber ,"Length:",length, "wieght: ", weight, "weight unit: ", weightUnit,"fruit name: ", fruit );
-    // console.log("week is ------->", week);
+     console.log("This is the data--> weekNumber: ",weekNumber ,"Length:",length, "wieght: ", weight, "weight unit: ", weightUnit,"fruit name: ", fruit );
+    console.log("week is ------->", week);
 
   }    
 }
 
-useEffect(() => {
-
-
-  weekInfo(params.week)(authDispatch);
+React.useEffect(() => {
+console.log("layout effect called")
+  if (params) {		
+    setWeek(JSON.stringify(params.week));
+    setNext(JSON.stringify(params.week+1));
+    setPrev(JSON.stringify(params.week-1));
+  }
+  weekInfo(week)(authDispatch);
   getDashboard(params.week);
   getBabyMetric(params.week);
-  
-  }, [params]);
+}, [params]);
 
- 
     return (
-    <>
+  
     
       <LinearContainer style={{flex:1}}> 
       <Bg  height="100%" width="100%" style={{position:'absolute'}}/>
@@ -147,7 +143,7 @@ useEffect(() => {
         </View>
         
       </LinearContainer> 
-      </>
+   
     );
   };
 

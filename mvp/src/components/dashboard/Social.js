@@ -171,13 +171,19 @@ const SocialComponent = () => {
         {/*********TIPS**********/}
        
         <CustomCard containerStyle={styles.cardShadow} titleStyle={styles.cardTitle} center={true} title="¡Algunos TIPS que podrían ayudarte!">
-        <ScrollView horizontal={true} style={{flexDirection:'row',elevation:20,}}>
+        {/* <ScrollView horizontal={true} style={{flexDirection:'row',elevation:20,}}> 
          <ImgAccordion icon={iconsT[0]} data={tips[0]}/> 
          {tips[1] && <ImgAccordion icon={iconsT[1]}  data={tips[1]}/>}
          {tips[2] && <ImgAccordion icon={iconsT[2]} data={tips[2]}/>}
-         {tips[3]!==tips[0] ? <></> : <ImgAccordion icon={iconsT[3]}  data={tips[3]}/>}
+         {tips[3]!==tips[0] ? <></> : <ImgAccordion icon={iconsT[3]}  data={tips[3]}/>} 
+          </ScrollView>*/}
+         <Accordion line ={true} data={tips[0]} icon={iconsT[0]} week={week} />
+         {tips[1]&&  <Accordion line ={true} data={tips[1]} icon={iconsT[1]} week={week}  />}
+         {tips[2]&&  <Accordion line ={true} data={tips[2]} icon={iconsT[2]} week={week} />}
+         {tips[3]!==tips[0] ? <Accordion line ={true} data={tips[3]} icon={iconsT[3]} week={week}/> : <></> }
 
-        </ScrollView>
+
+       
         </CustomCard>
         
        
@@ -188,7 +194,7 @@ const SocialComponent = () => {
           <Accordion line ={true} data={answers[0]} icon={iconsQ[0]} week={week} title={questions[0]} />
           {questions[1]&&  <Accordion line ={true} data={answers[1]} icon={iconsQ[1]} title={questions[1]} />}
           {questions[2] &&  <Accordion line ={true} data={answers[2]} icon={iconsQ[2]}  title={questions[2]} />}
-          {questions[3]!==questions[0] ? <></> :  <Accordion line ={true} data={answers[3]} icon={iconsQ[3]} title={questions[3]} />}
+          {questions[3]!==questions[0] ?   <Accordion line ={true} data={answers[3]} icon={iconsQ[3]} title={questions[3]} /> : <></> }
 
         </CustomCard>
 
