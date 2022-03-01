@@ -117,6 +117,7 @@ const LoginComponent= ({
         </View>
         
         <CustomButton 
+        containerStyle={styles.buttonContainer}
         loading={loading}
         onPress={() => {
             onSubmit();

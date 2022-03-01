@@ -45,7 +45,7 @@ const CongratsComponent= ({name,week,days}) => {
         <Light  style={styles.congratsSub}>Te quedan {weeks_left} semanas y {days_left} días.</Light>
         
       </View>
-      <CustomButton onPress={() => {
+      <CustomButton containerStyle={styles.buttonContainer} onPress={() => {
             navigate.navigate(WELCOME);
           }} title="Continuar" gradient={true}/>
 

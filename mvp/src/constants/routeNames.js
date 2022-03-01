@@ -12,7 +12,11 @@ export const WELCOME =  'Welcome to your Pregnancy';
 export const PREGNANCY =  'My Pregnancy';
 export const WEEKS =  'My Weeks';
 export const TOOLS =  'Tools';
+export const FEEDS =  'Social Specific';
+export const FEEDC =  'Social Curent';
 export const FEED =  'Social';
+
+
 export const SETTINGS = 'Settings';
 
 

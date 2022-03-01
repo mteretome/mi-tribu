@@ -27,17 +27,17 @@ const AppNavContainer = () =>{
         setIsAuthenticated(true);
 
         console.log("authenticated");
-        console.log(user);
-        console.log(weeks);
+        // console.log(user);
+        // console.log(weeks);
       } 
       else{
         setAuthLoaded(true);
 
         setIsAuthenticated(false);
-        console.log("not logged in");
+        // console.log("not logged in");
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   useEffect(() => {

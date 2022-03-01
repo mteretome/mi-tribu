@@ -19,6 +19,7 @@ const CustomButton = ({
 	textStyle,
 	rightarrow,
 	leftarrow,
+	containerStyle
 }) => {
 	const getBgColor =() =>{
 		if (bgColor){
@@ -32,7 +33,7 @@ const CustomButton = ({
 	
 
 	return (
-	<View style={styles.inputContainer}>
+	<View style={containerStyle}>
 	{gradient 
 		? <TouchableOpacity 
 		disabled={loading}

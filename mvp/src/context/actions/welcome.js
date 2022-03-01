@@ -46,10 +46,10 @@ export const welcome =({name, due_date})=> (dispatch)=> (onSucces)=> {
         week = week -1;
     }
     
-    console.log("The due date is -->", due_date);
-    console.log("The last period is -->", period_date);
-    console.log("The current week is  -->", current_week);
-    console.log("The day in the current week is -->", day);
+    // console.log("The due date is -->", due_date);
+    // console.log("The last period is -->", period_date);
+    // console.log("The current week is  -->", current_week);
+    // console.log("The day in the current week is -->", day);
 
     //success
     //else fail

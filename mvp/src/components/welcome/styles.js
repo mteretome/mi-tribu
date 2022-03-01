@@ -99,6 +99,10 @@ export default StyleSheet.create({
     width: '100%',
 
   },
+  buttonContainer :{
+    marginVertical:5,
+		paddingHorizontal:50,
+  },
 
  
 });

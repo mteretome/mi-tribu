@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Bold, Light} from '../common/Text';
+import { Bold, Regular, Light} from '../common/Text';
 import LinearContainer from '../common/LinearContainer';
 import CustomCard from '../common/CustomCard';
 import { View, TouchableOpacity, ScrollView } from 'react-native';
@@ -16,13 +16,17 @@ import MemeSocial from './MemeSocial';
 import ImgAccordion from '../common/ImgAccordion';
 import WeeklySurvey from './WeeklySurvey';
 
+import weekInfo from '../../context/actions/weekInfo';
+import { FEEDS } from '../../constants/routeNames';
 
 
 
 
 
 
-const SocialComponent = () => {
+
+
+const SocialComponent = ({weekParam}) => {
   const [week,setWeek]= useState(null);
   const [nextWeek,setNext]= useState(null);
   const [prevWeek,setPrev]= useState(null);
@@ -36,6 +40,14 @@ const SocialComponent = () => {
   const [answers,setAnswers] = useState([]);
   const [questions,setQuestions] = useState([]);
 
+  const [length,setLength]= useState(null);
+  const [weight,setWeight]= useState(null);
+  const [weightUnit,setWeightUnit]= useState(null);
+  const [fruit,setFruit]= useState(null);
+  const [bebe, setBebe] = useState(null);
+  const [cuerpo,setCuerpo]= useState(null);
+  const [sintomas,setSintomas]= useState(null);
+  const [name,setName]= useState(null);
 
 
 
@@ -46,6 +58,9 @@ const SocialComponent = () => {
   const {params} = useRoute();
   
   const getSocial = async (week) => {
+    const dashboard = await AsyncStorage.getItem("dashboard_"+week);
+    const userString = await AsyncStorage.getItem('user');
+    const baby = await AsyncStorage.getItem("babystats_"+week);
   
     const surveyAS = await AsyncStorage.getItem("survey_"+week);
     const q1AS = await AsyncStorage.getItem("q1_"+week);
@@ -123,13 +138,44 @@ const SocialComponent = () => {
        /**********ICONS TIPS**********/
        if(iconsTAS !== null){
         setIconsT(JSON.parse(iconsTAS));
-       }  
-    console.log("This is the questions-->",questions);
-     console.log("This is the answers-->",answers);
 
-    console.log("This is the tips-->",tips);
+       }  
+
+
+    // console.log("This is the questions-->",questions);
+    //  console.log("This is the answers-->",answers);
+
+    // console.log("This is the tips-->",tips);
     // console.log("iconTs: ", iconsT);
     // console.log("iconQs: ", iconsQ);
+
+    if(baby !== null){
+      // setWeekNumber(JSON.parse(baby)[0]);
+      setLength(JSON.parse(baby)[1]);
+      setWeight(JSON.parse(baby)[2]);
+      setWeightUnit(JSON.parse(baby)[3]);
+      setFruit(JSON.parse(baby)[4]);
+      //  console.log("This is the data--> weekNumber: ",weekNumber ,"Length:",length, "wieght: ", weight, "weight unit: ", weightUnit,"fruit name: ", fruit );
+      // console.log("week is ------->", week);
+  
+    }    
+
+    if(userString){
+      setName(userString);
+  } else {setName("Mamá")}
+
+  
+  if(dashboard!==null){
+      setBebe(JSON.parse(dashboard).bebe);
+      setCuerpo(JSON.parse(dashboard).cuerpo);
+      setSintomas(JSON.parse(dashboard).sintomas);
+
+  } 
+  else {
+    setBebe("¡Hubo un error por favor trata más tarde!");
+    setCuerpo("¡Hubo un error por favor trata más tarde!");
+    setSintomas("¡Hubo un error por favor trata más tarde!");
+  }
 
 
 
@@ -138,27 +184,55 @@ const SocialComponent = () => {
   }
 
     React.useEffect(() => {
-      if (params) {		
-        setWeek(JSON.stringify(params.week));
-        setNext(JSON.stringify(params.week+1));
-        setPrev(JSON.stringify(params.week-1));
+      if(params){
+        console.log(params.week)
+        setWeek(params.week);
+        setNext(params.week+1);
+        setPrev(params.week-1);
+        social(params.week)(authDispatch); 
+        weekInfo(params.week)(authDispatch);
+        getSocial(params.week);
+      } else {
+  
+      setWeek(weekParam);
+      setNext(JSON.parse(weekParam)+1);
+      setPrev(weekParam-1);
+      social(weekParam)(authDispatch); 
+      weekInfo(weekParam)(authDispatch);
+      getSocial(weekParam);
       }
-      social(JSON.parse(params.week))(authDispatch); 
-      getSocial(params.week);
     
       }, [params]);
     
       const titleNext = "Semana " + nextWeek + " ";
       const titlePrev = " Semana " + prevWeek;
-      const next = nextWeek+"S";
-      const prev = prevWeek+"S";
+     
+    
 
 
   
     return (
-      <LinearContainer style={{flex:1, alignItems:'stretch',}} >
+      <LinearContainer style={{flex:1, alignItems:'stretch',padding:5}} >
     
-        <ScrollView style={{padding:5, marginBottom:10,marginHorizontal:10}}>
+        <ScrollView style={{}}>
+        <CustomCard containerStyle={styles.cardShadow} titleStyle={styles.cardTitle}
+        center={true} title="Tu embarazo"> 
+       
+      <Bold>Hola {name},</Bold>
+            
+     <Regular>Tu bebe esta como: {fruit}; {weight} {weightUnit}; {length} cm</Regular>
+     {/* <Fruit fruit={fruit} style={{position:'absolute'}}/> */}
+     <Bold> Tu Bebe: </Bold> 
+     <Regular> {bebe}</Regular>
+     <Bold> Tu Cuerpo: </Bold> 
+     <Regular> {cuerpo}</Regular>
+     <Bold> Tu Sintomas: </Bold> 
+     <Regular> {sintomas}</Regular>
+
+
+       
+      
+        </CustomCard>
      
     
        
@@ -208,14 +282,26 @@ const SocialComponent = () => {
        </CustomCard>
         
         {/*********BUTTONS**********/}
-        <View style={{flexDirection:'row',alignSelf:'center'}}> 
-        {prevWeek > 4 && <CustomButton gradient={true} style={{marginLeft:5}} leftarrow={true} title={titlePrev} onPress={() => {navigate.navigate(prev);}}/> }
-        {nextWeek < 42 && <CustomButton gradient={true} style={{marginLeft:5}} rightarrow = {true} title={titleNext} onPress={() => {navigate.navigate(next);}} />}
+        <View style={{flexDirection:"row", justifyContent:"space-between"}}> 
+        {prevWeek > 4 && 
+            <CustomButton gradient={true} style={{}} leftarrow={true} title={titlePrev} 
+            onPress={() => {
+              navigate.navigate(FEEDS,{week: prevWeek});
+              }}/> 
+          }
+        {nextWeek < 42 && 
+            <CustomButton gradient={true} style={{}} rightarrow = {true} title={titleNext} 
+            onPress={() => {
+              navigate.navigate(FEEDS,{week: nextWeek});
+              }} />
+      
+          }
         </View>
 
       </ScrollView>
+      
       </LinearContainer>
-
+      
      
     );
   };

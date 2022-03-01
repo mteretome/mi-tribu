@@ -89,14 +89,14 @@ const getBabyMetric = async (week) => {
     setWeight(JSON.parse(baby)[2]);
     setWeightUnit(JSON.parse(baby)[3]);
     setFruit(JSON.parse(baby)[4]);
-     console.log("This is the data--> weekNumber: ",weekNumber ,"Length:",length, "wieght: ", weight, "weight unit: ", weightUnit,"fruit name: ", fruit );
-    console.log("week is ------->", week);
+    //  console.log("This is the data--> weekNumber: ",weekNumber ,"Length:",length, "wieght: ", weight, "weight unit: ", weightUnit,"fruit name: ", fruit );
+    // console.log("week is ------->", week);
 
   }    
 }
 
 React.useEffect(() => {
-console.log("layout effect called")
+// console.log("layout effect called")
   if (params) {		
     setWeek(JSON.stringify(params.week));
     setNext(JSON.stringify(params.week+1));

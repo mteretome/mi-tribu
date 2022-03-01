@@ -9,8 +9,8 @@ export default (week)=> (dispatch)  => {
             type: SOCIAL_LOADING
         });
         const params = { week: week };
-    axiosInstance.get("/social",  {params} ).then((res) => { 
-        console.log("request sent success", week)
+        axiosInstance.get("/social",  {params} ).then((res) => { 
+        // console.log("request sent success", week)
        
         // console.log("social data retrieved- data:>>",res.data);
        
@@ -75,9 +75,6 @@ export default (week)=> (dispatch)  => {
       
         // AsyncStorage.setItem(answerTitle,JSON.stringify(answers));
         // AsyncStorage.setItem(tipTitle,JSON.stringify(tips));
-
-
-
         // console.log("*************WEEK*********",week)
         // console.log("social data retrieved- data:>>",res.data)
 

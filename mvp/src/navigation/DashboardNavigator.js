@@ -1,8 +1,7 @@
 
-import React, { useContext, useEffect } from 'react';
-import {PREGNANCY, TOOLS,FEED,WEEKS, SETTINGS} from '../constants/routeNames';
+import React from 'react';
+import {PREGNANCY, TOOLS,FEED, FEEDC, FEEDS,WEEKS, SETTINGS} from '../constants/routeNames';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Social from '../screens/dashboard/Social';
 import LinearContainer from '../components/common/LinearContainer';
 import { Bold } from '../components/common/Text';
 import colors from '../assets/theme/colors';
@@ -12,6 +11,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalContext } from '../context/Provider';
 import PregDashNav from './PregDashNav';
+import CurrentSocial from '../screens/dashboard/CurrentSocial';
+import SpecificSocial from '../screens/dashboard/SpecificSocial';
 
 
 
@@ -34,8 +35,9 @@ const Tools = () => {
 const FeedNav = () => {
     const FeedStack = createStackNavigator();
     return (
-      <FeedStack.Navigator screenOptions={{headerShown: false}} initialRouteName={FEED}>
-      <FeedStack.Screen name={FEED} component={Social}></FeedStack.Screen>
+      <FeedStack.Navigator screenOptions={{headerShown: false}} initialRouteName={FEEDC}>
+      <FeedStack.Screen name={FEEDC} component={CurrentSocial}></FeedStack.Screen>
+      <FeedStack.Screen name={FEEDS} component={SpecificSocial}></FeedStack.Screen>
       <FeedStack.Screen name={SETTINGS} component={Settings}></FeedStack.Screen>
     </FeedStack.Navigator>
     );
@@ -58,7 +60,7 @@ const DashNav = () => {
 	return (
     <DashTab.Navigator 
         // screenOptions={{headerShown: false,tabBarVisible:false}} 
-        screenOptions={{headerShown: false,tabBarVisible:true}} 
+         screenOptions={{headerShown: false,tabBarVisible:true}} 
 
         initialRouteName={PREGNANCY}
         tabBarOptions={{

@@ -59,8 +59,8 @@ const LogInPage = () => {
 		&&Object.values(errors).every((item)=>!item))
 		{
 		  clearAuthState()(authDispatch);
-		  console.log('successsful validation');
-		  console.log("form:>>",form.name);
+		//   console.log('successsful validation');
+		//   console.log("form:>>",form.name);
 		  welcome(form)(authDispatch)((response) => {
 			navigate.navigate(CONGRATS, {data: response});
 		  });

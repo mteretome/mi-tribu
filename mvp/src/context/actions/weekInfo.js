@@ -10,7 +10,7 @@ export default (week)=> (dispatch)  => {
         });
         const params = { week: week };
     axiosInstance.get("/dashboard",  {params} ).then((res) => {
-       console.log("request sent success week info ", week);
+    //    console.log("request sent success week info ", week);
        
         var dashboard = "dashboard_"+week;
         var baby = "babystats_"+week;
