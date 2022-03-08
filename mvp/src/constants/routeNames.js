@@ -10,6 +10,8 @@ export const PILLARS =  'Value Proposition';
 export const WELCOME =  'Welcome to your Pregnancy';
 
 export const PREGNANCY =  'My Pregnancy';
+export const PREGNANCYS =  'My Pregnancy Specific';
+export const PREGNANCYC =  'My Pregnancy Curent';
 export const WEEKS =  'My Weeks';
 export const TOOLS =  'Tools';
 export const FEEDS =  'Social Specific';

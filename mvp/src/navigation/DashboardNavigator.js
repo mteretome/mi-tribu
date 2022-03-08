@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {PREGNANCY, TOOLS,FEED, FEEDC, FEEDS,WEEKS, SETTINGS} from '../constants/routeNames';
+import {PREGNANCYS,PREGNANCYC,PREGNANCY, TOOLS,FEED, FEEDC, FEEDS,WEEKS, SETTINGS} from '../constants/routeNames';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import LinearContainer from '../components/common/LinearContainer';
 import { Bold } from '../components/common/Text';
@@ -10,9 +10,12 @@ import Weeks from '../screens/dashboard/Weeks';
 import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalContext } from '../context/Provider';
-import PregDashNav from './PregDashNav';
+// import PregDashNav from './PregDashNav';
 import CurrentSocial from '../screens/dashboard/CurrentSocial';
 import SpecificSocial from '../screens/dashboard/SpecificSocial';
+import PregnancyComponent from '../components/dashboard/Pregnancy';
+import CurrentPregnancy from '../screens/dashboard/CurrentPreg';
+import SpecificPregnancy from '../screens/dashboard/SpecificPreg';
 
 
 
@@ -48,7 +51,9 @@ const PregnancyNav = () => {
     const PregnancyStack = createStackNavigator();
     return (
       <PregnancyStack.Navigator screenOptions={{headerShown: false}} initialRouteName={PREGNANCY}>
-      <PregnancyStack.Screen name={PREGNANCY} component={PregDashNav}></PregnancyStack.Screen>
+      <PregnancyStack.Screen name={PREGNANCYC} component={CurrentPregnancy}></PregnancyStack.Screen>
+      <PregnancyStack.Screen name={PREGNANCYS} component={SpecificPregnancy}></PregnancyStack.Screen>
+
       <PregnancyStack.Screen name={WEEKS} component={Weeks}></PregnancyStack.Screen>
     </PregnancyStack.Navigator>
     );

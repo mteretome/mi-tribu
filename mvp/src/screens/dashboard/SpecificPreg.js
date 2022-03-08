@@ -7,19 +7,20 @@ import { Bold } from '../../components/common/Text';
 import { WEEK_NUMBERS } from '../../constants/routeNames';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SocialComponent from '../../components/dashboard/Social';
+import PregnancyComponent from '../../components/dashboard/Pregnancy';
 
 
 
 
 
 
-const SpecificSocial = ({week}) => {
+const SpecificPregnancy = ({week}) => {
   console.log("specific week : ", week)
     return (
       <>
       
-       
-            <SocialComponent weekParam={week}/>
+      
+            <PregnancyComponent weekParam={week}/>
    
 
        
@@ -28,6 +29,6 @@ const SpecificSocial = ({week}) => {
   };
 
 
-export default SpecificSocial;
+export default SpecificPregnancy;
 
 

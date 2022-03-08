@@ -8,17 +8,13 @@ export default (week)=> (dispatch)  => {
         dispatch({
             type: SOCIAL_LOADING
         });
-        const params = { week: week };
+        const params = { week: week};
+        console.log("request sent  SOCIAL ", params);
+
         axiosInstance.get("/social",  {params} ).then((res) => { 
-        // console.log("request sent success", week)
+        console.log("request  success SOCIAL", week)
        
         // console.log("social data retrieved- data:>>",res.data);
-       
-        // var tips = [res.data.Social.tip1,res.data.Social.tip2,res.data.Social.tip3,res.data.Social.tip4];
-        
-        // var questions = [,res.data.Social["q2"],res.data.Social["q3"],res.data.Social["q4"]];
-        
-        // var answers = [res.data.Social["a1"],res.data.Social["a2"],res.data.Social["a3"],res.data.Social["a4"]];
        
 
         var surveyTitle = "survey_"+week;
@@ -66,17 +62,6 @@ export default (week)=> (dispatch)  => {
         var iconsQ = "questionIcons_"+week;
         AsyncStorage.setItem(iconsQ,JSON.stringify(res.data.Social.question_icons));
        
-       
-
-
-
-    
-       
-      
-        // AsyncStorage.setItem(answerTitle,JSON.stringify(answers));
-        // AsyncStorage.setItem(tipTitle,JSON.stringify(tips));
-        // console.log("*************WEEK*********",week)
-        // console.log("social data retrieved- data:>>",res.data)
 
         dispatch({
             type: SOCIAL_SUCCESS,
@@ -84,6 +69,8 @@ export default (week)=> (dispatch)  => {
         });
         
     }).catch((err)=>{
+        console.log("request fail SOCIAL", week)
+
         console.log('err',err);
         dispatch({
             type: SOCIAL_FAILED,

@@ -4,7 +4,7 @@ import LinearContainer from '../../components/common/LinearContainer';
 import Bg from '../../assets/images/svg/pregnancy.svg';
 import Icon from 'react-native-vector-icons/Octicons';
 import colors from '../../assets/theme/colors';
-import { PREGNANCY, WEEK_NUMBERS } from '../../constants/routeNames';
+import { PREGNANCYS, WEEK_NUMBERS } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 import CustomCard from '../common/CustomCard';
@@ -88,7 +88,9 @@ const WeekList = ({weeks}) => {
                           position:'absolute',
                           }}>
                           </View>
-                  <TouchableOpacity style={styles.card}  onPress={() => {navigate.navigate(item.id)}}>
+                  <TouchableOpacity style={styles.card}  onPress={() => {
+                    navigate.navigate(PREGNANCYS,{week: JSON.parse(item.id+1)})
+                    }}>
                             {item.active ? 
                             <CustomCard center={false}
                             activeCircle={item.active} week={true}

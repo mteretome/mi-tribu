@@ -11,15 +11,19 @@ const axiosInstance = axios.create({
     headers,
 });
 
-console.log('envs.Backend_url',BACKEND_URL);
 
 axiosInstance.interceptors.request.use(
+    (request) => {
+    console.log('Starting Request', JSON.stringify(request, null, 2))
+    return request;
+    },
 
     async (config) => {
         // Do something before request is sent
         return config;
       },
     (error)=>{
+        console.log("axios error: ", error);
         return Promise.reject(error);
 
     },
