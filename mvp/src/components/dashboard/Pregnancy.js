@@ -12,7 +12,7 @@ import WeeklyFruit from './WeeklyFruit';
 import InfoTab from './InfoTab';
 import { useNavigation } from '@react-navigation/native';
 import { WEEKS } from '../../constants/routeNames';
-import { Avatar } from 'react-native-elements';
+// import { Avatar } from 'react-native-elements';
 import colors from '../../assets/theme/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GlobalContext } from '../../context/Provider';
@@ -135,7 +135,7 @@ React.useEffect(() => {
         </View>
        
       <View style={{flex:1,marginHorizontal:40}}>
-            <Tracker  week={week}/>
+            {/* <Tracker  week={week}/> */}
       </View>
         <WeeklyFruit fruit={fruit} weight={weight} weightUnit={weightUnit} length={length} week={week}/>
         <View style={{flex:3}}>

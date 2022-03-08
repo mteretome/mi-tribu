@@ -62,7 +62,7 @@ const DashNav = () => {
         // screenOptions={{headerShown: false,tabBarVisible:false}} 
          screenOptions={{headerShown: false,tabBarVisible:true}} 
 
-        initialRouteName={PREGNANCY}
+        // initialRouteName={PREGNANCY}
         tabBarOptions={{
             activeBackgroundColor: colors.pressed_green,
             showLabel: false,

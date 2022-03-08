@@ -4,7 +4,7 @@ import WhiteContainer from '../../components/common/WhiteContainer';
 
 
 
-import LoginWrapper from '../../components/wrappers/LoginWrapper';
+import SignupWrapper from '../../components/wrappers/SignupWrapper';
 import { clearAuthState, welcome } from '../../context/actions/welcome';
 import { GlobalContext } from '../../context/Provider';
 import { CONGRATS } from '../../constants/routeNames';
@@ -69,7 +69,7 @@ const LogInPage = () => {
 
 
 	return (
-	<LoginWrapper>
+	<SignupWrapper>
 			<WhiteContainer>
 	         <LoginComponent 
 			 onSubmit={onSubmit} 
@@ -83,7 +83,7 @@ const LogInPage = () => {
 	      
 	        </WhiteContainer>
 		
-	</LoginWrapper>
+	</SignupWrapper>
 	);
 };
 

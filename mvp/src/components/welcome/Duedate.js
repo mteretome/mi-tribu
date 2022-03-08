@@ -149,7 +149,7 @@ const DuedateComponent= ({toggleOverlay,duedate, parentSet}) => {
           }}>
       <TouchableOpacity onPress={toggleOverlay}>
         <Icon
-        name="x" size={40} 
+        name="x" size={25} 
         color={colors.grey_light} 
         style={{alignSelf:"flex-end"}}
         />

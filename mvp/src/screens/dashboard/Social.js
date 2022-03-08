@@ -3,7 +3,7 @@ import LinearContainer from '../../components/common/LinearContainer';
 import { View, TouchableOpacity, ScrollView } from 'react-native';
 import colors from '../../assets/theme/colors';
 import { SETTINGS } from '../../constants/routeNames';
-import { Avatar } from 'react-native-elements';
+// import { Avatar } from 'react-native-elements';
 import SocialNav from '../../components/dashboard/SocialNav';
 import { Bold } from '../../components/common/Text';
 
