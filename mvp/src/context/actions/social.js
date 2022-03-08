@@ -8,7 +8,8 @@ export default (week)=> (dispatch)  => {
         dispatch({
             type: SOCIAL_LOADING
         });
-        const params = { week: week };
+        const params = { week:week};
+        console.log(params)
         axiosInstance.get("/social",  {params} ).then((res) => { 
         // console.log("request sent success", week)
        

@@ -83,7 +83,7 @@ const DashNav = () => {
                 )
             }}
             /> */}
-        <DashTab.Screen 
+        {/* <DashTab.Screen 
             name={PREGNANCY} 
             component={PregnancyNav}
             options={{
@@ -91,7 +91,7 @@ const DashNav = () => {
                     <Icon name="pregnant-woman" size={35} color={colors.white} />
                 )
             }}
-            />
+            /> */}
         <DashTab.Screen 
             name={FEED} 
             component={FeedNav}
