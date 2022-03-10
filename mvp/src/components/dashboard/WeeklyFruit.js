@@ -9,7 +9,7 @@ import Circles from '../../assets/images/svg/circles-01.svg';
 import { useWindowDimensions } from 'react-native';
 
 
-const WeeklyFruit = ({fruit,weight,weightUnit,length,week}) => {
+const WeeklyFruit = ({fruit,weight,weightUnit,length}) => {
     const width = useWindowDimensions().width;
     const scale = useWindowDimensions().scale;
     const height = useWindowDimensions().height;
@@ -28,9 +28,9 @@ const WeeklyFruit = ({fruit,weight,weightUnit,length,week}) => {
     return (
     
      
-        <View style={styles.fruitContainer}>
+        <View style={{ justifyContent:'center',}}>
     
-        <View style={[styles.floating]}>
+        <View style={[{  flexDirection:'row'}]}>
             <View style={{flexDirection:'column',alignItems:'center'}}>
                 <SemiBold style={{color:colors.grey_darkest,fontSize:14}}>{weight} {weightUnit}</SemiBold>
                 {/* <SemiBold style={{color:colors.grey_darkest,fontSize:14, }}>2 KG</SemiBold> */}
@@ -56,7 +56,7 @@ const WeeklyFruit = ({fruit,weight,weightUnit,length,week}) => {
     );
   };
 
-const Stats = ({fruit,weight,weightUnit,length,week}) => {
+const Stats = ({fruit,weight,weightUnit,length}) => {
     return(
         <View style={{
             flexDirection:'row', 
@@ -65,32 +65,14 @@ const Stats = ({fruit,weight,weightUnit,length,week}) => {
             }}>
 {/* ***************FRUIT ***************/}
 
-           <View style={{
-            borderColor:'#E0ECEE', 
-            borderWidth:3,margin:5,
-            padding:3,flex:4,
-            borderRadius:40,
-            shadowColor:  colors.tribu_bbpink,
-            elevation: 1,
-
-            }}>
-            <View style={{
-            paddingVertical:25,
-            paddingHorizontal:10,
-            borderRadius:40,
-            shadowColor: colors.tribu_pink,
-            elevation: 10,
-            backgroundColor: '#E0ECEE',
-            }}>
+           <View style={styles.fruitBorder}>
+            <View style={styles.fruitBox}>
                   <View style={{flex:1}}>
-                <Regular style={{color:colors.tribu_pink,fontSize:16,}}>Tu bebé </Regular> 
-                <Regular style={{color:colors.tribu_pink,fontSize:16,}}>está como</Regular>
+                    <SemiBold style={{color:colors.tribu_pink,fontSize:16,}}>Tu bebé </SemiBold> 
+                    <SemiBold style={{color:colors.tribu_pink,fontSize:16,}}>está como</SemiBold>
                 </View>
-                <View style={{flex:2,minHeight:100,margin:5}}>
+                    <View style={{flex:2,minHeight:100,margin:5}}>
                     <Fruit fruit={fruit}/>
-                 
-                    
-
                 </View>
                 <View style={{flex:1}}>
                 <Regular style={{color:colors.tribu_pink,fontSize:16,}}>{fruit}</Regular>
@@ -103,29 +85,19 @@ const Stats = ({fruit,weight,weightUnit,length,week}) => {
 
 {/* ***************WEIGHT ***************/}
 
-            <View style={{flex:3,alignItems:'center',
-                justifyContent:'center',}}>
+            <View style={{
+                flex:3,
+                alignItems:'center',
+                justifyContent:'center',
+                }}>
                
             <View style={{flex:1,
                 alignItems:'center',
                 justifyContent:'center',
                 
-                
                 }}>
-                    <View style={{
-                       borderColor:'#E0ECEE', 
-                       borderWidth:1,
-                       padding:3,
-                       borderRadius:20,
-                       shadowColor:  colors.tribu_bbpink,
-                       elevation: 1,}}>
-                        <View style={{
-                        borderRadius:20,
-                        paddingVertical:20,
-                        paddingHorizontal:20,
-                        shadowColor: colors.tribu_pink,
-                        elevation: 10,
-                        backgroundColor: '#E0ECEE',}}>
+                    <View style={styles.boxBorder}>
+                        <View style={styles.boxW}>
                             <Regular>
 
                                 {weight} {weightUnit} 
@@ -144,20 +116,8 @@ const Stats = ({fruit,weight,weightUnit,length,week}) => {
                      flex:2,
                      alignItems:'center',
                      justifyContent:'center'}}>
-                           <View style={{
-                       borderColor:'#E0ECEE', 
-                       borderWidth:1,
-                       padding:3,
-                       borderRadius:20,
-                       shadowColor:  colors.tribu_bbpink,
-                       elevation: 1,}}>
-                        <View style={{
-                        borderRadius:20,
-                        paddingVertical:15,
-                        paddingHorizontal:15,
-                        shadowColor:  colors.tribu_pink,
-                        elevation: 10,
-                        backgroundColor: '#E0ECEE',}}>
+                           <View style={styles.boxBorder}>
+                           <View style={styles.boxS}>
                             <Regular >
                             {length} cm
                             </Regular>

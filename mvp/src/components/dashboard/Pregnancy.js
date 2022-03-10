@@ -24,6 +24,7 @@ import { FEEDS, PREGNANCYC, PREGNANCYS } from '../../constants/routeNames';
 import Tabs from './InfoTab';
 import Link from '../../components/common/Link';
 import { WEEKS } from '../../constants/routeNames';
+import LoadingComponent from '../common/Loading';
 
 
 
@@ -56,9 +57,10 @@ const PregnancyComponent = ({weekParam}) => {
 
 
 
-  const {
-    authDispatch,
-    } = useContext(GlobalContext); 
+    const {
+      authDispatch,
+      authState: {loading},
+      } = useContext(GlobalContext); 
 
   const {params} = useRoute();
   
@@ -219,110 +221,114 @@ const PregnancyComponent = ({weekParam}) => {
 
   
     return (
-      <LinearContainer style={{flexGrow:1, alignItems:'stretch',padding:5}} >
-
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}
-       nestedScrollEnabled = {true}
-       >
-        
-        <View style={styles.header}>
-        
-       
-            <Bold style={styles.heading}>Hola {name},</Bold>
-            <View style={styles.subheader}>
-                <Regular style={styles.subheading} >Estás en tu </Regular>
-                <TouchableOpacity onPress={() => {navigate.navigate(WEEKS);}} style={{zIndex:1}}>
-                <Link icon={true}  onPress={() => {navigate.navigate(WEEKS);}}style={{fontSize:20}}>Semana {week}
-                </Link></TouchableOpacity>
-            </View>
-            <View style={{flexDirection:"row", justifyContent:"space-between"}}> 
-            
-       {prevWeek > 4 && <TouchableOpacity onPress={() => {
-         navigate.navigate(PREGNANCYS,{week: prevWeek});
-         }} style={{zIndex:1, marginHorizontal:10}}>
-        <Icon name="chevron-left" color={colors.off_white} size={40} />
-        </TouchableOpacity> }
-        {nextWeek < 42 && <TouchableOpacity style={{borderWidth:1}}onPress={() => {
-           navigate.navigate(PREGNANCYS,{week: nextWeek});
-          }} style={{ zIndex:1,marginHorizontal:10}}>
-        <Icon name="chevron-right" color={colors.off_white} size={40} />
-        </TouchableOpacity> }
-           </View>
-           
-        </View>
-
-
-      <View style={{}}>
-
-      <WeeklyFruit fruit={fruit} weight={weight} weightUnit={weightUnit} length={length} week={week}/>
-       
-     {/* <Regular>Tu bebe esta como: {fruit}; {weight} {weightUnit}; {length} cm</Regular> */}
-     {/* <Fruit fruit={fruit} style={{position:'absolute'}}/> */}
-    
-     <Tabs baby={bebe} body={cuerpo} symptoms={sintomas}/>
-     {/* <Bold> Tu Bebe: </Bold> 
-     <Regular> {bebe}</Regular>
-     <Bold> Tu Cuerpo: </Bold> 
-     <Regular> {cuerpo}</Regular>
-     <Bold> Tu Sintomas: </Bold> 
-     <Regular> {sintomas}</Regular> */}
-       
-      
   
-        {/*********TIPS**********/}
-       
-        <CustomCard containerStyle={styles.cardShadow} titleStyle={styles.cardTitle} center={true} title="¡Algunos TIPS que podrían ayudarte!">
-        {/* <ScrollView horizontal={true} style={{flexDirection:'row',elevation:20,}}> 
-         <ImgAccordion icon={iconsT[0]} data={tips[0]}/> 
-         {tips[1] && <ImgAccordion icon={iconsT[1]}  data={tips[1]}/>}
-         {tips[2] && <ImgAccordion icon={iconsT[2]} data={tips[2]}/>}
-         {tips[3]!==tips[0] ? <></> : <ImgAccordion icon={iconsT[3]}  data={tips[3]}/>} 
-          </ScrollView>*/}
-         <Accordion line ={true} data={tips[0]} icon={iconsT[0]} week={week} />
-         {tips[1]&&  <Accordion line ={true} data={tips[1]} icon={iconsT[1]} week={week}  />}
-         {tips[2]&&  <Accordion line ={true} data={tips[2]} icon={iconsT[2]} week={week} />}
-         {tips[3]!==tips[0] ? <Accordion line ={true} data={tips[3]} icon={iconsT[3]} week={week}/> : <></> }
+         
+<LinearContainer style={{flexGrow:1, alignItems:'stretch',padding:5}} >
+{/* <LoadingComponent visible={loading}/> */}
 
-
-       
-        </CustomCard>
-        
-       
-       
-
-        {/*********FAQ**********/}
-        <CustomCard containerStyle={styles.cardShadow}  titleStyle={styles.cardTitle} center={true} title="Preguntas y respuestas frecuentes">
-          <Accordion line ={true} data={answers[0]} icon={iconsQ[0]} week={week} title={questions[0]} />
-          {questions[1]&&  <Accordion line ={true} data={answers[1]} icon={iconsQ[1]} title={questions[1]} />}
-          {questions[2] &&  <Accordion line ={true} data={answers[2]} icon={iconsQ[2]}  title={questions[2]} />}
-          {questions[3]!==questions[0] ?   <Accordion line ={true} data={answers[3]} icon={iconsQ[3]} title={questions[3]} /> : <></> }
-
-        </CustomCard>
-
-       
-        {/*********BUTTONS**********/}
-        <View style={{flexDirection:"row", justifyContent:"space-between"}}> 
-        {prevWeek > 4 && 
-            <CustomButton gradient={true} style={{}} leftarrow={true} title={titlePrev} 
-            onPress={() => {
-              navigate.navigate(PREGNANCYS,{week: prevWeek});
-              }}/> 
-          }
-        {nextWeek < 42 && 
-            <CustomButton gradient={true} style={{}} rightarrow = {true} title={titleNext} 
-            onPress={() => {
-              navigate.navigate(PREGNANCYS,{week: nextWeek});
-              }} />
+<ScrollView contentContainerStyle={{ flexGrow: 1 }}
+ nestedScrollEnabled = {true}
+ >
+  
+  <View style={styles.header}>
+  
+ 
+      <Bold style={styles.heading}>Hola {name},</Bold>
+      <View style={styles.subheader}>
+          <Regular style={styles.subheading} >Estás en tu </Regular>
+          <TouchableOpacity onPress={() => {navigate.navigate(WEEKS);}} style={{zIndex:1}}>
+          <Link icon={true}  onPress={() => {navigate.navigate(WEEKS);}}style={{fontSize:20}}>Semana {week}
+          </Link></TouchableOpacity>
+      </View>
+      <View style={{flexDirection:"row", justifyContent:"space-between"}}> 
       
-          }
-        </View>
-        </View>
+ {prevWeek > 4 && <TouchableOpacity onPress={() => {
+   navigate.navigate(PREGNANCYS,{week: prevWeek});
+   }} style={{zIndex:1, marginHorizontal:10}}>
+  <Icon name="chevron-left" color={colors.off_white} size={40} />
+  </TouchableOpacity> }
+  {nextWeek < 42 && <TouchableOpacity style={{borderWidth:1}}onPress={() => {
+     navigate.navigate(PREGNANCYS,{week: nextWeek});
+    }} style={{ zIndex:1,marginHorizontal:10}}>
+  <Icon name="chevron-right" color={colors.off_white} size={40} />
+  </TouchableOpacity> }
+     </View>
+     
+  </View>
 
-        </ScrollView>
-      
-      </LinearContainer>
 
-      
+<View>
+
+<WeeklyFruit fruit={fruit} weight={weight} weightUnit={weightUnit} length={length} week={week}/>
+ 
+{/* <Regular>Tu bebe esta como: {fruit}; {weight} {weightUnit}; {length} cm</Regular> */}
+{/* <Fruit fruit={fruit} style={{position:'absolute'}}/> */}
+
+<Tabs baby={bebe} body={cuerpo} symptoms={sintomas}/>
+{/* <Bold> Tu Bebe: </Bold> 
+<Regular> {bebe}</Regular>
+<Bold> Tu Cuerpo: </Bold> 
+<Regular> {cuerpo}</Regular>
+<Bold> Tu Sintomas: </Bold> 
+<Regular> {sintomas}</Regular> */}
+ 
+
+
+  {/*********TIPS**********/}
+ 
+  <CustomCard containerStyle={styles.cardShadow} titleStyle={styles.cardTitle} center={true} title="¡Algunos TIPS que podrían ayudarte!">
+  {/* <ScrollView horizontal={true} style={{flexDirection:'row',elevation:20,}}> 
+   <ImgAccordion icon={iconsT[0]} data={tips[0]}/> 
+   {tips[1] && <ImgAccordion icon={iconsT[1]}  data={tips[1]}/>}
+   {tips[2] && <ImgAccordion icon={iconsT[2]} data={tips[2]}/>}
+   {tips[3]!==tips[0] ? <></> : <ImgAccordion icon={iconsT[3]}  data={tips[3]}/>} 
+    </ScrollView>*/}
+   <Accordion line ={true} data={tips[0]} icon={iconsT[0]} week={week} />
+   {tips[1]&&  <Accordion line ={true} data={tips[1]} icon={iconsT[1]} week={week}  />}
+   {tips[2]&&  <Accordion line ={true} data={tips[2]} icon={iconsT[2]} week={week} />}
+   {tips[3]!==tips[0] ? <Accordion line ={true} data={tips[3]} icon={iconsT[3]} week={week}/> : <></> }
+
+
+ 
+  </CustomCard>
+  
+ 
+ 
+
+  {/*********FAQ**********/}
+  <CustomCard containerStyle={styles.cardShadow}  titleStyle={styles.cardTitle} center={true} title="Preguntas y respuestas frecuentes">
+    <Accordion line ={true} data={answers[0]} icon={iconsQ[0]} week={week} title={questions[0]} />
+    {questions[1]&&  <Accordion line ={true} data={answers[1]} icon={iconsQ[1]} title={questions[1]} />}
+    {questions[2] &&  <Accordion line ={true} data={answers[2]} icon={iconsQ[2]}  title={questions[2]} />}
+    {questions[3]!==questions[0] ?   <Accordion line ={true} data={answers[3]} icon={iconsQ[3]} title={questions[3]} /> : <></> }
+
+  </CustomCard>
+
+ 
+  {/*********BUTTONS**********/}
+  <View style={{flexDirection:"row", marginHorizontal:10,justifyContent:"space-between"}}> 
+  {prevWeek > 4 && 
+      <CustomButton gradient={true} style={{}} leftarrow={true} title={titlePrev} 
+      onPress={() => {
+        navigate.navigate(PREGNANCYS,{week: prevWeek});
+        }}/> 
+    }
+  {nextWeek < 42 && 
+      <CustomButton gradient={true} style={{}} rightarrow = {true} title={titleNext} 
+      onPress={() => {
+        navigate.navigate(PREGNANCYS,{week: nextWeek});
+        }} />
+
+    }
+  </View>
+  </View>
+
+  </ScrollView>
+
+</LinearContainer>
+
+     
+  
      
     );
   };

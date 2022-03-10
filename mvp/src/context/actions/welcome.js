@@ -42,11 +42,11 @@ export const welcome =({name, due_date})=> (dispatch)=> (onSucces)=> {
     var offset = 14;
     while(week > 4){
         week_dates[week] = moment(due_date).add(offset, 'day').format('YYYY-MM-DD');
+        // console.log(week_dates[week])
         offset = offset -7;
         week = week -1;
     }
     
-    // console.log("The due date is -->", due_date);
     // console.log("The last period is -->", period_date);
     // console.log("The current week is  -->", current_week);
     // console.log("The day in the current week is -->", day);

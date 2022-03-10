@@ -109,7 +109,7 @@ const InfoTab = ({baby,body,symptoms}) => {
   }}>
       
         <TabView 
-        style={styles.tabview}
+        style={{flex:1,}}
         renderTabBar={renderTabBar}
         sceneContainerStyle={{flex:1}}
         navigationState={{ index, routes }}

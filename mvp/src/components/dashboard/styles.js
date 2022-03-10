@@ -26,10 +26,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         flexDirection:'row',
     },
-    floating: {
-      flexDirection:'row',
 
-    },
 
     tabBar:{
       backgroundColor: 'rgba(255,255,255,0.0)',
@@ -48,14 +45,6 @@ export default StyleSheet.create({
       color:colors.grey_light, 
       fontSize:12,
       marginHorizontal:3
-    },
-    tabview:{
-      flex:1,
-    
-    },
-    fruitContainer:{
-      justifyContent:'center',
-
     },
     buttons: {
       backgroundColor: 'transparent', 
@@ -83,9 +72,7 @@ export default StyleSheet.create({
 			elevation: 10,
       backgroundColor: '#E0ECEE',
       height:'auto'
-    
-
-
+  
     },
     cardTitle:{
       color:colors.grey_dark,
@@ -116,7 +103,48 @@ export default StyleSheet.create({
       alignItems: 'center',
 
       },
-      
+      fruitBorder: {
+        borderColor:'#E0ECEE', 
+        borderWidth:3,margin:5,
+        padding:3,flex:4,
+        borderRadius:40,
+        shadowColor:  colors.tribu_bbpink,
+        elevation: 1,
+
+            
+      },
+      fruitBox: {
+        paddingVertical:25,
+        paddingHorizontal:10,
+        borderRadius:40,
+        shadowColor: colors.tribu_pink,
+        elevation: 10,
+        backgroundColor: '#E0ECEE',
+      },
+      boxBorder:{
+        borderColor:'#E0ECEE', 
+        borderWidth:1,
+        padding:3,
+        borderRadius:20,
+        shadowColor:  colors.tribu_bbpink,
+        elevation: 1,
+      },
+      boxW: {
+        borderRadius:20,
+        paddingVertical:20,
+        paddingHorizontal:20,
+        shadowColor: colors.tribu_pink,
+        elevation: 10,
+        backgroundColor: '#E0ECEE',
+      },
+      boxS: {
+        borderRadius:20,
+        paddingVertical:15,
+        paddingHorizontal:15,
+        shadowColor:  colors.tribu_pink,
+        elevation: 10,
+        backgroundColor: '#E0ECEE',
+      }
 
 
 

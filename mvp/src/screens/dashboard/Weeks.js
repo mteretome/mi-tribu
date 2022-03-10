@@ -35,7 +35,7 @@ const Weeks = () => {
             var day2 = format(date1, 'd', { locale: es });
             var string1 = date1.getDate() + " de " + capitalize(format(date1, 'MMM.', { locale: es }))
             var date2 = new Date(date1.getYear(), date1.getMonth(),date1.getDate()+7);
-            var string2 = capitalize(format(date2, 'd', { locale: es }))  + " de " + capitalize(format(date1, 'MMM.', { locale: es }))
+            var string2 = capitalize(format(date2, 'd', { locale: es }))  + " de " + capitalize(format(date2, 'MMM.', { locale: es }))
             WEEKS.push({
               id: index,
               dates:  string1 + " - " + string2,

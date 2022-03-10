@@ -8,6 +8,7 @@ import { WEEK_NUMBERS } from '../../constants/routeNames';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import SocialComponent from '../../components/dashboard/Social';
 import PregnancyComponent from '../../components/dashboard/Pregnancy';
+import LoadingComponent from '../../components/common/Loading';
 
 
 
@@ -16,6 +17,7 @@ import PregnancyComponent from '../../components/dashboard/Pregnancy';
 
 const CurrentPregnancy = () => {
   const [week, setWeek] = React.useState(null);
+  const test = false;
 
   const getCurrent =(weeks) =>{
     var today = new Date();
@@ -55,7 +57,7 @@ const CurrentPregnancy = () => {
 
  useEffect(() => {
    getUser();
-   console.log("TYPE OF: ", typeof week)
+  //  console.log("TYPE OF: ", typeof week)
 
 
  }, []);
@@ -70,7 +72,7 @@ const CurrentPregnancy = () => {
    ) : ( 
         <>
           
-          <ActivityIndicator  size="large" color={colors.tribu_blue}/>
+          <LoadingComponent/>
 
         </>
     

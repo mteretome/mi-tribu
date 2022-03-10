@@ -70,8 +70,8 @@ const LoginComponent= ({
 <View style={{flex:1}} >
 		
         <View style={styles.heading}>
-    			<Bold style={styles.title}>¡Bienvenida!</Bold>
-          <Light style={styles.subtitle}>Necesitamos tu información para proceder.</Light>
+    			<Bold style={styles.title}>Aprende. Conecta. Reutiliza.</Bold>
+          <Light style={styles.subtitle}>!Bienvenida a Mi Tribu!</Light>
   		  </View>
 
       
@@ -122,7 +122,7 @@ const LoginComponent= ({
         onPress={() => {
             onSubmit();
           }}
-        title="Comenzar" gradient={true}/>
+        title="Ingresar" gradient={true}/>
    
 
         <View style={styles.footer}>

@@ -32,8 +32,8 @@ export default StyleSheet.create({
 		fontSize:10
 	},
 	button : {
-		paddingHorizontal:30,
-    	paddingVertical: 18,
+		paddingHorizontal:20,
+    	paddingVertical: 15,
     	marginVertical:5,
     	alignItems:'center',
     	justifyContent: 'space-evenly',
@@ -42,7 +42,7 @@ export default StyleSheet.create({
 	},
 	buttonText : {
 		color: colors.white,
-		fontSize: 20
+		fontSize: 18
 	},
 	link: {
 		textDecorationLine: 'underline',

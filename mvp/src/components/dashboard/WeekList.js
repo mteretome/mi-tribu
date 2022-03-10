@@ -89,7 +89,7 @@ const WeekList = ({weeks}) => {
                           }}>
                           </View>
                   <TouchableOpacity style={styles.card}  onPress={() => {
-                    navigate.navigate(PREGNANCYS,{week: JSON.parse(item.id+1)})
+                    navigate.navigate(PREGNANCYS,{week: JSON.parse(item.id)})
                     }}>
                             {item.active ? 
                             <CustomCard center={false}
