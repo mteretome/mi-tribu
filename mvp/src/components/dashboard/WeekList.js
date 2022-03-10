@@ -4,7 +4,7 @@ import LinearContainer from '../../components/common/LinearContainer';
 import Bg from '../../assets/images/svg/pregnancy.svg';
 import Icon from 'react-native-vector-icons/Octicons';
 import colors from '../../assets/theme/colors';
-import { PREGNANCYS, WEEK_NUMBERS } from '../../constants/routeNames';
+import { PREGNANCYS,PREGNANCYC, WEEK_NUMBERS } from '../../constants/routeNames';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 import CustomCard from '../common/CustomCard';
@@ -68,7 +68,7 @@ const WeekList = ({weeks}) => {
     
       <LinearContainer style={{flex:1,flexDirection:'row'}}>
         <Bg  width="100%" style={{position:'absolute',bottom:30}}/>
-        <TouchableOpacity  onPress={() => {navigate.navigate(PREGNANCY)}} >
+        <TouchableOpacity  onPress={() => {navigate.navigate(PREGNANCYC)}} >
           <Icon name="chevron-left" color={colors.off_white} 
           size={50} style={{marginTop:40,marginLeft:25}} />
         </TouchableOpacity>

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { View} from 'react-native';
-import { Bold, SemiBold } from '../../components/common/Text';
+import { Bold, Regular, SemiBold } from '../../components/common/Text';
 import styles from './styles';
 
 import colors from '../../assets/theme/colors';
@@ -24,37 +24,25 @@ const WeeklyFruit = ({fruit,weight,weightUnit,length,week}) => {
         margin = Math.abs(width-380);
 
     }
-    // console.log("scale", scale);
-    // console.log("height", height);
-
-    // console.log("aspect", ratio);
-
-
-
-
-
-
-
 
     return (
     
      
         <View style={styles.fruitContainer}>
-            <Circles width='100%' height='100%' style={{position:'absolute',alignSelf:'center'}}/>
     
-        <View style={[styles.floating,{marginHorizontal:margin}]}>
-            <View style={{ flex:1,flexDirection:'column',alignItems:'center'}}>
+        <View style={[styles.floating]}>
+            <View style={{flexDirection:'column',alignItems:'center'}}>
                 <SemiBold style={{color:colors.grey_darkest,fontSize:14}}>{weight} {weightUnit}</SemiBold>
                 {/* <SemiBold style={{color:colors.grey_darkest,fontSize:14, }}>2 KG</SemiBold> */}
 
                 <SemiBold style={{color:colors.grey_light,fontSize:12}}>SU PESO</SemiBold>
             </View>
             <View style={{flex:2, flexDirection:'column',alignItems:'center'}}>
-                <Bold style={{color:colors.tribu_pink,fontSize:16,top:10}}>Tu bebé </Bold> 
-                <Bold style={{color:colors.tribu_pink,fontSize:16,top:5}}>está como</Bold> 
+                <Bold style={{color:colors.tribu_pink,fontSize:16,}}>Tu bebé </Bold> 
+                <Bold style={{color:colors.tribu_pink,fontSize:16,}}>está como</Bold> 
                 <Fruit fruit={fruit}/>
 
-                <Bold style={{color:colors.tribu_pink,fontSize:16,bottom:18}}> {fruit}</Bold>
+                <Bold style={{color:colors.tribu_pink,fontSize:16,}}> {fruit}</Bold>
                 {/* <Bold style={{color:colors.tribu_pink,fontSize:16,bottom:20}}>una manzana</Bold> */}
             </View>
             <View style={{ flex:1,flexDirection:'column',alignItems:'center'}}>
@@ -68,5 +56,240 @@ const WeeklyFruit = ({fruit,weight,weightUnit,length,week}) => {
     );
   };
 
+const Stats = ({fruit,weight,weightUnit,length,week}) => {
+    return(
+        <View style={{
+            flexDirection:'row', 
+            padding: 10,
+            marginHorizontal:10,
+            }}>
+{/* ***************FRUIT ***************/}
 
-export default WeeklyFruit;
+           <View style={{
+            borderColor:'#E0ECEE', 
+            borderWidth:3,margin:5,
+            padding:3,flex:4,
+            borderRadius:40,
+            shadowColor:  colors.tribu_bbpink,
+            elevation: 1,
+
+            }}>
+            <View style={{
+            paddingVertical:25,
+            paddingHorizontal:10,
+            borderRadius:40,
+            shadowColor: colors.tribu_pink,
+            elevation: 10,
+            backgroundColor: '#E0ECEE',
+            }}>
+                  <View style={{flex:1}}>
+                <Regular style={{color:colors.tribu_pink,fontSize:16,}}>Tu bebé </Regular> 
+                <Regular style={{color:colors.tribu_pink,fontSize:16,}}>está como</Regular>
+                </View>
+                <View style={{flex:2,minHeight:100,margin:5}}>
+                    <Fruit fruit={fruit}/>
+                 
+                    
+
+                </View>
+                <View style={{flex:1}}>
+                <Regular style={{color:colors.tribu_pink,fontSize:16,}}>{fruit}</Regular>
+                </View>
+              
+                
+
+            </View>
+            </View>
+
+{/* ***************WEIGHT ***************/}
+
+            <View style={{flex:3,alignItems:'center',
+                justifyContent:'center',}}>
+               
+            <View style={{flex:1,
+                alignItems:'center',
+                justifyContent:'center',
+                
+                
+                }}>
+                    <View style={{
+                       borderColor:'#E0ECEE', 
+                       borderWidth:1,
+                       padding:3,
+                       borderRadius:20,
+                       shadowColor:  colors.tribu_bbpink,
+                       elevation: 1,}}>
+                        <View style={{
+                        borderRadius:20,
+                        paddingVertical:20,
+                        paddingHorizontal:20,
+                        shadowColor: colors.tribu_pink,
+                        elevation: 10,
+                        backgroundColor: '#E0ECEE',}}>
+                            <Regular>
+
+                                {weight} {weightUnit} 
+                            </Regular>
+                            <SemiBold style={{color:colors.grey_light,fontSize:12}}>SU PESO</SemiBold>
+                         </View>
+                        </View>
+                </View>
+                 
+                    
+
+            {/* ***************LENGTH ***************/}
+
+               
+            <View style={{
+                     flex:2,
+                     alignItems:'center',
+                     justifyContent:'center'}}>
+                           <View style={{
+                       borderColor:'#E0ECEE', 
+                       borderWidth:1,
+                       padding:3,
+                       borderRadius:20,
+                       shadowColor:  colors.tribu_bbpink,
+                       elevation: 1,}}>
+                        <View style={{
+                        borderRadius:20,
+                        paddingVertical:15,
+                        paddingHorizontal:15,
+                        shadowColor:  colors.tribu_pink,
+                        elevation: 10,
+                        backgroundColor: '#E0ECEE',}}>
+                            <Regular >
+                            {length} cm
+                            </Regular>
+                            <SemiBold style={{color:colors.grey_light,fontSize:12,}}>SU TAMAÑO </SemiBold>
+                        </View>
+                        </View>
+                </View>
+          
+            </View>
+        
+
+           
+        </View>
+   
+    )
+   
+};
+
+const Middle = ({fruit,weight,weightUnit,length,week}) => {
+    return(
+        <View style={{
+            flexDirection:'row', 
+            marginHorizontal:5,
+            }}>
+    
+    {/* ***************WEIGHT ***************/}
+            <View style={{flex:3,}}>
+                <View style={{flex:1,
+                alignItems:'center',
+                justifyContent:'center',
+                
+                
+                }}>
+                    <View style={{
+                       borderColor:'#E0ECEE', 
+                       borderWidth:1,
+                       padding:2,
+                       borderRadius:40,
+                       shadowColor:  colors.tribu_bbpink,
+                       elevation: 1,}}>
+                        <View style={{
+                        borderRadius:100,
+                        paddingVertical:20,
+                        paddingHorizontal:10,
+                        shadowColor: colors.tribu_pink,
+                        elevation: 10,
+                        backgroundColor: '#E0ECEE',}}>
+                            <Regular>
+
+                                {weight} {weightUnit} 
+                            </Regular>
+                            <SemiBold style={{color:colors.grey_light,fontSize:12}}>SU PESO</SemiBold>
+                         </View>
+                        </View>
+                </View>
+            </View>
+{/* ***************FRUIT ***************/}
+            <View style={{
+            borderColor:'#E0ECEE', 
+            borderWidth:3,margin:2,
+            padding:2,flex:4,
+            borderRadius:40,
+            shadowColor:  colors.tribu_bbpink,
+            elevation: 1,
+
+            }}>
+            <View style={{
+            paddingVertical:25,
+            paddingHorizontal:10,
+            borderRadius:40,
+            shadowColor: colors.tribu_pink,
+            elevation: 10,
+            backgroundColor: '#E0ECEE',
+            }}>
+                  <View style={{flex:1}}>
+                <Regular style={{color:colors.tribu_pink,fontSize:16,}}>Tu bebé </Regular> 
+                <Regular style={{color:colors.tribu_pink,fontSize:16,}}>está como</Regular>
+                </View>
+                <View style={{flex:2,minHeight:100,margin:5}}>
+                    <Fruit fruit={fruit}/>
+                 
+                    
+
+                </View>
+                <View style={{flex:1}}>
+                <Regular style={{color:colors.tribu_pink,fontSize:16,}}>{fruit}</Regular>
+                </View>
+              
+                
+
+            </View>
+            </View>
+{/* ***************LENGTH ***************/}
+            <View style={{ flex:3,alignItems:'center'}}>
+
+                <View style={{
+                     flex:2,
+                     alignItems:'center',
+                     justifyContent:'center'}}>
+                           <View style={{
+                       borderColor:'#E0ECEE', 
+                       borderWidth:1,
+                       padding:2,
+                       borderRadius:40,
+                       shadowColor:  colors.tribu_bbpink,
+                       elevation: 1,}}>
+                        <View style={{
+                        borderRadius:100,
+                        paddingVertical:15,
+                        paddingHorizontal:15,
+                        shadowColor:  colors.tribu_pink,
+                        elevation: 10,
+                        backgroundColor: '#E0ECEE',}}>
+                            <Regular >
+                            {length} cm
+                            </Regular>
+                            <SemiBold style={{color:colors.grey_light,fontSize:12,}}>SU TAMAÑO </SemiBold>
+                        </View>
+                        </View>
+                </View>
+          
+            </View>
+        
+
+           
+        </View>
+   
+    )
+   
+};
+
+
+
+
+export default Stats;

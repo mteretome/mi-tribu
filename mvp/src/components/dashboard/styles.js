@@ -27,9 +27,7 @@ export default StyleSheet.create({
         flexDirection:'row',
     },
     floating: {
-      flex:1,
       flexDirection:'row',
-      alignItems:'center'
 
     },
 
@@ -52,14 +50,11 @@ export default StyleSheet.create({
       marginHorizontal:3
     },
     tabview:{
-      flex:5,
-      backgroundColor: 'rgba(255,255,255,0.8)',
-      borderTopLeftRadius: 30,
-      borderTopRightRadius: 30,
+      flex:1,
+    
     },
     fruitContainer:{
       justifyContent:'center',
-      flex:3,
 
     },
     buttons: {
@@ -114,6 +109,14 @@ export default StyleSheet.create({
       flex:1
       
     },
+    pgContainer:{
+      flex:1,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+
+      },
+      
 
 
 

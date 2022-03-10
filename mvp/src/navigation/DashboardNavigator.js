@@ -64,8 +64,8 @@ const DashNav = () => {
   
 	return (
     <DashTab.Navigator 
-        // screenOptions={{headerShown: false,tabBarVisible:false}} 
-         screenOptions={{headerShown: false,tabBarVisible:true}} 
+        screenOptions={{headerShown: false,tabBarVisible:false}} 
+        //  screenOptions={{headerShown: false,tabBarVisible:true}} 
 
         // initialRouteName={PREGNANCY}
         tabBarOptions={{
@@ -97,7 +97,7 @@ const DashNav = () => {
                 )
             }}
             />
-        <DashTab.Screen 
+        {/* <DashTab.Screen 
             name={FEED} 
             component={FeedNav}
             options={{
@@ -105,7 +105,7 @@ const DashNav = () => {
                     <Icon name="lightbulb" size={30} color={colors.white} />
                 )
             }}
-            />
+            /> */}
 	</DashTab.Navigator>
   );
 };

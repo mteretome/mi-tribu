@@ -39,13 +39,13 @@ const CurrentPregnancy = () => {
     const current = await AsyncStorage.getItem("current_week"); 
     
     if(current){
-      setWeek(current);
+      setWeek(JSON.parse(current));
     
     }
     if(weeksRaw){
       var currentWeek = getCurrent(JSON.parse(weeksRaw));
       if(currentWeek>JSON.parse(current)){
-        setWeek(currentWeek);
+        setWeek(JSON.parse(current));
         AsyncStorage.setItem("current_week", JSON.stringify(currentWeek))
       }
     }
@@ -55,6 +55,8 @@ const CurrentPregnancy = () => {
 
  useEffect(() => {
    getUser();
+   console.log("TYPE OF: ", typeof week)
+
 
  }, []);
   

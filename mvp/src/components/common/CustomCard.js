@@ -76,7 +76,7 @@ const CustomCard = ({
            
             {center ? 
             <View  style={[styles.cardCenter]} >
-                <Medium style={titleStyle}>{title}</Medium>
+               { title && <Medium style={titleStyle}>{title}</Medium> }
                 <Light style={contentStyle} > {content} </Light>
                 {meme ? <View>{children}</View>:<View style={{margin:10}}>{children}</View>} 
             </View>
@@ -85,7 +85,7 @@ const CustomCard = ({
 
                 <View style={{margin:10}}>{children}</View>
                 <View style={styles.cardLText,{flexShrink: 1,justifyContent:'flex-start'}}>
-                    <Medium style={[titleStyle,{alignSelf:'flex-start',textAlign: 'left'}]}>{title}</Medium>
+                 {title&&    <Medium style={[titleStyle,{alignSelf:'flex-start',textAlign: 'left'}]}>{title}</Medium> }
                     <Light style={[contentStyle,{alignSelf:'stretch',textAlign:'left'}]}>{content}</Light>
                 </View>
 
