@@ -63,6 +63,25 @@ const PregnancyComponent = ({weekParam}) => {
       } = useContext(GlobalContext); 
 
   const {params} = useRoute();
+
+  const setNulls =() =>{
+      setSurvey(null);
+      setTips([]);
+      setIconsQ([]);
+      setIconsT([]);
+
+      setAnswers([]);
+      setQuestions([]);
+
+      setLength(null);
+      setWeight(null);
+      setWeightUnit(null);
+      setFruit(null)
+      setBebe(null);
+      setCuerpo(null);
+      setSintomas(null);
+
+	};
   
   const getSocial = async (week) => {
     const userString = await AsyncStorage.getItem('user');
@@ -211,7 +230,7 @@ const PregnancyComponent = ({weekParam}) => {
       getSocial(weekParam);
       }
     
-      }, [params]);
+      }, [params,week]);
     
       const titleNext = "Semana " + nextWeek + " ";
       const titlePrev = " Semana " + prevWeek;
@@ -243,12 +262,18 @@ const PregnancyComponent = ({weekParam}) => {
       <View style={{flexDirection:"row", justifyContent:"space-between"}}> 
       
  {prevWeek > 4 && <TouchableOpacity onPress={() => {
-   navigate.navigate(PREGNANCYS,{week: prevWeek});
+   setNulls();
+  navigate.navigate(PREGNANCYS,{week: prevWeek});
+  
    }} style={{zIndex:1, marginHorizontal:10}}>
   <Icon name="chevron-left" color={colors.off_white} size={40} />
   </TouchableOpacity> }
+
   {nextWeek < 42 && <TouchableOpacity style={{borderWidth:1}}onPress={() => {
-     navigate.navigate(PREGNANCYS,{week: nextWeek});
+   setNulls();
+   navigate.navigate(PREGNANCYS,{week: nextWeek});
+   
+
     }} style={{ zIndex:1,marginHorizontal:10}}>
   <Icon name="chevron-right" color={colors.off_white} size={40} />
   </TouchableOpacity> }
@@ -332,19 +357,15 @@ const PregnancyComponent = ({weekParam}) => {
   {prevWeek > 4 && 
       <CustomButton gradient={true} style={{}} leftarrow={true} title={titlePrev} 
       onPress={() => {
-        navigate.push(PREGNANCYS,{week: prevWeek});
+        setNulls();
+        navigate.navigate(PREGNANCYS,{week: prevWeek});
         }}/> 
     }
   {nextWeek < 42 && 
       <CustomButton gradient={true} style={{}} rightarrow = {true} title={titleNext} 
       onPress={() => {
-        // navigate.setParams({week:nextWeek});
-        // navigate.push(PREGNANCYS,{week: nextWeek});
-        if(nextWeek%2==0){
-          console.log(nextWeek, " is divisible by 0")
-        } else {
-          console.log(nextWeek, " is not divisible")
-        }
+        setNulls();
+        navigate.navigate(PREGNANCYS,{week: nextWeek});
         }} />
 
     }
