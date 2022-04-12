@@ -4,7 +4,7 @@ import { Bold, Light, Regular} from '../common/Text';
 import colors from '../../assets/theme/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
-import { Dimensions, ScrollView, View } from 'react-native';
+import { ActivityIndicator, Dimensions, ScrollView, View } from 'react-native';
 import styles from './styles';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
@@ -44,42 +44,70 @@ const renderTabBar = props => (
     />
 );
 
-const InfoTab = ({baby,body,symptoms}) => {
+const InfoTab = ({baby,body,symptoms, loading}) => {
  
   const Cuerpo = () => {
     return (
+      <>
+      {body ? 
       <ScrollView 
-       nestedScrollEnabled = {true}
+      nestedScrollEnabled = {true}
 
-      style={{marginHorizontal:30,marginVertical:10}}>
-        <Light style={{fontSize:18,textAlign:'justify'}}> {body}</Light>
-        </ScrollView>
+     style={{marginHorizontal:30,marginVertical:10}}>
+       <Light style={{fontSize:18,textAlign:'justify'}}> {body}</Light>
+       </ScrollView>
+      
+      :
+     
+         <ActivityIndicator  size="large" 
+         color={colors.tribu_green}/>
+      }
+      </>
+
     );
   };
   const Sintomas = () => {
       return (
-
-        <ScrollView 
-       nestedScrollEnabled = {true}
-
-        style={{marginHorizontal:30,marginVertical:10}}>
-
-
-          <Light style={{fontSize:18,textAlign:'justify'}} > {symptoms}</Light>
-          </ScrollView>
+        <>
+        {symptoms ? 
+          <ScrollView 
+          nestedScrollEnabled = {true}
+   
+           style={{marginHorizontal:30,marginVertical:10}}>
+   
+   
+             <Light style={{fontSize:18,textAlign:'justify'}} > {symptoms}</Light>
+             </ScrollView>
+        :
+      
+          <ActivityIndicator  size="large" 
+          color={colors.tribu_green}/>
+          
+           }
+           </>
+     
       );
     };
   const Bebe = () => {
       return (
-
-        <ScrollView 
-       nestedScrollEnabled = {true}
-
-         style={{marginHorizontal:30,marginVertical:10}}>
-
-
-          <Light  style={{fontSize:18}}>{baby}</Light>
-          </ScrollView>
+        <>
+        {baby ? 
+          <ScrollView 
+          nestedScrollEnabled = {true}
+   
+            style={{marginHorizontal:30,marginVertical:10}}>
+   
+   
+             <Light  style={{fontSize:18}}>{baby}</Light>
+             </ScrollView>
+       
+        :
+        <ActivityIndicator  size="large" 
+        color={colors.tribu_green}/>
+        
+      
+            }
+            </>
       );
   };
   
@@ -115,6 +143,7 @@ const InfoTab = ({baby,body,symptoms}) => {
         navigationState={{ index, routes }}
         renderScene={renderScene}
         onIndexChange={setIndex}
+        
       />
        </View>
   );

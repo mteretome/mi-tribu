@@ -17,7 +17,7 @@ import PregnancyComponent from '../../components/dashboard/Pregnancy';
 const SpecificPregnancy = ({week}) => {
   console.log("specific week : ", week)
     return (
-      <>
+          <>
       
       
             <PregnancyComponent weekParam={week}/>

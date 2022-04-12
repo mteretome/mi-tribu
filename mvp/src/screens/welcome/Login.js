@@ -15,6 +15,11 @@ const LogInPage = () => {
 	const[form, setForm] = useState({});
 	const[errors,setErrors] = useState({});
 
+	const capitalizeName = (str) =>{
+		return str.charAt(0).toUpperCase()+str.slice(1);
+	}
+
+
 	const {
 		authDispatch,
 		authState: {error,loading,data},
@@ -24,7 +29,7 @@ const LogInPage = () => {
 	const onChange = ({name,value}) =>{
 	  setForm({...form,[name]:value});
 	  if (name==="name"){
-		setForm({...form,[name]:value.trim()});
+		setForm({...form,[name]:capitalizeName(value).trim()});
 	  };
  
 	  if (value!==''){

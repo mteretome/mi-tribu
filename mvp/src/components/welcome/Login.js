@@ -50,10 +50,10 @@ const LoginComponent= ({
         return new Date();
       }
       else if(n==2){
-        return new Date(year, month+9, day);
+        return new Date(year, month+8, day+21);
       }
       else{
-        return new Date(year, month, day);
+        return new Date(year, month, day+7);
       }
   };
 

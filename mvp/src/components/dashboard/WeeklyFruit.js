@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View} from 'react-native';
+import { View,ActivityIndicator} from 'react-native';
 import { Bold, Regular, SemiBold } from '../../components/common/Text';
 import styles from './styles';
 
@@ -96,12 +96,22 @@ const Stats = ({fruit,weight,weightUnit,length}) => {
                 justifyContent:'center',
                 
                 }}>
+           
                     <View style={styles.boxBorder}>
                         <View style={styles.boxW}>
-                            <Regular>
+                        {weight ? 
+                         <Regular>
 
-                                {weight} {weightUnit} 
-                            </Regular>
+                         {weight} {weightUnit} 
+                     </Regular>
+   
+   :
+   <ActivityIndicator  size="large" 
+   color={colors.tribu_green}/>
+   
+ 
+       }
+                           
                             <SemiBold style={{color:colors.grey_light,fontSize:12}}>SU PESO</SemiBold>
                          </View>
                         </View>
@@ -118,9 +128,19 @@ const Stats = ({fruit,weight,weightUnit,length}) => {
                      justifyContent:'center'}}>
                            <View style={styles.boxBorder}>
                            <View style={styles.boxS}>
-                            <Regular >
-                            {length} cm
-                            </Regular>
+                           {length ? 
+                         <Regular >
+                         {length} cm
+                         </Regular>
+   
+   :
+   <ActivityIndicator  size="large" 
+   color={colors.tribu_green}/>
+   
+ 
+       }
+           
+                           
                             <SemiBold style={{color:colors.grey_light,fontSize:12,}}>SU TAMAÑO </SemiBold>
                         </View>
                         </View>
@@ -165,10 +185,19 @@ const Middle = ({fruit,weight,weightUnit,length,week}) => {
                         shadowColor: colors.tribu_pink,
                         elevation: 10,
                         backgroundColor: '#E0ECEE',}}>
-                            <Regular>
+                            {weight ? 
+                             <Regular>
 
-                                {weight} {weightUnit} 
-                            </Regular>
+                             {weight} {weightUnit} 
+                         </Regular>
+   
+                             :
+                         <ActivityIndicator  size="large" 
+                         color={colors.tribu_green}/>
+   
+ 
+                             }
+                           
                             <SemiBold style={{color:colors.grey_light,fontSize:12}}>SU PESO</SemiBold>
                          </View>
                         </View>
@@ -231,9 +260,18 @@ const Middle = ({fruit,weight,weightUnit,length,week}) => {
                         shadowColor:  colors.tribu_pink,
                         elevation: 10,
                         backgroundColor: '#E0ECEE',}}>
-                            <Regular >
-                            {length} cm
-                            </Regular>
+                                {length ? 
+                              <Regular >
+                              {length} cm
+                              </Regular>
+   
+                             :
+                         <ActivityIndicator  size="large" 
+                         color={colors.tribu_green}/>
+   
+ 
+                             }
+                           
                             <SemiBold style={{color:colors.grey_light,fontSize:12,}}>SU TAMAÑO </SemiBold>
                         </View>
                         </View>

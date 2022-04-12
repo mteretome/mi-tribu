@@ -3,7 +3,7 @@ import { Bold, Regular, Light} from '../common/Text';
 import LinearContainer from '../common/LinearContainer';
 
 import CustomCard from '../common/CustomCard';
-import { View, TouchableOpacity, ScrollView } from 'react-native';
+import { View, TouchableOpacity, ScrollView,ActivityIndicator } from 'react-native';
 import colors from '../../assets/theme/colors';
 import CustomButton from '../common/CustomButton';
 import { useNavigation } from '@react-navigation/native';
@@ -264,7 +264,7 @@ const PregnancyComponent = ({weekParam}) => {
 {/* <Regular>Tu bebe esta como: {fruit}; {weight} {weightUnit}; {length} cm</Regular> */}
 {/* <Fruit fruit={fruit} style={{position:'absolute'}}/> */}
 
-<Tabs baby={bebe} body={cuerpo} symptoms={sintomas}/>
+<Tabs baby={bebe} body={cuerpo} symptoms={sintomas} loading={loading}/>
 {/* <Bold> Tu Bebe: </Bold> 
 <Regular> {bebe}</Regular>
 <Bold> Tu Cuerpo: </Bold> 
@@ -283,11 +283,22 @@ const PregnancyComponent = ({weekParam}) => {
    {tips[2] && <ImgAccordion icon={iconsT[2]} data={tips[2]}/>}
    {tips[3]!==tips[0] ? <></> : <ImgAccordion icon={iconsT[3]}  data={tips[3]}/>} 
     </ScrollView>*/}
-   <Accordion line ={true} data={tips[0]} icon={iconsT[0]} week={week} />
-   {tips[1]&&  <Accordion line ={true} data={tips[1]} icon={iconsT[1]} week={week}  />}
-   {tips[2]&&  <Accordion line ={true} data={tips[2]} icon={iconsT[2]} week={week} />}
-   {tips[3]!==tips[0] ? <Accordion line ={true} data={tips[3]} icon={iconsT[3]} week={week}/> : <></> }
-
+      {tips[1] ? 
+         <>
+           <Accordion line ={true} data={tips[0]} icon={iconsT[0]} week={week} />
+           {tips[1]&&  <Accordion line ={true} data={tips[1]} icon={iconsT[1]} week={week}  />}
+           {tips[2]&&  <Accordion line ={true} data={tips[2]} icon={iconsT[2]} week={week} />}
+           {tips[3]!==tips[0] ? <Accordion line ={true} data={tips[3]} icon={iconsT[3]} week={week}/> : <></> }
+           </>
+       
+        :
+        <ActivityIndicator size="large" 
+        color={colors.tribu_green}/>
+        
+      
+            }
+    
+ 
 
  
   </CustomCard>
@@ -297,11 +308,22 @@ const PregnancyComponent = ({weekParam}) => {
 
   {/*********FAQ**********/}
   <CustomCard containerStyle={styles.cardShadow}  titleStyle={styles.cardTitle} center={true} title="Preguntas y respuestas frecuentes">
-    <Accordion line ={true} data={answers[0]} icon={iconsQ[0]} week={week} title={questions[0]} />
-    {questions[1]&&  <Accordion line ={true} data={answers[1]} icon={iconsQ[1]} title={questions[1]} />}
-    {questions[2] &&  <Accordion line ={true} data={answers[2]} icon={iconsQ[2]}  title={questions[2]} />}
-    {questions[3]!==questions[0] ?   <Accordion line ={true} data={answers[3]} icon={iconsQ[3]} title={questions[3]} /> : <></> }
+  {questions[1] ? 
+         <>
+           <Accordion line ={true} data={answers[0]} icon={iconsQ[0]} week={week} title={questions[0]} />
+           {questions[1]&&  <Accordion line ={true} data={answers[1]} icon={iconsQ[1]} title={questions[1]} />}
+          {questions[2] &&  <Accordion line ={true} data={answers[2]} icon={iconsQ[2]}  title={questions[2]} />}
+          {questions[3]!==questions[0] ?   <Accordion line ={true} data={answers[3]} icon={iconsQ[3]} title={questions[3]} /> : <></> }
 
+           </>
+       
+        :
+        <ActivityIndicator  size="large" 
+        color={colors.tribu_green}/>
+        
+      
+            }
+  
   </CustomCard>
 
  
@@ -310,13 +332,19 @@ const PregnancyComponent = ({weekParam}) => {
   {prevWeek > 4 && 
       <CustomButton gradient={true} style={{}} leftarrow={true} title={titlePrev} 
       onPress={() => {
-        navigate.navigate(PREGNANCYS,{week: prevWeek});
+        navigate.push(PREGNANCYS,{week: prevWeek});
         }}/> 
     }
   {nextWeek < 42 && 
       <CustomButton gradient={true} style={{}} rightarrow = {true} title={titleNext} 
       onPress={() => {
-        navigate.navigate(PREGNANCYS,{week: nextWeek});
+        // navigate.setParams({week:nextWeek});
+        // navigate.push(PREGNANCYS,{week: nextWeek});
+        if(nextWeek%2==0){
+          console.log(nextWeek, " is divisible by 0")
+        } else {
+          console.log(nextWeek, " is not divisible")
+        }
         }} />
 
     }

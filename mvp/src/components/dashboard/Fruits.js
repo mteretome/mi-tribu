@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { SvgUri } from 'react-native-svg'; 
+import {ActivityIndicator} from 'react-native';
+import colors from '../../assets/theme/colors';
 
 import Apple from '../../assets/images/FruitsSVG/apple.svg';
 import Artichoke from '../../assets/images/FruitsSVG/artichoke.svg';
@@ -149,7 +151,9 @@ const Fruit = ({fruit}) => {
     else if (fruit=='una sandía'){
         return (<Watermelon  width="100%" height="100%" />); }
 
-    return (<Apple  width="100%" height="100%" />); 
+    return (<ActivityIndicator  size="large" 
+    color={colors.tribu_green}/>); 
 };
 
 export default Fruit;
+

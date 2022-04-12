@@ -31,6 +31,11 @@ const CurrentPregnancy = () => {
         }
         i++;
       }
+      if(current<5){
+        return "5";
+      } else if (current>41){
+        return "41";
+      } 
       return current;
   
   };
